@@ -1,0 +1,9 @@
+method,mae_minutes,bias_minutes,brier,nll
+population_mean,1.890,0.865,,
+learned_current_persistence,5.662,5.365,0.1230,1.0915
+transition_matrix,3.281,2.846,0.0677,0.2625
+direct_outcome,1.983,1.631,,
+direct_trajectory,2.541,2.370,0.0708,0.6324
+direct_trajectory_soft,1.869,1.476,0.0681,0.6279
+direct_trajectory_hard,1.534,0.967,0.0684,0.6572
+zero_wake,0.828,-0.828,0.0683,1.8875

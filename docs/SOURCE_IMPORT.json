@@ -1,0 +1,262 @@
+{
+  "imported_on": "2026-11-12",
+  "purpose": "Code and research notes imported without changing existing Orange artifacts; this is not a new experiment.",
+  "canonical_artifact_root": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029",
+  "files": [
+    {
+      "destination": "archive/pilot_20261029/sleep_g3/__init__.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/sleep_g3/__init__.py",
+      "sha256": "6d6c17400371da0cbe2aadf5af52cac99aeabc5b63979a1b560b284e83049cea"
+    },
+    {
+      "destination": "archive/pilot_20261029/sleep_g3/__main__.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/sleep_g3/__main__.py",
+      "sha256": "f44d7e094fa2512373823557f95179b0f1e3e453f5d33e20d7e3b53d97cec6ef"
+    },
+    {
+      "destination": "archive/pilot_20261029/sleep_g3/data.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/sleep_g3/data.py",
+      "sha256": "ceb675d2c21efd305edb40fbb924b6cd3af7f9b6c9c58f82b1c3a1ef54461526"
+    },
+    {
+      "destination": "archive/pilot_20261029/sleep_g3/diagnose.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/sleep_g3/diagnose.py",
+      "sha256": "bd8739047769f7704b89c22e8acdc9fad384ca17e511a162c9e059858c9b28e3"
+    },
+    {
+      "destination": "archive/pilot_20261029/sleep_g3/fetch.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/sleep_g3/fetch.py",
+      "sha256": "5a6cb6c1883a4a19435e17000852171796d6c957403422d74f0c98114d1b5127"
+    },
+    {
+      "destination": "archive/pilot_20261029/sleep_g3/metrics.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/sleep_g3/metrics.py",
+      "sha256": "9d78b93c6e7189d53ebd80039774dd378045de3942ee9beaacad116337efdfc7"
+    },
+    {
+      "destination": "archive/pilot_20261029/sleep_g3/models.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/sleep_g3/models.py",
+      "sha256": "c9321c7533cf8974f9616819038d0dd4dd28847c565b598b792d6c0e5be8b571"
+    },
+    {
+      "destination": "archive/pilot_20261029/sleep_g3/protocol.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/sleep_g3/protocol.py",
+      "sha256": "3b3bec66e00752f4b9e69955971cef732335c9841f57710e18e4482bed3d94a5"
+    },
+    {
+      "destination": "archive/pilot_20261029/sleep_g3/remote_zip.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/sleep_g3/remote_zip.py",
+      "sha256": "29fc4a4c5c792f6d9595aa3013ef57502e5165dde71cf937fad8e6a995eea971"
+    },
+    {
+      "destination": "archive/pilot_20261029/sleep_g3/runner.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/sleep_g3/runner.py",
+      "sha256": "04869d54584ebff125384b6f681c2753e1489f2ab75d502fcf91e70611015966"
+    },
+    {
+      "destination": "archive/pilot_20261029/tests/test_data.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/tests/test_data.py",
+      "sha256": "444afa2aba8c8b8260fc52d766a687001825158263a8f24fad54f86552498dc9"
+    },
+    {
+      "destination": "archive/pilot_20261029/tests/test_diagnose.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/tests/test_diagnose.py",
+      "sha256": "8287cd9276dcc2d8f3831b56ebc1701e63230ec735df07151bf44f4827486a0d"
+    },
+    {
+      "destination": "archive/pilot_20261029/tests/test_metrics.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/tests/test_metrics.py",
+      "sha256": "07bd4344b5a97476581c99b217751c87fe112270f3b72f8f2e0f2700071611ef"
+    },
+    {
+      "destination": "archive/pilot_20261029/tests/test_models.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/tests/test_models.py",
+      "sha256": "a2fcd7e061b01cd0e39038b6dd07c141368e16a742170fa81cd4422ffd7efc8c"
+    },
+    {
+      "destination": "archive/pilot_20261029/tests/test_protocol.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/tests/test_protocol.py",
+      "sha256": "976ead4fbb52f1aa4bdae99bd5fdefc5168375aa9efb1da9a20c2f9db78f20dd"
+    },
+    {
+      "destination": "archive/pilot_20261029/tests/test_remote_zip.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/tests/test_remote_zip.py",
+      "sha256": "1c764e88da792ffaa5901ef346d66502b4c00cfac5518a4335917fe4de5b8f34"
+    },
+    {
+      "destination": "archive/pilot_20261029/tests/test_runner_guards.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/tests/test_runner_guards.py",
+      "sha256": "ceda2ff86c7f858a928dbc666a9f6f3c18ba212aaeb88808af272b34375f3cfe"
+    },
+    {
+      "destination": "archive/pilot_20261029/protocol.json",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/protocol.json",
+      "sha256": "2b0906aeaf83b6ed44e7d0d41d30ad4ebcbd817beaede58bb84a8f3dd5f61336"
+    },
+    {
+      "destination": "archive/pilot_20261029/requirements.txt",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/requirements.txt",
+      "sha256": "e51182d579f991a0556f5e137dbe33833d73eb8274f0b6a39e1c44e41d5292a9"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/__init__.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/__init__.py",
+      "sha256": "6d6c17400371da0cbe2aadf5af52cac99aeabc5b63979a1b560b284e83049cea"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/__main__.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/__main__.py",
+      "sha256": "9bed5da6eb6347fbd95b4f34c4c10968fd4f20e8b789423b931f0ae0566b057c"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/controls.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/controls.py",
+      "sha256": "8669a768c6eb8fda0e72a443b1affc0b2c662bb69470b18e7cf43c389e84f12b"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/data.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/data.py",
+      "sha256": "ceb675d2c21efd305edb40fbb924b6cd3af7f9b6c9c58f82b1c3a1ef54461526"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/diagnose.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/diagnose.py",
+      "sha256": "bd8739047769f7704b89c22e8acdc9fad384ca17e511a162c9e059858c9b28e3"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/expanded_analysis.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/expanded_analysis.py",
+      "sha256": "85438e14b0765f1efb635f8318744a7710c1e47f2164d5400b015efaf27d39ad"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/fetch.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/fetch.py",
+      "sha256": "b00dc63a0621780e23468cb81a7691efc77edc8369be38ea7649eb67e7b4cb52"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/metrics.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/metrics.py",
+      "sha256": "9d78b93c6e7189d53ebd80039774dd378045de3942ee9beaacad116337efdfc7"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/models.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/models.py",
+      "sha256": "c9321c7533cf8974f9616819038d0dd4dd28847c565b598b792d6c0e5be8b571"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/protocol.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/protocol.py",
+      "sha256": "3b3bec66e00752f4b9e69955971cef732335c9841f57710e18e4482bed3d94a5"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/remote_zip.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/remote_zip.py",
+      "sha256": "29fc4a4c5c792f6d9595aa3013ef57502e5165dde71cf937fad8e6a995eea971"
+    },
+    {
+      "destination": "experiments/g3/sleep_g3/runner.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/sleep_g3/runner.py",
+      "sha256": "30887f5b27cda0b90339c708873fab0c28e9c240a4d4d6db460ec8c71cabec75"
+    },
+    {
+      "destination": "experiments/g3/tests/test_controls.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/tests/test_controls.py",
+      "sha256": "287bca0ccfd9d2d56499ce09330d21435c7016853afb8344aac3162f4d5c241b"
+    },
+    {
+      "destination": "experiments/g3/tests/test_data.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/tests/test_data.py",
+      "sha256": "444afa2aba8c8b8260fc52d766a687001825158263a8f24fad54f86552498dc9"
+    },
+    {
+      "destination": "experiments/g3/tests/test_diagnose.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/tests/test_diagnose.py",
+      "sha256": "8287cd9276dcc2d8f3831b56ebc1701e63230ec735df07151bf44f4827486a0d"
+    },
+    {
+      "destination": "experiments/g3/tests/test_expanded_analysis.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/tests/test_expanded_analysis.py",
+      "sha256": "790681ab7bc9e84b282c0f3a0e23fc23e2199a1108915b1c17695247fb6b286e"
+    },
+    {
+      "destination": "experiments/g3/tests/test_fetch.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/tests/test_fetch.py",
+      "sha256": "a36cf0b207c0efd0bdf5e6960f45410ffe4a139136b96519b2511fedf6d2a8e1"
+    },
+    {
+      "destination": "experiments/g3/tests/test_metrics.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/tests/test_metrics.py",
+      "sha256": "07bd4344b5a97476581c99b217751c87fe112270f3b72f8f2e0f2700071611ef"
+    },
+    {
+      "destination": "experiments/g3/tests/test_models.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/tests/test_models.py",
+      "sha256": "a2fcd7e061b01cd0e39038b6dd07c141368e16a742170fa81cd4422ffd7efc8c"
+    },
+    {
+      "destination": "experiments/g3/tests/test_protocol.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/tests/test_protocol.py",
+      "sha256": "976ead4fbb52f1aa4bdae99bd5fdefc5168375aa9efb1da9a20c2f9db78f20dd"
+    },
+    {
+      "destination": "experiments/g3/tests/test_remote_zip.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/tests/test_remote_zip.py",
+      "sha256": "1c764e88da792ffaa5901ef346d66502b4c00cfac5518a4335917fe4de5b8f34"
+    },
+    {
+      "destination": "experiments/g3/tests/test_runner_guards.py",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/tests/test_runner_guards.py",
+      "sha256": "cc2ba454607b81fdd527b06cb0af729db64626727580149c347d06ee7b9fd5bd"
+    },
+    {
+      "destination": "experiments/g3/protocol.json",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/protocol.json",
+      "sha256": "2b0906aeaf83b6ed44e7d0d41d30ad4ebcbd817beaede58bb84a8f3dd5f61336"
+    },
+    {
+      "destination": "experiments/g3/requirements.txt",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/requirements.txt",
+      "sha256": "e51182d579f991a0556f5e137dbe33833d73eb8274f0b6a39e1c44e41d5292a9"
+    },
+    {
+      "destination": "experiments/g3/expanded_protocol.json",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/expanded_protocol.json",
+      "sha256": "a9810ed6f6272bf775b2a81e0afc97bdd24ce0ed559f510c73502d2aa9fe3032"
+    },
+    {
+      "destination": "docs/research/2026-10-29_evidence_01_sleep_world_model_research_gaps.md",
+      "source": "/blue/so589980.ucf/zi700688.ucf/IoT_medical/AI_plans/2026-10-29_evidence_01_sleep_world_model_research_gaps.md",
+      "sha256": "29d5bbad7153b5b3dcb11f3af05692f92de5b2586b587760693fbbf81bf7f587"
+    },
+    {
+      "destination": "docs/research/2026-10-29_evidence_02_forecasting_timelines.md",
+      "source": "/blue/so589980.ucf/zi700688.ucf/IoT_medical/AI_plans/2026-10-29_evidence_02_forecasting_timelines.md",
+      "sha256": "de9cdaa93857ffc345da63576aa3803e85785a4e66db41d68c3b040b78d8f468"
+    },
+    {
+      "destination": "docs/research/2026-10-29_evidence_03_product_capabilities_validation.md",
+      "source": "/blue/so589980.ucf/zi700688.ucf/IoT_medical/AI_plans/2026-10-29_evidence_03_product_capabilities_validation.md",
+      "sha256": "bcca49f6e8ec33b5158559b9b8bfe66bece2f4b1e8d4bf62f5e0d8c8177d178d"
+    },
+    {
+      "destination": "docs/research/2026-10-29_meeting_three_evidence_tables_plan.md",
+      "source": "/blue/so589980.ucf/zi700688.ucf/IoT_medical/AI_plans/2026-10-29_meeting_three_evidence_tables_plan.md",
+      "sha256": "e24414d9c00481473324bb1cfe2b3576c7aad2072f555f6e5e9961402fc9e7f6"
+    },
+    {
+      "destination": "docs/research/2026-10-29_research_gap_to_data_synthesis.md",
+      "source": "/blue/so589980.ucf/zi700688.ucf/IoT_medical/AI_plans/2026-10-29_research_gap_to_data_synthesis.md",
+      "sha256": "3e343708e8cfcec2fa6e6a737649273c2d751cbc2da4c83a663213fed2b5867a"
+    },
+    {
+      "destination": "docs/research/2026-10-29_speaker_qa_notes.md",
+      "source": "/blue/so589980.ucf/zi700688.ucf/IoT_medical/AI_plans/2026-10-29_speaker_qa_notes.md",
+      "sha256": "c2ae6843047a7e753243565ec4dfa54ab2b6bba9a4d31eea3119c1514f94d6f7"
+    },
+    {
+      "destination": "docs/research/NEAREST_WORK_UPDATE.md",
+      "source": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/iterations/expanded_20261029/NEAREST_WORK_UPDATE.md",
+      "sha256": "6ad8fad43b3c3d8e900e8162a46e318bf3ebd5defceee309bb005236960b6e31"
+    }
+  ]
+}

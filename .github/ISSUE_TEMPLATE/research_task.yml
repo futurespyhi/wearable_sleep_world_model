@@ -1,0 +1,105 @@
+name: Research task / 研究任务
+description: 定义一个可追踪、可执行且有明确证据边界的研究任务。
+title: "[Research] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        任务从明确的代码起点和证据出发。创建 issue 不会自动运行实验，也不自动代表方案已获接受。
+        已有用户授权请在下方记录，避免重复审批。未知项可写待明确；非实验任务可填 not_applicable。
+
+  - type: input
+    id: base_commit
+    attributes:
+      label: Base commit / 代码起点
+      description: 填完整 commit SHA；新仓库尚无 commit 时明确写 unborn，执行前再固定起点。
+      placeholder: "完整 commit SHA；不要只写 main 或 latest"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: proposal_status
+    attributes:
+      label: 方案状态
+      options:
+        - "proposal — 待讨论方案"
+        - "accepted — 已有用户授权或已接受的任务"
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal_evidence
+    attributes:
+      label: 目标、已有证据与授权范围
+      description: 写明要改变或查明什么，关联 reports/run_id/spec，并记录已有授权出处和范围。
+      placeholder: |
+        目标与交付物：
+        依据的报告 / run_id / spec revision：
+        已有授权依据或待讨论部分：
+    validations:
+      required: true
+
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: 假设与预先成功标准
+      description: 明确可检验的差异、验收方向/阈值及保护指标；数据诊断或非实验任务可说明不检验模型增益。
+      placeholder: |
+        假设：
+        预先成功标准与最低覆盖要求：
+        哪些结论不在本任务范围：
+    validations:
+      required: true
+
+  - type: textarea
+    id: inputs_data
+    attributes:
+      label: 输入截止、数据版本与划分
+      description: 明确信息截止 t0、history/horizon、目标、train/validation/test 和封存规则；说明预处理拟合集合。
+      placeholder: |
+        数据集 / release / manifest / spec：
+        输入模态、cutoff、history / horizon、epoch / stride：
+        标签和未知值规则：
+        参与者 / 夜晚 split、seed、封存边界：
+        预处理拟合集合与过去覆盖筛选：
+    validations:
+      required: true
+
+  - type: textarea
+    id: baselines_metrics
+    attributes:
+      label: 基线、指标与评价分母
+      description: 同一评价集合上的强简单基线、消融、主次指标；明确按窗口、夜晚、参与者或去重事件聚合。
+      placeholder: |
+        比较方法 / 基线 / 固定参数：
+        主指标、方向与单位：
+        概率 / 事件 / 其他补充指标：
+        完整窗口、有效 epoch、独立事件等分母与聚合方式：
+    validations:
+      required: true
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: 环境与资源预算
+      description: 按 HPG 工作区规则执行；写计划上限，不把计划配置当作实际用量。
+      placeholder: |
+        环境 / Python / conda 或 modules：
+        account / partition / QoS：
+        CPU / GPU / 内存 / 最长运行时间：
+        数据下载 / 存储预算、raw/cache/results 位置：
+    validations:
+      required: true
+
+  - type: textarea
+    id: completion_stop
+    attributes:
+      label: 完成条件、停止条件与报告交接
+      description: 明确何时任务结束、何时保留失败证据并停止；结果回写 reports 和 CURRENT_STATUS，后续建议保留 proposal 状态。
+      placeholder: |
+        完成条件与所需检查：
+        数据异常 / 资源 / 封存等停止条件：
+        报告路径、run_id 约定和预期产物：
+        待明确问题 / 依赖任务：
+    validations:
+      required: true
