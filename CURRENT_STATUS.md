@@ -3,7 +3,8 @@
 - Context verified: **2026-11-12**.
 - Latest completed predictive experiment: **2026-10-29 pilot**, run `diagnostic_20261029T123226911439Z`.
 - Current stage: research-question refinement and data/measurement diagnosis.
-- GitHub connection: local bootstrap only; remote URL and account authorization remain to be established.
+- GitHub repository: [futurespyhi/wearable_sleep_world_model](https://github.com/futurespyhi/wearable_sleep_world_model), integration branch `main`; HPG checkout `origin` is configured via SSH.
+- Web application connections: ChatGPT/Claude repository authorization and Canva/Overleaf integration have not been configured or verified by this task.
 
 ## Research state
 

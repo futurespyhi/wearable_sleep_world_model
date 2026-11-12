@@ -1,6 +1,6 @@
 # Web AI, GitHub, Canva and Overleaf
 
-Official documentation checked 2026-11-12. Account-specific availability, connected accounts and write permissions have not been tested. This repository does not install connectors or schedule work.
+Official documentation checked 2026-11-12. ChatGPT, Claude, Canva and Overleaf connector availability, connected accounts and application write permissions have not been tested. HPG Git transport is tracked separately in [CURRENT_STATUS](../CURRENT_STATUS.md). This repository does not install connectors or schedule work.
 
 ## Shared evidence workflow
 

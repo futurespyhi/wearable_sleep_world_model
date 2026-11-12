@@ -46,6 +46,8 @@ bash scripts/run_g3.sh -m sleep_g3 audit \
 
 原始数据、逐人预测、缓存、模型权重、环境目录及完整运行日志保存在 HPG。GitHub 交接使用代码、协议、汇总结果、图表和 artifact 位置，不把整个 Orange 目录作为 Git 内容。
 
-2026-11-12：本地仓库已准备；目标 GitHub URL 尚未提供，尚未配置 remote 或推送。建议建立私有研究仓库。现有 `IoT_medical/paper/` 是独立的旧 AD 论文 Overleaf 仓库，不属于本次导入。
+GitHub：[futurespyhi/wearable_sleep_world_model](https://github.com/futurespyhi/wearable_sleep_world_model)，集成分支为 `main`。HPG checkout 的 `origin` 使用 SSH 连接此仓库；本地目录名 `wearable-sleep-world-model` 与远端下划线命名不同，但属于同一个工作副本。
+
+2026-11-12：用户指定远端，初始检查为空仓库，已配置 HPG Git 连接。网页 ChatGPT / Claude 的仓库授权、Canva 和 Overleaf 连接需要在对应应用中单独配置；Git 连接不会自动建立这些应用连接。现有 `IoT_medical/paper/` 是独立的旧 AD 论文 Overleaf 仓库，不属于本次导入。
 
 网页应用连接、Canva 和 Overleaf 的分工见 [INTEGRATIONS](docs/INTEGRATIONS.md)。
