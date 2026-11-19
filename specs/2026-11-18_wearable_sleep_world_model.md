@@ -6,13 +6,13 @@
 | 起点 | `main` at `e3f5264e2ed0efcc3ca9e04e86ae1503bf5de44d` |
 | 状态 | 用户选定本轮方向。供 HPG Codex 接手实现和运行，结果待回传 |
 | 依据 | 2026-11-12 组会 slides 第 5 页，[PatientWM v1](https://arxiv.org/abs/2610.17059v1) §3，[BIDSleep 1.0.1](https://physionet.org/content/bidsleep-dataset/1.0.1/) |
-| 历史证据 | [六夜 pilot](../reports/2026-10-29_pilot/report.md) `diagnostic_20261029T123226911439Z`，[38 夜扩展](../reports/2026-10-29_expanded/report.md) `expanded_seed40_12t7v2n` |
+| G3 历史运行 | [六夜 pilot](../reports/2026-10-29_pilot/report.md) `diagnostic_20261029T123226911439Z`，[38 夜扩展](../reports/2026-10-29_expanded/report.md) `expanded_seed40_12t7v2n` |
 
 ## 1. 本轮要回答的问题
 
 给定过去 30 分钟的 Apple Watch HR 和腕部加速度，预测接下来 60 个 30 秒 epoch 的 Wake、Light、Deep、REM 概率。预先比较两个问题：同样的历史输入下，递归潜状态预测能否超过直接多步预测？同样都有腕动的情况下，最近一个 epoch 的腕动放进转移函数，能否超过把它放入初始状态？
 
-组会 slides 提出使用从上床到预测原点的整段记录。本轮先用 G3 已有的固定 30 分钟历史、60 步预测和受试者划分，便于检查时序和比较。仓库现有 G3 的诊断目标是未来 Wake 总分钟。六夜 pilot 的 hard duration 解码 MAE 为 1.534 分钟，直接轨迹为 2.541 分钟，恒预测零 Wake 为 0.828 分钟。验证中只有 1 个独立短 Wake 事件。38 夜扩展已完成获取，进展停在时间戳顺序审核。四阶段预测是本轮主任务，Wake 总分钟和短 Wake 作为与 G3 衔接的诊断指标。
+组会 slides 提出使用从上床到预测原点的整段记录。本轮沿用 G3 的固定 30 分钟历史、60 步预测和受试者划分，便于检查时序。此前 G3 的六夜 pilot 评估的是未来 Wake 总分钟与短 Wake 事件，本轮复用这批原始数据检查四阶段训练和评分流程。38 夜扩展完成了数据获取，进展停在时间戳顺序审核，为本轮扩展提供数据和待查记录。四阶段模型比较以本轮新训练与评分为准，Wake 总分钟与短 Wake 作为次要诊断指标。
 
 ## 2. World model 在这里需要什么
 
