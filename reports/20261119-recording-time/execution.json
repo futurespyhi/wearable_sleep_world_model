@@ -1,0 +1,95 @@
+{
+  "run_id": "20261119-recording-time",
+  "base_commit": "2a5cf60b6400068340bc0d8cac3448c62786af6d",
+  "code_commit": "d06f6c367c6a676ceb1123c4e6cd51314e7c5cdc",
+  "spec_commit": "d06f6c367c6a676ceb1123c4e6cd51314e7c5cdc",
+  "spec_path": "specs/2026-11-19_recording_time_controls.md",
+  "job_id": "51967701",
+  "host": "c0709a-s30.ufhpc",
+  "device": "cpu",
+  "requested_cpus": 2,
+  "requested_memory_gib": 8,
+  "time_limit_minutes": 10,
+  "python": "/apps/pytorch/1.13.0/bin/python",
+  "python_version": "3.10.8 | packaged by conda-forge | (main, Nov 22 2022, 08:26:04) [GCC 10.4.0]",
+  "numpy": "1.26.0",
+  "artifact_path": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-recording-time/results",
+  "test_accessed": false,
+  "inputs": {
+    "source_root": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-stage-expanded",
+    "source_run_id": "20261119-stage-expanded",
+    "source_spec_commit": "a5499473ca01e5980e96ca68e5bfc21f1ffdae06",
+    "source_code_commit": "43107763185e044dbc1ee570fef2ddd5fbb44306",
+    "cache_identity_sha256": "769709116695441b2bf65146058aa4c33b6908c02918c6b75ad5e02b2c1d8dd9",
+    "audit_sha256": "99ab09c041feb8c0ca2edb58317324e367cc7786ebfb720c5373cd384c304a3c",
+    "timestamp_policy_sha256": "e8174563798d2d43df1cd314daae64311bd15b0da272134c5e2338c515d4cac3",
+    "acquisition_sha256": "0eee6117f4f51aab91b46bba98341e8ae975218cfec01d638378a98c7a47c343",
+    "protocol_sha256": "a9810ed6f6272bf775b2a81e0afc97bdd24ce0ed559f510c73502d2aa9fe3032",
+    "execution_sha256": "cc1cfde4e448f56d034a8d3868bc75f506c42fb075c18a41efd327a7339f04e2",
+    "audit_execution_sha256": "bc668537457105ce5b840e420b90b875dc0fa74fcf51d8cfc35700307124a875",
+    "ordered_validation_keys_sha256": "56d468cd85c71d011769a1b548b2bc7bb04c238a20b54d69ab400dbec773d2a5",
+    "ordered_stage_targets_sha256": "3cd84ecb6e56f2f1265c5001c562177746b53bb58e7cc739c97b59869353b88b",
+    "ordered_validity_mask_uint8_sha256": "610ed9e86f8a9fcc7d91724838de1be79ab659e24abe868a5063d6b4ff5bc1ff",
+    "prediction_files": {
+      "seed-0-predictions.npz": {
+        "sha256": "d1ab6bd16825a744b03bc41d7dae336bf1ed033b7996089f5ac523686d865447",
+        "original_scores_sha256": "7020f2625d41b15a97ff2f617b62f241fa5869999a86ef7b624879251aae0f34"
+      },
+      "seed-1-predictions.npz": {
+        "sha256": "89ecfcaa6bb5be85e6d6256a2a10bdee22f7c8e69bda39f4cfb9fcbc4527eea8",
+        "original_scores_sha256": "907e0554a92e63951e74c1159a6587e91a2b3efef65156c47a7318e7b267d90f"
+      },
+      "seed-2-predictions.npz": {
+        "sha256": "56071c7b13c5a807df65bb3acad0bbf2f048330058eecb1768f5ed83be51bf50",
+        "original_scores_sha256": "32364a121708cfa1d9224275ed74acfa4be010becb372314606ef0ffa88d0e66"
+      }
+    },
+    "origins": {
+      "train": 1936,
+      "validation": 969
+    },
+    "test_accessed": false,
+    "transition_run_id": "20261119-stage-transition",
+    "transition_code_commit": "2384b3b57ec28793918c132cacc9f940358f49b4",
+    "transition_execution_sha256": "93215c0ebd799d4f9f166b306ec7426eddc0c9076c0a8346842c687043337705",
+    "transition_fit_sha256": "88cb59f20bbf3f67690f9b1debe49bb4f8cb92adfa1eb0c522c3d51774a10df6",
+    "transition_predictions_path": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-stage-transition/results/control_predictions.npz",
+    "transition_predictions_sha256": "3347f7f2a061100d03f1af2b2c81f37c90e44c0002bf6f75894fc1d2fc0aef91",
+    "control_reconstruction": "exact across 969 origins, 60 leads and four stages",
+    "oracle_run_id": "20261119-stage-oracle",
+    "oracle_code_commit": "cc32870b7b58ab33a34354817fde2d6fe6be04b5",
+    "oracle_execution_sha256": "ff23670566bdb07c4d1ebf058a768f426db416147508b770906ad26df3e705a8",
+    "oracle_metrics_sha256": "51cbc4b0f64d66b1a97326943f9e6451bebdf1ddbb2c6c0b21eac5e2fe6a3f46",
+    "recording_start_source": "expanded-cache/audit.json nights[].metadata.recording_start_unix",
+    "bin_boundaries_seconds": [
+      7200,
+      14400,
+      21600
+    ],
+    "bin_interval": "left-closed, right-open",
+    "bin_origin_counts": {
+      "train": [
+        420,
+        576,
+        550,
+        390
+      ],
+      "validation": [
+        224,
+        296,
+        278,
+        171
+      ]
+    },
+    "oracle_unknown_current_placeholder": "training stage prior at each lead, excluded from oracle scores"
+  },
+  "frozen_scores_vs_parent": {
+    "scores_compared": 120,
+    "max_absolute_nll_difference": 0.0
+  },
+  "fit_sha256": "cc3424555513bc677d954a383510df53e114ba4b730f819272df0bf1a351bbda",
+  "metrics_sha256": "47dab29ac1c5945f39b8e66d90a433b6a6e624297053550851fa68fbf70a54be",
+  "status": "completed",
+  "elapsed_seconds": 0.5026222178712487,
+  "peak_rss_mib": 160.2265625
+}

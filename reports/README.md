@@ -8,6 +8,7 @@
 | `20261119-stage-expanded` | 2026-11-19 | 38/38 passed. Six matched methods on seven validation participants, three seeds. Explicit wrist input did not meet advancement criteria. | [Expanded four-stage results](20261119-stage-expanded/report.md) |
 | `20261119-stage-transition` | 2026-11-19 | Fixed 38-night controls scored. At +30 min the empirical transition did not outperform prior shrinkage overall or on changed stages. | [Transition controls](20261119-stage-transition/report.md) |
 | `20261119-stage-oracle` | 2026-11-19 | Known cutoff stage improved overall +30 min NLL and worsened changed-stage NLL relative to the wearable transition. | [Oracle diagnostic](20261119-stage-oracle/report.md) |
+| `20261119-recording-time` | 2026-11-19 | On changed +30 min endpoints, time-only NLL was lower than either the wearable or expert-current-stage time-specific transition. | [Recording-time controls](20261119-recording-time/report.md) |
 
 The two October reports were reconstructed on 2026-11-12 from retained local artifacts. They are not new runs. Original historical code was not committed in Git; do not substitute the repository-import commit for the code revision used in October. Use the retained source hashes and run metadata.
 
