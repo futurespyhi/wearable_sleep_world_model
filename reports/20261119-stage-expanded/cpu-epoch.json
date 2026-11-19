@@ -1,0 +1,31 @@
+{
+  "arm": "explicit",
+  "seed": 0,
+  "device": "cpu",
+  "device_name": "CPU",
+  "epochs": 1,
+  "parameters": 18709,
+  "state_size": 32,
+  "action_size": 16,
+  "batch_size": 64,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "hr_loss_weight": 0.1,
+  "epoch_seconds": [
+    0.8762865951284766
+  ],
+  "fit_seconds": 0.8783441781997681,
+  "peak_rss_mib": 452.21875,
+  "device_peak_allocated_mib": null,
+  "training_history": [
+    {
+      "epoch": 1,
+      "seconds": 0.8762865951284766,
+      "optimizer_steps": 31,
+      "stage_targets": 111786,
+      "hr_targets": 111582,
+      "stage_cross_entropy": 2.5060193817882923,
+      "hr_huber": 0.851814378189232
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "spec_commit": "a5499473ca01e5980e96ca68e5bfc21f1ffdae06",
+  "code_commit": "43107763185e044dbc1ee570fef2ddd5fbb44306",
+  "run_id": "20261119-stage-expanded",
+  "phase": "expanded-cache",
+  "created_utc": "2026-11-19T09:47:33.112026+00:00",
+  "environment": {
+    "python": "3.11.4 | packaged by conda-forge | (main, Jun 10 2023, 18:08:17) [GCC 12.2.0]",
+    "python_path": "/apps/python/3.11/bin/python",
+    "packages": {
+      "numpy": {
+        "version": "1.25.2",
+        "path": "/apps/python/3.11/lib/python3.11/site-packages/numpy/__init__.py"
+      },
+      "scipy": {
+        "version": "1.11.3",
+        "path": "/apps/python/3.11/lib/python3.11/site-packages/scipy/__init__.py"
+      },
+      "pandas": {
+        "version": "2.1.4",
+        "path": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/deps/pandas/__init__.py"
+      }
+    },
+    "platform": "Linux-5.14.0-687.39.1.el9_8.x86_64-x86_64-with-glibc2.34",
+    "host": "c0709a-s30.ufhpc",
+    "slurm_job_id": "51964674",
+    "cpus_per_task": "2"
+  },
+  "source_root": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/work/expanded_seed40_12t7v2n",
+  "protocol": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-stage-expanded/code/experiments/g3/expanded_protocol.json",
+  "protocol_sha256": "a9810ed6f6272bf775b2a81e0afc97bdd24ce0ed559f510c73502d2aa9fe3032",
+  "audit_status": "complete",
+  "audit_sha256": "99ab09c041feb8c0ca2edb58317324e367cc7786ebfb720c5373cd384c304a3c",
+  "elapsed_seconds": 119.99494207371026,
+  "peak_rss_mib": 216.71875
+}

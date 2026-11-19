@@ -1,0 +1,2689 @@
+{
+  "schema": "stage_forecast_raw_windows_v1",
+  "status": "complete",
+  "started_utc": "2026-11-19T09:47:33.122225+00:00",
+  "source_root": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/work/expanded_seed40_12t7v2n",
+  "cache_root": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-stage-expanded/expanded-cache",
+  "protocol_sha256": "a9810ed6f6272bf775b2a81e0afc97bdd24ce0ed559f510c73502d2aa9fe3032",
+  "test_accessed": false,
+  "host": "c0709a-s30.ufhpc",
+  "slurm_job_id": "51964674",
+  "stage_data_sha256": "d3cf396a6b9f96ab966d644ef02bef37931e8b44d3151d3139f3a2ba2696c3c5",
+  "g3_data_sha256": "0e4774125c7eb4a2857711c20840a2cbe1ded326a3db9fa8198ba1d937e4588d",
+  "features": [
+    "hr_mean",
+    "hr_std",
+    "hr_count",
+    "acc_norm_std",
+    "acc_diff_rms",
+    "acc_count"
+  ],
+  "stages": [
+    "Wake",
+    "Light",
+    "Deep",
+    "REM"
+  ],
+  "acquisition_sha256": "0eee6117f4f51aab91b46bba98341e8ae975218cfec01d638378a98c7a47c343",
+  "catalog_sha256": "13333dff4d4640167435188bc6019c1782684b96d09838cb7e7b3ad005a51460",
+  "split_seed": 40,
+  "split_sizes": {
+    "train": 33,
+    "validation": 7,
+    "test_sealed": 7
+  },
+  "expected_nights": 38,
+  "timestamp_policy": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-stage-expanded/code/experiments/stage_forecast/expanded_timestamp_policy.json",
+  "timestamp_policy_sha256": "e8174563798d2d43df1cd314daae64311bd15b0da272134c5e2338c515d4cac3",
+  "reference_audit_sha256": "eb0256279c0e1762764c9a5922e3c369ae01ad86c9714931a441ef793d929e8f",
+  "reference_cache": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-first-round/expanded-cache",
+  "partitions": {
+    "train": {
+      "complete_nights": 24,
+      "expected_nights": 24,
+      "retained_origins_in_completed_nights": 1936
+    },
+    "validation": {
+      "complete_nights": 14,
+      "expected_nights": 14,
+      "retained_origins_in_completed_nights": 969
+    }
+  },
+  "cache_identity_sha256": "769709116695441b2bf65146058aa4c33b6908c02918c6b75ad5e02b2c1d8dd9",
+  "elapsed_seconds": 119.96655174344778,
+  "finished_utc": "2026-11-19T09:49:33.088777+00:00",
+  "failures": [],
+  "records": [
+    {
+      "participant": "Bidslab00",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "c35117baf926cce552f71205d06cc2098747e7aa0d5d6736ddde400549f44ff2",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 935,
+        "origins": 88,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "c35117baf926cce552f71205d06cc2098747e7aa0d5d6736ddde400549f44ff2"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab00/1/hr.csv",
+          "sha256": "2cc2e3f4249304ac93275ae7f886933b154e4c9567863375f693812a7f364c7b",
+          "bytes": 114314,
+          "observed_bytes": 114314,
+          "observed_sha256": "2cc2e3f4249304ac93275ae7f886933b154e4c9567863375f693812a7f364c7b",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab00/1/motion.csv",
+          "sha256": "1ff851c08a2e1186a0a3f0f703ffe54de7fd9a5078e49a792d01714564db9412",
+          "bytes": 103763554,
+          "observed_bytes": 103763554,
+          "observed_sha256": "1ff851c08a2e1186a0a3f0f703ffe54de7fd9a5078e49a792d01714564db9412",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab00/1/labels.mat",
+          "sha256": "c7827450d4b881c03430f3f52c46793ec1d33c9656aec66b2a497250e62ab27a",
+          "bytes": 465,
+          "observed_bytes": 465,
+          "observed_sha256": "c7827450d4b881c03430f3f52c46793ec1d33c9656aec66b2a497250e62ab27a",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab00/1/hr.csv",
+          "rows": 4791,
+          "errors": [],
+          "outside_label_interval_rows": 15,
+          "reduced_stream_rows": 4776,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab00/1/motion.csv",
+          "rows": 1401000,
+          "errors": [],
+          "outside_label_interval_rows": 4865,
+          "reduced_stream_rows": 1396135,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab00",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "b85627446fd229ae7476441c28af57ef9325e5577101cc0cab2f38a7e1e4cdf7",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 943,
+        "origins": 89,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "b85627446fd229ae7476441c28af57ef9325e5577101cc0cab2f38a7e1e4cdf7"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab00/2/hr.csv",
+          "sha256": "c3b17710b2588d0e488dc881e45298b0b5281aef1759ac47cf59494ec1072b91",
+          "bytes": 265294,
+          "observed_bytes": 265294,
+          "observed_sha256": "c3b17710b2588d0e488dc881e45298b0b5281aef1759ac47cf59494ec1072b91",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab00/2/motion.csv",
+          "sha256": "bf598bd133967cff75d335705ead51811cffd7fb46dc413d33f5c8b909ca3a59",
+          "bytes": 213851009,
+          "observed_bytes": 213851009,
+          "observed_sha256": "bf598bd133967cff75d335705ead51811cffd7fb46dc413d33f5c8b909ca3a59",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab00/2/labels.mat",
+          "sha256": "c301a360f8bd80cbbc22dcc86770baa04fda02d6f5f5f5d8c286a490d35d4a17",
+          "bytes": 492,
+          "observed_bytes": 492,
+          "observed_sha256": "c301a360f8bd80cbbc22dcc86770baa04fda02d6f5f5f5d8c286a490d35d4a17",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab00/2/hr.csv",
+          "rows": 11225,
+          "errors": [],
+          "outside_label_interval_rows": 6339,
+          "reduced_stream_rows": 4886,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab00/2/motion.csv",
+          "rows": 2898000,
+          "errors": [],
+          "outside_label_interval_rows": 1491004,
+          "reduced_stream_rows": 1406996,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab02",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "5748950c391c60564c96cce1983953a1a1d5ca58009fbe582607342053c78993",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 1018,
+        "origins": 83,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "5748950c391c60564c96cce1983953a1a1d5ca58009fbe582607342053c78993"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab02/1/hr.csv",
+          "sha256": "cc2fce72502477de870e2aff4c5ee15fbac0a350472cb69d6566efc0779ae4bf",
+          "bytes": 124117,
+          "observed_bytes": 124117,
+          "observed_sha256": "cc2fce72502477de870e2aff4c5ee15fbac0a350472cb69d6566efc0779ae4bf",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab02/1/motion.csv",
+          "sha256": "cf1953002281b9b6617c7d3e7fd7e5ae3a5a92239eae546428600a6b7c0c379a",
+          "bytes": 118762309,
+          "observed_bytes": 118762309,
+          "observed_sha256": "cf1953002281b9b6617c7d3e7fd7e5ae3a5a92239eae546428600a6b7c0c379a",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab02/1/labels.mat",
+          "sha256": "a80e26c376b2df4e5c488672108cfe873a07ba8b04a7b55f9ed4d027a244c0cd",
+          "bytes": 506,
+          "observed_bytes": 506,
+          "observed_sha256": "a80e26c376b2df4e5c488672108cfe873a07ba8b04a7b55f9ed4d027a244c0cd",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab02/1/hr.csv",
+          "rows": 5221,
+          "errors": [],
+          "outside_label_interval_rows": 2,
+          "reduced_stream_rows": 5219,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab02/1/motion.csv",
+          "rows": 1598000,
+          "errors": [],
+          "outside_label_interval_rows": 648,
+          "reduced_stream_rows": 1597352,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab02",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "e64c37cf6a4e5431c3ea992b26d12c6f878e00a6db34072102170b73b0f6aebb",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 891,
+        "origins": 81,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "e64c37cf6a4e5431c3ea992b26d12c6f878e00a6db34072102170b73b0f6aebb"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab02/2/hr.csv",
+          "sha256": "1c59b098cb4dbd308ed0ce0a5f3bb5a1da72b6604918230ef7e99412caa996a9",
+          "bytes": 120583,
+          "observed_bytes": 120583,
+          "observed_sha256": "1c59b098cb4dbd308ed0ce0a5f3bb5a1da72b6604918230ef7e99412caa996a9",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab02/2/motion.csv",
+          "sha256": "804c3910b567921d860be87e193b489906564c3c5d0c0de2bffedc6c57d966e1",
+          "bytes": 115654620,
+          "observed_bytes": 115654620,
+          "observed_sha256": "804c3910b567921d860be87e193b489906564c3c5d0c0de2bffedc6c57d966e1",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab02/2/labels.mat",
+          "sha256": "92920cf25ed7ba258145590cd77e89080937c6094f79a6bdfa67fc83d303a2ab",
+          "bytes": 506,
+          "observed_bytes": 506,
+          "observed_sha256": "92920cf25ed7ba258145590cd77e89080937c6094f79a6bdfa67fc83d303a2ab",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab02/2/hr.csv",
+          "rows": 5095,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 5095,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab02/2/motion.csv",
+          "rows": 1563000,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 1563000,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab65",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "10372ac087389bf510b83beb6bcaf97b4a4696c2b5983a9995b279c72be995f6",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 671,
+        "origins": 57,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "10372ac087389bf510b83beb6bcaf97b4a4696c2b5983a9995b279c72be995f6"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab65/1/hr.csv",
+          "sha256": "869f6d18cdcab0f57b11d3102e9f8542bce49abeaa611a999ca6133448843804",
+          "bytes": 87069,
+          "observed_bytes": 87069,
+          "observed_sha256": "869f6d18cdcab0f57b11d3102e9f8542bce49abeaa611a999ca6133448843804",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab65/1/motion.csv",
+          "sha256": "022acd65c571292c5f6e09b26915ab764c3fad7a7aedec3a69d37e901af1a259",
+          "bytes": 126853076,
+          "observed_bytes": 126853076,
+          "observed_sha256": "022acd65c571292c5f6e09b26915ab764c3fad7a7aedec3a69d37e901af1a259",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab65/1/labels.mat",
+          "sha256": "c4c00c9949d54fa7e99618bae9a07c9c171dd5058aafe41843f08fc4f852bba4",
+          "bytes": 521,
+          "observed_bytes": 521,
+          "observed_sha256": "c4c00c9949d54fa7e99618bae9a07c9c171dd5058aafe41843f08fc4f852bba4",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab65/1/hr.csv",
+          "rows": 3759,
+          "errors": [],
+          "outside_label_interval_rows": 87,
+          "reduced_stream_rows": 3672,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab65/1/motion.csv",
+          "rows": 1713000,
+          "errors": [],
+          "outside_label_interval_rows": 800000,
+          "reduced_stream_rows": 913000,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab65",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "74a754ae5ab0a053ea64dc45454c39e7ddc9b7fa20ff83b3edf61c2e2ee702b8",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 610,
+        "origins": 56,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "74a754ae5ab0a053ea64dc45454c39e7ddc9b7fa20ff83b3edf61c2e2ee702b8"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab65/2/hr.csv",
+          "sha256": "f15aa7b945f93725344f63c2d7ada6b90ddedead08bdff5b6915b49be476cfe3",
+          "bytes": 83654,
+          "observed_bytes": 83654,
+          "observed_sha256": "f15aa7b945f93725344f63c2d7ada6b90ddedead08bdff5b6915b49be476cfe3",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab65/2/motion.csv",
+          "sha256": "2cb361f4e1eb4d56b538e9e18c28262cf691953c9aa38dfaf8144df1bc4582f7",
+          "bytes": 67487362,
+          "observed_bytes": 67487362,
+          "observed_sha256": "2cb361f4e1eb4d56b538e9e18c28262cf691953c9aa38dfaf8144df1bc4582f7",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab65/2/labels.mat",
+          "sha256": "a08f632265032a919d266b1498c53977231a0c010c76ef322306fa75e9ea9e94",
+          "bytes": 484,
+          "observed_bytes": 484,
+          "observed_sha256": "a08f632265032a919d266b1498c53977231a0c010c76ef322306fa75e9ea9e94",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab65/2/hr.csv",
+          "rows": 3636,
+          "errors": [],
+          "outside_label_interval_rows": 12,
+          "reduced_stream_rows": 3624,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab65/2/motion.csv",
+          "rows": 911000,
+          "errors": [],
+          "outside_label_interval_rows": 2846,
+          "reduced_stream_rows": 908154,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab09",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "37bff709f7fe215950fd177fe2cf30212b9f342d09bfad89af1d93aa9e7b8ec2",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 892,
+        "origins": 84,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "37bff709f7fe215950fd177fe2cf30212b9f342d09bfad89af1d93aa9e7b8ec2"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab09/1/hr.csv",
+          "sha256": "9345ccf23d8d694707c6073cdf44513bdeb8fdeabbbd2955f4990699c9a1336d",
+          "bytes": 195399,
+          "observed_bytes": 195399,
+          "observed_sha256": "9345ccf23d8d694707c6073cdf44513bdeb8fdeabbbd2955f4990699c9a1336d",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab09/1/motion.csv",
+          "sha256": "6acb1b52eb01cd4e0fbadb5eac095f78b7f09a8ca4a7d0401080c8ed62a9b281",
+          "bytes": 129726986,
+          "observed_bytes": 129726986,
+          "observed_sha256": "6acb1b52eb01cd4e0fbadb5eac095f78b7f09a8ca4a7d0401080c8ed62a9b281",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab09/1/labels.mat",
+          "sha256": "33b0fcd6127942c0e3831d646a268a52b72d36709e60dcade8b0324860f324d2",
+          "bytes": 504,
+          "observed_bytes": 504,
+          "observed_sha256": "33b0fcd6127942c0e3831d646a268a52b72d36709e60dcade8b0324860f324d2",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab09/1/hr.csv",
+          "rows": 8281,
+          "errors": [],
+          "outside_label_interval_rows": 2976,
+          "reduced_stream_rows": 5305,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab09/1/motion.csv",
+          "rows": 1748000,
+          "errors": [],
+          "outside_label_interval_rows": 595466,
+          "reduced_stream_rows": 1152534,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab09",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "31d552f77cc17835c821577d3d8d53c1a436c254285aa5acf6bc0f4264df44a5",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 825,
+        "origins": 62,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "31d552f77cc17835c821577d3d8d53c1a436c254285aa5acf6bc0f4264df44a5"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab09/2/hr.csv",
+          "sha256": "b031cbe4e0d9c280c82c966e71c1a01d3acdcaac7a94fb7ebba22efe05c7f708",
+          "bytes": 118418,
+          "observed_bytes": 118418,
+          "observed_sha256": "b031cbe4e0d9c280c82c966e71c1a01d3acdcaac7a94fb7ebba22efe05c7f708",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab09/2/motion.csv",
+          "sha256": "a9e958a0b1aeb832fcc7b6410016a92638fd60d26ab334f2f980c35687b9eced",
+          "bytes": 76547848,
+          "observed_bytes": 76547848,
+          "observed_sha256": "a9e958a0b1aeb832fcc7b6410016a92638fd60d26ab334f2f980c35687b9eced",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab09/2/labels.mat",
+          "sha256": "6a3860916cfc671a7066ad519e2c713ec1b5c12463a35190d204a4d6042eb946",
+          "bytes": 480,
+          "observed_bytes": 480,
+          "observed_sha256": "6a3860916cfc671a7066ad519e2c713ec1b5c12463a35190d204a4d6042eb946",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab09/2/hr.csv",
+          "rows": 4934,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 4934,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab09/2/motion.csv",
+          "rows": 1034311,
+          "errors": [],
+          "outside_label_interval_rows": 2764,
+          "reduced_stream_rows": 1031547,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab56",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "060521eb5c71bfc2e1f23410b02d8ca0cc545d188c196b05430699536feefc65",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 907,
+        "origins": 85,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "060521eb5c71bfc2e1f23410b02d8ca0cc545d188c196b05430699536feefc65"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab56/1/hr.csv",
+          "sha256": "b5f20d0ef1224994ab0a40acb2582ea557735a16cb2719a14c50b4cbad66645b",
+          "bytes": 131827,
+          "observed_bytes": 131827,
+          "observed_sha256": "b5f20d0ef1224994ab0a40acb2582ea557735a16cb2719a14c50b4cbad66645b",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab56/1/motion.csv",
+          "sha256": "1e7ff7ff9b397c635abe72d33d543080263c0aac9746567bf376ec72e7dd1609",
+          "bytes": 124100461,
+          "observed_bytes": 124100461,
+          "observed_sha256": "1e7ff7ff9b397c635abe72d33d543080263c0aac9746567bf376ec72e7dd1609",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab56/1/labels.mat",
+          "sha256": "8772218b5c516877cf04d2174413a8bb3d9d43f08f728ab4b9f9da5097a01984",
+          "bytes": 528,
+          "observed_bytes": 528,
+          "observed_sha256": "8772218b5c516877cf04d2174413a8bb3d9d43f08f728ab4b9f9da5097a01984",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab56/1/hr.csv",
+          "rows": 5493,
+          "errors": [],
+          "outside_label_interval_rows": 43,
+          "reduced_stream_rows": 5450,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab56/1/motion.csv",
+          "rows": 1667867,
+          "errors": [],
+          "outside_label_interval_rows": 6449,
+          "reduced_stream_rows": 1661418,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab56",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "023274d2478ee362ccf1f1cbb38c0c92c3abafb4b9697e460e97c45bcb77a9a4",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 769,
+        "origins": 71,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "023274d2478ee362ccf1f1cbb38c0c92c3abafb4b9697e460e97c45bcb77a9a4"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab56/2/hr.csv",
+          "sha256": "72ae441a2ca562668cbde058187fac656628848741e32dc4176fd1896bd3dc77",
+          "bytes": 111665,
+          "observed_bytes": 111665,
+          "observed_sha256": "72ae441a2ca562668cbde058187fac656628848741e32dc4176fd1896bd3dc77",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab56/2/motion.csv",
+          "sha256": "0f78b4cb9050d55a4b0154c1f13863322cda6040845baa1d5e06c9a3c4943e00",
+          "bytes": 105029535,
+          "observed_bytes": 105029535,
+          "observed_sha256": "0f78b4cb9050d55a4b0154c1f13863322cda6040845baa1d5e06c9a3c4943e00",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab56/2/labels.mat",
+          "sha256": "76e2eb210f51ca0380a8db93d7c37af7f35a687a916c4895b145e26836659971",
+          "bytes": 503,
+          "observed_bytes": 503,
+          "observed_sha256": "76e2eb210f51ca0380a8db93d7c37af7f35a687a916c4895b145e26836659971",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab56/2/hr.csv",
+          "rows": 4653,
+          "errors": [],
+          "outside_label_interval_rows": 16,
+          "reduced_stream_rows": 4637,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab56/2/motion.csv",
+          "rows": 1408178,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 1408178,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab13",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "b6a8c56ec11694562c2bb7c8e884ed5c6353236312293d12f7d4aa4f5d823fb4",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 1074,
+        "origins": 102,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "b6a8c56ec11694562c2bb7c8e884ed5c6353236312293d12f7d4aa4f5d823fb4"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab13/1/hr.csv",
+          "sha256": "40c079cc030fa121cfc115155a6b3396fdf60f25e724aa1ad007f19172efeed7",
+          "bytes": 154538,
+          "observed_bytes": 154538,
+          "observed_sha256": "40c079cc030fa121cfc115155a6b3396fdf60f25e724aa1ad007f19172efeed7",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab13/1/motion.csv",
+          "sha256": "74381fbc9efb26267d26fbc6777d6b2cf3f32e1221fa8cd92186c4620f1d8065",
+          "bytes": 118206758,
+          "observed_bytes": 118206758,
+          "observed_sha256": "74381fbc9efb26267d26fbc6777d6b2cf3f32e1221fa8cd92186c4620f1d8065",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab13/1/labels.mat",
+          "sha256": "c779617f84baf8a69b6c604bb2439b7491e0e68c262d2ffa4e506df412d94021",
+          "bytes": 567,
+          "observed_bytes": 567,
+          "observed_sha256": "c779617f84baf8a69b6c604bb2439b7491e0e68c262d2ffa4e506df412d94021",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab13/1/hr.csv",
+          "rows": 6439,
+          "errors": [],
+          "outside_label_interval_rows": 13,
+          "reduced_stream_rows": 6426,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab13/1/motion.csv",
+          "rows": 1605000,
+          "errors": [],
+          "outside_label_interval_rows": 4202,
+          "reduced_stream_rows": 1600798,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab13",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "0fd58e9388e801b66817fd5508a1c78a928369508ea1654bd56a7134a4606f70",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 954,
+        "origins": 90,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "0fd58e9388e801b66817fd5508a1c78a928369508ea1654bd56a7134a4606f70"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab13/2/hr.csv",
+          "sha256": "6f60e43f7c37a527f31d425fde8086358503fc1f53135237b8b7a5de38421c5e",
+          "bytes": 136271,
+          "observed_bytes": 136271,
+          "observed_sha256": "6f60e43f7c37a527f31d425fde8086358503fc1f53135237b8b7a5de38421c5e",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab13/2/motion.csv",
+          "sha256": "c287f0e0359ef88144fa387c2461e179f2ef0ea00a09bdadefd6c84095934423",
+          "bytes": 105732821,
+          "observed_bytes": 105732821,
+          "observed_sha256": "c287f0e0359ef88144fa387c2461e179f2ef0ea00a09bdadefd6c84095934423",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab13/2/labels.mat",
+          "sha256": "85f27da89a946781beadca72c0532ae7e1de9c7fdaa3e63f8952a01699ff004e",
+          "bytes": 542,
+          "observed_bytes": 542,
+          "observed_sha256": "85f27da89a946781beadca72c0532ae7e1de9c7fdaa3e63f8952a01699ff004e",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab13/2/hr.csv",
+          "rows": 5739,
+          "errors": [],
+          "outside_label_interval_rows": 21,
+          "reduced_stream_rows": 5718,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab13/2/motion.csv",
+          "rows": 1436000,
+          "errors": [],
+          "outside_label_interval_rows": 4681,
+          "reduced_stream_rows": 1431319,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab36",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "79ce863e9d763d881fe46b280c43257377c5a16c1897e2e8db4fbd0ebd68770a",
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab36/1/hr.csv",
+          "sha256": "820f9184ec0ff5097543da2cd7a94d4e2da2c045241081014a747eb9529ecd76",
+          "bytes": 101750,
+          "observed_bytes": 101750,
+          "observed_sha256": "820f9184ec0ff5097543da2cd7a94d4e2da2c045241081014a747eb9529ecd76",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab36/1/motion.csv",
+          "sha256": "b8ac748f78a46e22aa210013966a145aef016526ae33a88368eadfeb2da924f0",
+          "bytes": 87020716,
+          "observed_bytes": 87020716,
+          "observed_sha256": "b8ac748f78a46e22aa210013966a145aef016526ae33a88368eadfeb2da924f0",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab36/1/labels.mat",
+          "sha256": "a564fe08268f24d472a7540afb89a05e3b2137faeacf96a29e187e7e504cb30b",
+          "bytes": 507,
+          "observed_bytes": 507,
+          "observed_sha256": "a564fe08268f24d472a7540afb89a05e3b2137faeacf96a29e187e7e504cb30b",
+          "status": "verified"
+        }
+      },
+      "mask_coverage": {
+        "epochs": [
+          32
+        ],
+        "candidate_origins": [
+          60,
+          70,
+          80,
+          90
+        ],
+        "retained_origins": [
+          60,
+          70,
+          80,
+          90
+        ],
+        "coverage_rejected_origins": [],
+        "lost_due_to_mask": [],
+        "histories": [
+          {
+            "origin": 60,
+            "joint_epochs_before": 60,
+            "joint_epochs_after": 59
+          },
+          {
+            "origin": 70,
+            "joint_epochs_before": 60,
+            "joint_epochs_after": 59
+          },
+          {
+            "origin": 80,
+            "joint_epochs_before": 60,
+            "joint_epochs_after": 59
+          },
+          {
+            "origin": 90,
+            "joint_epochs_before": 60,
+            "joint_epochs_after": 59
+          }
+        ]
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab36/1/hr.csv",
+          "rows": 4265,
+          "errors": [],
+          "outside_label_interval_rows": 39,
+          "reduced_stream_rows": 4226,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [
+            {
+              "kind": "reversal",
+              "rows": [
+                54622,
+                54623
+              ],
+              "timestamps": [
+                "1639025868.327419",
+                "1639025868.144105"
+              ],
+              "delta_seconds": -0.183314,
+              "cross_chunk": false,
+              "relation": "inside",
+              "intersected_epochs": [
+                32,
+                32
+              ],
+              "action": "mask_acc_epoch",
+              "registered": true
+            }
+          ],
+          "file": "Bidslab36/1/motion.csv",
+          "rows": 1167000,
+          "errors": [],
+          "outside_label_interval_rows": 10043,
+          "reduced_stream_rows": 1155450,
+          "masked_epochs": [
+            32
+          ],
+          "masked_valid_sample_counts": {
+            "32": 1507
+          }
+        }
+      }
+    },
+    {
+      "participant": "Bidslab36",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "82f94344309a37026e6d8482a16510c2b0dc63a465aba3c2b1d4d0b5c6314929",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 991,
+        "origins": 94,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "82f94344309a37026e6d8482a16510c2b0dc63a465aba3c2b1d4d0b5c6314929"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab36/2/hr.csv",
+          "sha256": "052529eeda52d59f114b5feb8d3c7c5f67934d8f0ef9485f0c5a962611a2e90c",
+          "bytes": 128534,
+          "observed_bytes": 128534,
+          "observed_sha256": "052529eeda52d59f114b5feb8d3c7c5f67934d8f0ef9485f0c5a962611a2e90c",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab36/2/motion.csv",
+          "sha256": "593f073bbd740a566d159db0d5189d29d1770e745c6ae0ee70bbbd93f5003b1d",
+          "bytes": 110511054,
+          "observed_bytes": 110511054,
+          "observed_sha256": "593f073bbd740a566d159db0d5189d29d1770e745c6ae0ee70bbbd93f5003b1d",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab36/2/labels.mat",
+          "sha256": "465f31e5596bb65cb393bcb7baff557b77f76020913ecdcd82d914ff0182a3a3",
+          "bytes": 556,
+          "observed_bytes": 556,
+          "observed_sha256": "465f31e5596bb65cb393bcb7baff557b77f76020913ecdcd82d914ff0182a3a3",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab36/2/hr.csv",
+          "rows": 5422,
+          "errors": [],
+          "outside_label_interval_rows": 29,
+          "reduced_stream_rows": 5393,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab36/2/motion.csv",
+          "rows": 1492000,
+          "errors": [],
+          "outside_label_interval_rows": 8823,
+          "reduced_stream_rows": 1483177,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab34",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "44f15e96376448994fdd737cd426ee1eaefb46ff23dbfec6a1c1419eee0b419f",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 1340,
+        "origins": 75,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "44f15e96376448994fdd737cd426ee1eaefb46ff23dbfec6a1c1419eee0b419f"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab34/1/hr.csv",
+          "sha256": "ffcde493f4446e0ded75f9e0679fbe0396a698ab3f193641c4d516e2de184ea6",
+          "bytes": 106644,
+          "observed_bytes": 106644,
+          "observed_sha256": "ffcde493f4446e0ded75f9e0679fbe0396a698ab3f193641c4d516e2de184ea6",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab34/1/motion.csv",
+          "sha256": "da9e4fc9db029918f9ae5cc731e0b84978681bf7f2b84803ab6b0d432bc5730a",
+          "bytes": 87239018,
+          "observed_bytes": 87239018,
+          "observed_sha256": "da9e4fc9db029918f9ae5cc731e0b84978681bf7f2b84803ab6b0d432bc5730a",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab34/1/labels.mat",
+          "sha256": "8d450638fb260f566848f3ff5b578c1d6b0a31a6e326ece4866e2404f78927e6",
+          "bytes": 627,
+          "observed_bytes": 627,
+          "observed_sha256": "8d450638fb260f566848f3ff5b578c1d6b0a31a6e326ece4866e2404f78927e6",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab34/1/hr.csv",
+          "rows": 4502,
+          "errors": [],
+          "outside_label_interval_rows": 19,
+          "reduced_stream_rows": 4483,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab34/1/motion.csv",
+          "rows": 1183000,
+          "errors": [],
+          "outside_label_interval_rows": 5215,
+          "reduced_stream_rows": 1177785,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab34",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "f73976d0e87789ece72f99e8f0e4bd0eafce086293e9ec2b1a75a8790b548073",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 1253,
+        "origins": 104,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "f73976d0e87789ece72f99e8f0e4bd0eafce086293e9ec2b1a75a8790b548073"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab34/2/hr.csv",
+          "sha256": "7944d87b6662c756545d09f6219b64d9b41610edc066ba23ee4ee7c4bc64ba9b",
+          "bytes": 153514,
+          "observed_bytes": 153514,
+          "observed_sha256": "7944d87b6662c756545d09f6219b64d9b41610edc066ba23ee4ee7c4bc64ba9b",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab34/2/motion.csv",
+          "sha256": "6bf304e4e1cd2ec6b15a1ad241d822ac8c6649352748e4faf2f8d66fcd860fe6",
+          "bytes": 119828087,
+          "observed_bytes": 119828087,
+          "observed_sha256": "6bf304e4e1cd2ec6b15a1ad241d822ac8c6649352748e4faf2f8d66fcd860fe6",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab34/2/labels.mat",
+          "sha256": "cd0db9c9d23d33d721708b676e96910cc50ec3fb972980882d968fb8b9e5d4b9",
+          "bytes": 524,
+          "observed_bytes": 524,
+          "observed_sha256": "cd0db9c9d23d33d721708b676e96910cc50ec3fb972980882d968fb8b9e5d4b9",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab34/2/hr.csv",
+          "rows": 6433,
+          "errors": [],
+          "outside_label_interval_rows": 51,
+          "reduced_stream_rows": 6382,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab34/2/motion.csv",
+          "rows": 1622000,
+          "errors": [],
+          "outside_label_interval_rows": 12332,
+          "reduced_stream_rows": 1609668,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab44",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "747144b45fa8a2d5fc94184f0c5cc0ef27d543277b032731500c0a186d91dceb",
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab44/1/hr.csv",
+          "sha256": "7680fd7457bce3bd93de9de8799a50127217778a377bc9aa92b0081b3a7593e5",
+          "bytes": 297686,
+          "observed_bytes": 297686,
+          "observed_sha256": "7680fd7457bce3bd93de9de8799a50127217778a377bc9aa92b0081b3a7593e5",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab44/1/motion.csv",
+          "sha256": "29172c19bfae03476f77e9f4ffbb9c7c70f62997bfa53514a63899d8765d69a0",
+          "bytes": 218678703,
+          "observed_bytes": 218678703,
+          "observed_sha256": "29172c19bfae03476f77e9f4ffbb9c7c70f62997bfa53514a63899d8765d69a0",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab44/1/labels.mat",
+          "sha256": "4675227db97583707a3fb3c4d92d4bc14c855a0db81172d30565b0bf6aa4ef83",
+          "bytes": 585,
+          "observed_bytes": 585,
+          "observed_sha256": "4675227db97583707a3fb3c4d92d4bc14c855a0db81172d30565b0bf6aa4ef83",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [
+            {
+              "kind": "conflicting_duplicate",
+              "rows": [
+                6681,
+                6682
+              ],
+              "timestamps": [
+                "1630351469.2980924",
+                "1630351469.2980924"
+              ],
+              "delta_seconds": 0.0,
+              "cross_chunk": false,
+              "relation": "after",
+              "intersected_epochs": null,
+              "action": "outside_interval",
+              "registered": true
+            }
+          ],
+          "file": "Bidslab44/1/hr.csv",
+          "rows": 12609,
+          "errors": [],
+          "outside_label_interval_rows": 6125,
+          "reduced_stream_rows": 6484,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab44/1/motion.csv",
+          "rows": 2953000,
+          "errors": [],
+          "outside_label_interval_rows": 1337000,
+          "reduced_stream_rows": 1616000,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab44",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "b9bb53c7fa55f83cdfe6b1b77d93b634cd1cb82a9491715f8e102ef5f6cae6e1",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 779,
+        "origins": 72,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "b9bb53c7fa55f83cdfe6b1b77d93b634cd1cb82a9491715f8e102ef5f6cae6e1"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab44/2/hr.csv",
+          "sha256": "9795cb8cbed25122b180de1ebbbf4ffcbcec9edadb461530d13636a66af9e1c8",
+          "bytes": 137086,
+          "observed_bytes": 137086,
+          "observed_sha256": "9795cb8cbed25122b180de1ebbbf4ffcbcec9edadb461530d13636a66af9e1c8",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab44/2/motion.csv",
+          "sha256": "bba0223ad5b6d7479710f26f64484ba50e6e7f380c89a2cec989cb4831b69847",
+          "bytes": 98723347,
+          "observed_bytes": 98723347,
+          "observed_sha256": "bba0223ad5b6d7479710f26f64484ba50e6e7f380c89a2cec989cb4831b69847",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab44/2/labels.mat",
+          "sha256": "c3470d8f80cedc75407ec820a6ab147b754c2d151728ba0761876861993ebcba",
+          "bytes": 529,
+          "observed_bytes": 529,
+          "observed_sha256": "c3470d8f80cedc75407ec820a6ab147b754c2d151728ba0761876861993ebcba",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab44/2/hr.csv",
+          "rows": 5814,
+          "errors": [],
+          "outside_label_interval_rows": 1197,
+          "reduced_stream_rows": 4617,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab44/2/motion.csv",
+          "rows": 1336000,
+          "errors": [],
+          "outside_label_interval_rows": 169643,
+          "reduced_stream_rows": 1166357,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab38",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "32eb1a98e2e2be47388ba605ec012bb9d7b56af6abe1585ffd4d181c507b3f59",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 695,
+        "origins": 64,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "32eb1a98e2e2be47388ba605ec012bb9d7b56af6abe1585ffd4d181c507b3f59"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab38/1/hr.csv",
+          "sha256": "d6a3e5de4c63c5c1c4e371759f72b2b44c5c6d9cb0551591d041c4e1709ecfe1",
+          "bytes": 283346,
+          "observed_bytes": 283346,
+          "observed_sha256": "d6a3e5de4c63c5c1c4e371759f72b2b44c5c6d9cb0551591d041c4e1709ecfe1",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab38/1/motion.csv",
+          "sha256": "4175d206c6941662efbf172e54d59cce210ec65fc86758f7e841ba2a56c5a2b2",
+          "bytes": 212148360,
+          "observed_bytes": 212148360,
+          "observed_sha256": "4175d206c6941662efbf172e54d59cce210ec65fc86758f7e841ba2a56c5a2b2",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab38/1/labels.mat",
+          "sha256": "5b5f3d1267cf8db823febb723a5b412ef0b786ab10e31d33eb93a864d970890a",
+          "bytes": 462,
+          "observed_bytes": 462,
+          "observed_sha256": "5b5f3d1267cf8db823febb723a5b412ef0b786ab10e31d33eb93a864d970890a",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab38/1/hr.csv",
+          "rows": 11948,
+          "errors": [],
+          "outside_label_interval_rows": 7789,
+          "reduced_stream_rows": 4159,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab38/1/motion.csv",
+          "rows": 2849000,
+          "errors": [],
+          "outside_label_interval_rows": 1808855,
+          "reduced_stream_rows": 1040145,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab38",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "1f76327626e489864e6e2f41d7cd418acf4e28b2fa1bb31b8fd97c2f13b33e05",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 665,
+        "origins": 61,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "1f76327626e489864e6e2f41d7cd418acf4e28b2fa1bb31b8fd97c2f13b33e05"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab38/2/hr.csv",
+          "sha256": "bf366acde79999b34046de824660d0905462017129c4565a8534d04e15a9c2d9",
+          "bytes": 98544,
+          "observed_bytes": 98544,
+          "observed_sha256": "bf366acde79999b34046de824660d0905462017129c4565a8534d04e15a9c2d9",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab38/2/motion.csv",
+          "sha256": "ed610337857e9c204efec7c7b132e2568846c2df133217a25d9103fd8122ffde",
+          "bytes": 75273092,
+          "observed_bytes": 75273092,
+          "observed_sha256": "ed610337857e9c204efec7c7b132e2568846c2df133217a25d9103fd8122ffde",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab38/2/labels.mat",
+          "sha256": "8c8f6443487eb9ddf97ecc2aece4b5e61e7d4f7f8a10bf31e6668e5c0295c5f5",
+          "bytes": 491,
+          "observed_bytes": 491,
+          "observed_sha256": "8c8f6443487eb9ddf97ecc2aece4b5e61e7d4f7f8a10bf31e6668e5c0295c5f5",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab38/2/hr.csv",
+          "rows": 4177,
+          "errors": [],
+          "outside_label_interval_rows": 258,
+          "reduced_stream_rows": 3919,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab38/2/motion.csv",
+          "rows": 1011000,
+          "errors": [],
+          "outside_label_interval_rows": 15685,
+          "reduced_stream_rows": 995315,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab52",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "e72fa4bba5b7a934249db58beac95e700dacc2375270f95b9d369bc6b00f0936",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 889,
+        "origins": 83,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "e72fa4bba5b7a934249db58beac95e700dacc2375270f95b9d369bc6b00f0936"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab52/1/hr.csv",
+          "sha256": "23892b5e39349ac0b6372a67af6dea4ec09da676e6f05dc82f6f8ea65620dfe1",
+          "bytes": 266071,
+          "observed_bytes": 266071,
+          "observed_sha256": "23892b5e39349ac0b6372a67af6dea4ec09da676e6f05dc82f6f8ea65620dfe1",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab52/1/motion.csv",
+          "sha256": "22b2e2051df300de0ba89f76f40b389418cc0a93ff0ee9adba10e81ea92e3172",
+          "bytes": 230402280,
+          "observed_bytes": 230402280,
+          "observed_sha256": "22b2e2051df300de0ba89f76f40b389418cc0a93ff0ee9adba10e81ea92e3172",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab52/1/labels.mat",
+          "sha256": "4b5407563bf0cf8e5df2ee628a757f7b684e24ea4dd28560bc664793e957bbd7",
+          "bytes": 498,
+          "observed_bytes": 498,
+          "observed_sha256": "4b5407563bf0cf8e5df2ee628a757f7b684e24ea4dd28560bc664793e957bbd7",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab52/1/hr.csv",
+          "rows": 11066,
+          "errors": [],
+          "outside_label_interval_rows": 5727,
+          "reduced_stream_rows": 5339,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab52/1/motion.csv",
+          "rows": 3109000,
+          "errors": [],
+          "outside_label_interval_rows": 1473146,
+          "reduced_stream_rows": 1635854,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab52",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "2e52f1d28145a98f504df63126afaddd425a8c1504cb88a28c175a5f7e735074",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 802,
+        "origins": 75,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "2e52f1d28145a98f504df63126afaddd425a8c1504cb88a28c175a5f7e735074"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab52/2/hr.csv",
+          "sha256": "6091fcad09b095010e666fb0978ef76c64e0e652ab8a89af97327158bb3d2617",
+          "bytes": 115197,
+          "observed_bytes": 115197,
+          "observed_sha256": "6091fcad09b095010e666fb0978ef76c64e0e652ab8a89af97327158bb3d2617",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab52/2/motion.csv",
+          "sha256": "6d3b5199c7f6f547ca4005174cfd44a03b0d38a1728d5bcf787b1762aed6417d",
+          "bytes": 109005488,
+          "observed_bytes": 109005488,
+          "observed_sha256": "6d3b5199c7f6f547ca4005174cfd44a03b0d38a1728d5bcf787b1762aed6417d",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab52/2/labels.mat",
+          "sha256": "946723a95d0d96ec4ba1a757f2d0abde243c9e69173ae5dcb46152feb2476b2a",
+          "bytes": 501,
+          "observed_bytes": 501,
+          "observed_sha256": "946723a95d0d96ec4ba1a757f2d0abde243c9e69173ae5dcb46152feb2476b2a",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab52/2/hr.csv",
+          "rows": 4800,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 4800,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab52/2/motion.csv",
+          "rows": 1473000,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 1473000,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab07",
+      "night": "1",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "2059873aed2a4b26951fc9f3cec29716864bbe5587da15e6035d470e70595d6d",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 1066,
+        "origins": 101,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "2059873aed2a4b26951fc9f3cec29716864bbe5587da15e6035d470e70595d6d"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab07/1/hr.csv",
+          "sha256": "ac8c232523739cd12901639b7e249e4fad4e40a44d04d370b5528636b6e7900d",
+          "bytes": 271112,
+          "observed_bytes": 271112,
+          "observed_sha256": "ac8c232523739cd12901639b7e249e4fad4e40a44d04d370b5528636b6e7900d",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab07/1/motion.csv",
+          "sha256": "973983497b80292e369e91b11c2edd2d96b645359c7bae6425057436e7636a45",
+          "bytes": 212500278,
+          "observed_bytes": 212500278,
+          "observed_sha256": "973983497b80292e369e91b11c2edd2d96b645359c7bae6425057436e7636a45",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab07/1/labels.mat",
+          "sha256": "c9fb276dd9fc82939c50954dfcc1dfe7cb86fc3ca76bb5a5fecc6a542542345c",
+          "bytes": 583,
+          "observed_bytes": 583,
+          "observed_sha256": "c9fb276dd9fc82939c50954dfcc1dfe7cb86fc3ca76bb5a5fecc6a542542345c",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab07/1/hr.csv",
+          "rows": 11588,
+          "errors": [],
+          "outside_label_interval_rows": 5192,
+          "reduced_stream_rows": 6396,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab07/1/motion.csv",
+          "rows": 2860000,
+          "errors": [],
+          "outside_label_interval_rows": 1259468,
+          "reduced_stream_rows": 1600532,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab07",
+      "night": "2",
+      "partition": "train",
+      "status": "complete",
+      "cache_sha256": "78a724cd6efdeddfbee2ff76d5bc71813ac28bf3b704bfc41fb635224aa2c25c",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 891,
+        "origins": 84,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "78a724cd6efdeddfbee2ff76d5bc71813ac28bf3b704bfc41fb635224aa2c25c"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab07/2/hr.csv",
+          "sha256": "982d26af7321f1805d3930de85120c2869938ae2e7c7369c45a7a2c101df2801",
+          "bytes": 390261,
+          "observed_bytes": 390261,
+          "observed_sha256": "982d26af7321f1805d3930de85120c2869938ae2e7c7369c45a7a2c101df2801",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab07/2/motion.csv",
+          "sha256": "75ca0fd20684ffdf26b0d73e56ec1af59f72ccc164c9efe3f0e76222ea32f6ea",
+          "bytes": 305534262,
+          "observed_bytes": 305534262,
+          "observed_sha256": "75ca0fd20684ffdf26b0d73e56ec1af59f72ccc164c9efe3f0e76222ea32f6ea",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab07/2/labels.mat",
+          "sha256": "0a2d9d9384727fad7470e083e753ace6e20ce538b2947871e4dd397efe93e82b",
+          "bytes": 537,
+          "observed_bytes": 537,
+          "observed_sha256": "0a2d9d9384727fad7470e083e753ace6e20ce538b2947871e4dd397efe93e82b",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab07/2/hr.csv",
+          "rows": 16703,
+          "errors": [],
+          "outside_label_interval_rows": 11361,
+          "reduced_stream_rows": 5342,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab07/2/motion.csv",
+          "rows": 4108000,
+          "errors": [],
+          "outside_label_interval_rows": 2768255,
+          "reduced_stream_rows": 1339745,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab50",
+      "night": "1",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "45629aed52a593b5b09b20f786ba06f9a81f37a4bd3320d522d10c0dac9024ef",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 878,
+        "origins": 82,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "45629aed52a593b5b09b20f786ba06f9a81f37a4bd3320d522d10c0dac9024ef"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab50/1/hr.csv",
+          "sha256": "dd64f1f1a0020a03dd325ce1c7e29224742cce8e29c9df176336825286120094",
+          "bytes": 210187,
+          "observed_bytes": 210187,
+          "observed_sha256": "dd64f1f1a0020a03dd325ce1c7e29224742cce8e29c9df176336825286120094",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab50/1/motion.csv",
+          "sha256": "fe65aa2c1233f46734c8524b55a858159bedb79ef64cabda3ad5d1f2cd5ac125",
+          "bytes": 161307254,
+          "observed_bytes": 161307254,
+          "observed_sha256": "fe65aa2c1233f46734c8524b55a858159bedb79ef64cabda3ad5d1f2cd5ac125",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab50/1/labels.mat",
+          "sha256": "611ce7d278fc54bb8a7eb01baa877bc8804598b5c8917f5081ea91b637d600a3",
+          "bytes": 537,
+          "observed_bytes": 537,
+          "observed_sha256": "611ce7d278fc54bb8a7eb01baa877bc8804598b5c8917f5081ea91b637d600a3",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab50/1/hr.csv",
+          "rows": 9060,
+          "errors": [],
+          "outside_label_interval_rows": 3798,
+          "reduced_stream_rows": 5262,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab50/1/motion.csv",
+          "rows": 2180191,
+          "errors": [],
+          "outside_label_interval_rows": 864296,
+          "reduced_stream_rows": 1315895,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab50",
+      "night": "2",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "79b9608fcf5eef3b4ade2143ddd295f175b4da431a651e09d2c5aa570dfcecb8",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 867,
+        "origins": 81,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "79b9608fcf5eef3b4ade2143ddd295f175b4da431a651e09d2c5aa570dfcecb8"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab50/2/hr.csv",
+          "sha256": "f6ca8b5846457b928277e0eab1185d70ee7cb304cfd40dca223c1d75957bec89",
+          "bytes": 121845,
+          "observed_bytes": 121845,
+          "observed_sha256": "f6ca8b5846457b928277e0eab1185d70ee7cb304cfd40dca223c1d75957bec89",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab50/2/motion.csv",
+          "sha256": "8a28360b6beddd482d774fd699f5b56e529d745c6726f0674bf97057c55f30f3",
+          "bytes": 96084171,
+          "observed_bytes": 96084171,
+          "observed_sha256": "8a28360b6beddd482d774fd699f5b56e529d745c6726f0674bf97057c55f30f3",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab50/2/labels.mat",
+          "sha256": "c22d3c77d6e824e702938cec318585f56a66fde8eb065ecfc57cd217b59ba2df",
+          "bytes": 488,
+          "observed_bytes": 488,
+          "observed_sha256": "c22d3c77d6e824e702938cec318585f56a66fde8eb065ecfc57cd217b59ba2df",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab50/2/hr.csv",
+          "rows": 5166,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 5166,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab50/2/motion.csv",
+          "rows": 1299000,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 1299000,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab45",
+      "night": "1",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "832ee749ce3d257d833df764ade03fb4791536968c3192e767f496dc25913601",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 843,
+        "origins": 79,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "832ee749ce3d257d833df764ade03fb4791536968c3192e767f496dc25913601"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab45/1/hr.csv",
+          "sha256": "7dfa616fbd60162c5142780557282fe706c55083c551230428f426a9b0f90d02",
+          "bytes": 118036,
+          "observed_bytes": 118036,
+          "observed_sha256": "7dfa616fbd60162c5142780557282fe706c55083c551230428f426a9b0f90d02",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab45/1/motion.csv",
+          "sha256": "3542fc3e8cb6870efdaf68bdac8d9e50dfc388623f532a922bb08f20bb52e6b1",
+          "bytes": 113443929,
+          "observed_bytes": 113443929,
+          "observed_sha256": "3542fc3e8cb6870efdaf68bdac8d9e50dfc388623f532a922bb08f20bb52e6b1",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab45/1/labels.mat",
+          "sha256": "ce349c7c82a455d0cbc5716e1b333476313de0c927d64fafaf44ed6f3b088109",
+          "bytes": 482,
+          "observed_bytes": 482,
+          "observed_sha256": "ce349c7c82a455d0cbc5716e1b333476313de0c927d64fafaf44ed6f3b088109",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab45/1/hr.csv",
+          "rows": 4987,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 4987,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab45/1/motion.csv",
+          "rows": 1535000,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 1535000,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab45",
+      "night": "2",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "f0638f0d0b48a948c6f80f9c0061389f93c965cf0a4054635b5b9226b258aa09",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 871,
+        "origins": 71,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "f0638f0d0b48a948c6f80f9c0061389f93c965cf0a4054635b5b9226b258aa09"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab45/2/hr.csv",
+          "sha256": "93bc48440fc9d5abcb363f91a034f46588538f29a36164a8208cc21a00aae10c",
+          "bytes": 106573,
+          "observed_bytes": 106573,
+          "observed_sha256": "93bc48440fc9d5abcb363f91a034f46588538f29a36164a8208cc21a00aae10c",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab45/2/motion.csv",
+          "sha256": "f6e9f0113fbd2bcb673254a8b481ef16055b9d050cb38cbee190a99041b476f6",
+          "bytes": 102049338,
+          "observed_bytes": 102049338,
+          "observed_sha256": "f6e9f0113fbd2bcb673254a8b481ef16055b9d050cb38cbee190a99041b476f6",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab45/2/labels.mat",
+          "sha256": "0a53734250889a086501259b6de240d3522ab6c4762bf646c73c8688394f4ce0",
+          "bytes": 555,
+          "observed_bytes": 555,
+          "observed_sha256": "0a53734250889a086501259b6de240d3522ab6c4762bf646c73c8688394f4ce0",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab45/2/hr.csv",
+          "rows": 4474,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 4474,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab45/2/motion.csv",
+          "rows": 1380000,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 1380000,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab68",
+      "night": "1",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "2b97f512c3ca8ba14e1b8f6ff292d4a539b5ed90eb76b3cee2efcdae4e399afb",
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab68/1/hr.csv",
+          "sha256": "c3ec0c5fe9f2e427a94c7e124ff0b933e2bdcc054974af47c4d3176967f53c0f",
+          "bytes": 276969,
+          "observed_bytes": 276969,
+          "observed_sha256": "c3ec0c5fe9f2e427a94c7e124ff0b933e2bdcc054974af47c4d3176967f53c0f",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab68/1/motion.csv",
+          "sha256": "8f75ace507876534c3fcb18c5876d6e9a9f7ecc3b7df4c747060f694837987df",
+          "bytes": 221478736,
+          "observed_bytes": 221478736,
+          "observed_sha256": "8f75ace507876534c3fcb18c5876d6e9a9f7ecc3b7df4c747060f694837987df",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab68/1/labels.mat",
+          "sha256": "d94d557f2d5cba082a999b11c31f99f23e408b6d05b0e57417edef9721aabc81",
+          "bytes": 512,
+          "observed_bytes": 512,
+          "observed_sha256": "d94d557f2d5cba082a999b11c31f99f23e408b6d05b0e57417edef9721aabc81",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [
+            {
+              "kind": "conflicting_duplicate",
+              "rows": [
+                5047,
+                5048
+              ],
+              "timestamps": [
+                "1661870776.0015454",
+                "1661870776.0015454"
+              ],
+              "delta_seconds": 0.0,
+              "cross_chunk": false,
+              "relation": "after",
+              "intersected_epochs": null,
+              "action": "outside_interval",
+              "registered": true
+            }
+          ],
+          "file": "Bidslab68/1/hr.csv",
+          "rows": 11674,
+          "errors": [],
+          "outside_label_interval_rows": 7048,
+          "reduced_stream_rows": 4626,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab68/1/motion.csv",
+          "rows": 2997000,
+          "errors": [],
+          "outside_label_interval_rows": 1576888,
+          "reduced_stream_rows": 1420112,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab68",
+      "night": "2",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "54bc7cac177689649034e8d2601d78832348e1e7f6c576dd22cf66ece9726930",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 796,
+        "origins": 63,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "54bc7cac177689649034e8d2601d78832348e1e7f6c576dd22cf66ece9726930"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab68/2/hr.csv",
+          "sha256": "14532e484e1985a26dc9de0c53e1ea18717290b881abb2407acfe97fff588bb0",
+          "bytes": 113704,
+          "observed_bytes": 113704,
+          "observed_sha256": "14532e484e1985a26dc9de0c53e1ea18717290b881abb2407acfe97fff588bb0",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab68/2/motion.csv",
+          "sha256": "cc6cc529c718988de6f6d3f8fea24de3814bd2c9583d5e3a5a47e6fec847080c",
+          "bytes": 108142869,
+          "observed_bytes": 108142869,
+          "observed_sha256": "cc6cc529c718988de6f6d3f8fea24de3814bd2c9583d5e3a5a47e6fec847080c",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab68/2/labels.mat",
+          "sha256": "acc15146407381434376c1e6983b0407794222974a36b1eca7c980226a750194",
+          "bytes": 467,
+          "observed_bytes": 467,
+          "observed_sha256": "acc15146407381434376c1e6983b0407794222974a36b1eca7c980226a750194",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab68/2/hr.csv",
+          "rows": 4769,
+          "errors": [],
+          "outside_label_interval_rows": 699,
+          "reduced_stream_rows": 4070,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab68/2/motion.csv",
+          "rows": 1464000,
+          "errors": [],
+          "outside_label_interval_rows": 214484,
+          "reduced_stream_rows": 1249516,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab42",
+      "night": "1",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "8a50e3bf23dff0a19bf3cbaa4cc55dd5d2812bbd269784a26241c91dbf6b507c",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 815,
+        "origins": 21,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "8a50e3bf23dff0a19bf3cbaa4cc55dd5d2812bbd269784a26241c91dbf6b507c"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab42/1/hr.csv",
+          "sha256": "53b830d1b440a626f24c33ec118ba48cf3b7735bac37094628a4c43270efd321",
+          "bytes": 238921,
+          "observed_bytes": 238921,
+          "observed_sha256": "53b830d1b440a626f24c33ec118ba48cf3b7735bac37094628a4c43270efd321",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab42/1/motion.csv",
+          "sha256": "5d1456a2319c323834f8da05ec02d24e066a0920f1d1c46e7271c1f25dfdf18d",
+          "bytes": 27094599,
+          "observed_bytes": 27094599,
+          "observed_sha256": "5d1456a2319c323834f8da05ec02d24e066a0920f1d1c46e7271c1f25dfdf18d",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab42/1/labels.mat",
+          "sha256": "6fb19e99f8674e8fdfffa9e449362de9aceb9ef067f31b05646cdca5d032a766",
+          "bytes": 517,
+          "observed_bytes": 517,
+          "observed_sha256": "6fb19e99f8674e8fdfffa9e449362de9aceb9ef067f31b05646cdca5d032a766",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab42/1/hr.csv",
+          "rows": 10071,
+          "errors": [],
+          "outside_label_interval_rows": 5852,
+          "reduced_stream_rows": 4219,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab42/1/motion.csv",
+          "rows": 365331,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 365331,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab42",
+      "night": "2",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "114ad88a321e770b237c412a3b6969f46133e7f83d7ddc04a6fb2aadf2fb7d44",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 961,
+        "origins": 91,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "114ad88a321e770b237c412a3b6969f46133e7f83d7ddc04a6fb2aadf2fb7d44"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab42/2/hr.csv",
+          "sha256": "1f4871ad76b81091468d23e1bdaa285c45bc2bb5f4c1207565a9f395d87e4c98",
+          "bytes": 126418,
+          "observed_bytes": 126418,
+          "observed_sha256": "1f4871ad76b81091468d23e1bdaa285c45bc2bb5f4c1207565a9f395d87e4c98",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab42/2/motion.csv",
+          "sha256": "88d7421bc608e5707878b68f9bb6a71b5e50d43cd99e06c25648e8f94b2ecfbb",
+          "bytes": 105269164,
+          "observed_bytes": 105269164,
+          "observed_sha256": "88d7421bc608e5707878b68f9bb6a71b5e50d43cd99e06c25648e8f94b2ecfbb",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab42/2/labels.mat",
+          "sha256": "148f870759e2305704df998dac38a76d44c29fcb312a28ab61ae572e8f6a4ae5",
+          "bytes": 515,
+          "observed_bytes": 515,
+          "observed_sha256": "148f870759e2305704df998dac38a76d44c29fcb312a28ab61ae572e8f6a4ae5",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab42/2/hr.csv",
+          "rows": 5312,
+          "errors": [],
+          "outside_label_interval_rows": 5,
+          "reduced_stream_rows": 5307,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab42/2/motion.csv",
+          "rows": 1422528,
+          "errors": [],
+          "outside_label_interval_rows": 1489,
+          "reduced_stream_rows": 1421039,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab35",
+      "night": "1",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "e91872d68f8120814ca2e5d18b240a615208e0e71ed52468dc4fed29888ea389",
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab35/1/hr.csv",
+          "sha256": "61f54c19e5feddfb505c5be57d75f0aadeec59f130ab09c3e17c4a1b5f3f657a",
+          "bytes": 120465,
+          "observed_bytes": 120465,
+          "observed_sha256": "61f54c19e5feddfb505c5be57d75f0aadeec59f130ab09c3e17c4a1b5f3f657a",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab35/1/motion.csv",
+          "sha256": "1f22b749b2d822a9a5e1b82076713f0ad845e97902740886e502e55a6c6f457d",
+          "bytes": 93833053,
+          "observed_bytes": 93833053,
+          "observed_sha256": "1f22b749b2d822a9a5e1b82076713f0ad845e97902740886e502e55a6c6f457d",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab35/1/labels.mat",
+          "sha256": "90f856fd53519d0b7176b28dd8a0757866465d6df3d73439e1baa46245485185",
+          "bytes": 543,
+          "observed_bytes": 543,
+          "observed_sha256": "90f856fd53519d0b7176b28dd8a0757866465d6df3d73439e1baa46245485185",
+          "status": "verified"
+        }
+      },
+      "mask_coverage": {
+        "epochs": [
+          25
+        ],
+        "candidate_origins": [
+          60,
+          70,
+          80
+        ],
+        "retained_origins": [
+          60,
+          70,
+          80
+        ],
+        "coverage_rejected_origins": [],
+        "lost_due_to_mask": [],
+        "histories": [
+          {
+            "origin": 60,
+            "joint_epochs_before": 57,
+            "joint_epochs_after": 56
+          },
+          {
+            "origin": 70,
+            "joint_epochs_before": 60,
+            "joint_epochs_after": 59
+          },
+          {
+            "origin": 80,
+            "joint_epochs_before": 60,
+            "joint_epochs_after": 59
+          }
+        ]
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab35/1/hr.csv",
+          "rows": 5021,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 5021,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [
+            {
+              "kind": "reversal",
+              "rows": [
+                36713,
+                36714
+              ],
+              "timestamps": [
+                "1635483855.863539",
+                "1635483855.700921"
+              ],
+              "delta_seconds": -0.162618,
+              "cross_chunk": false,
+              "relation": "inside",
+              "intersected_epochs": [
+                25,
+                25
+              ],
+              "action": "mask_acc_epoch",
+              "registered": true
+            }
+          ],
+          "file": "Bidslab35/1/motion.csv",
+          "rows": 1268000,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 1266492,
+          "masked_epochs": [
+            25
+          ],
+          "masked_valid_sample_counts": {
+            "25": 1508
+          }
+        }
+      }
+    },
+    {
+      "participant": "Bidslab35",
+      "night": "2",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "cd09662c5a59f68e7e3b5b7e25cc0806c5653dad5cb51d17d3ee63210298eeab",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 615,
+        "origins": 56,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "cd09662c5a59f68e7e3b5b7e25cc0806c5653dad5cb51d17d3ee63210298eeab"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab35/2/hr.csv",
+          "sha256": "437245f7ac9ea398d8d23ac969fa6119362971925199247d4ea0d7b7185c4635",
+          "bytes": 88036,
+          "observed_bytes": 88036,
+          "observed_sha256": "437245f7ac9ea398d8d23ac969fa6119362971925199247d4ea0d7b7185c4635",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab35/2/motion.csv",
+          "sha256": "48c510e5875f87ea8f4269163c927c615cc9a14db28cb4c4d4b0894c97552315",
+          "bytes": 68161080,
+          "observed_bytes": 68161080,
+          "observed_sha256": "48c510e5875f87ea8f4269163c927c615cc9a14db28cb4c4d4b0894c97552315",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab35/2/labels.mat",
+          "sha256": "963599ba3cbb1aed822faf358a35a8833dea0c4704fcadeb222634d1858e1efe",
+          "bytes": 509,
+          "observed_bytes": 509,
+          "observed_sha256": "963599ba3cbb1aed822faf358a35a8833dea0c4704fcadeb222634d1858e1efe",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab35/2/hr.csv",
+          "rows": 3669,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 3669,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab35/2/motion.csv",
+          "rows": 920000,
+          "errors": [],
+          "outside_label_interval_rows": 0,
+          "reduced_stream_rows": 920000,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab49",
+      "night": "1",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "0eedeee1c9d8e469b84078b259662e602d019103ef20403ecceedfc0c151d903",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 840,
+        "origins": 6,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "0eedeee1c9d8e469b84078b259662e602d019103ef20403ecceedfc0c151d903"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab49/1/hr.csv",
+          "sha256": "452849b238e5a4cd3bce2ff495ecf91ba6e208e86d98e7ca40b8475253ea3fd6",
+          "bytes": 208896,
+          "observed_bytes": 208896,
+          "observed_sha256": "452849b238e5a4cd3bce2ff495ecf91ba6e208e86d98e7ca40b8475253ea3fd6",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab49/1/motion.csv",
+          "sha256": "305e7ae3ddfc68f42489c7ec8270870bd2196ac60fd6c031309d48a13e8cd10f",
+          "bytes": 74370287,
+          "observed_bytes": 74370287,
+          "observed_sha256": "305e7ae3ddfc68f42489c7ec8270870bd2196ac60fd6c031309d48a13e8cd10f",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab49/1/labels.mat",
+          "sha256": "1ce544bfadd4e9f6cf7981ec008c8425c072bcae6e044a47f28bfaa9cffd3cb9",
+          "bytes": 488,
+          "observed_bytes": 488,
+          "observed_sha256": "1ce544bfadd4e9f6cf7981ec008c8425c072bcae6e044a47f28bfaa9cffd3cb9",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab49/1/hr.csv",
+          "rows": 8794,
+          "errors": [],
+          "outside_label_interval_rows": 3775,
+          "reduced_stream_rows": 5019,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab49/1/motion.csv",
+          "rows": 1000000,
+          "errors": [],
+          "outside_label_interval_rows": 844166,
+          "reduced_stream_rows": 155834,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab49",
+      "night": "2",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "95ad8148943e7fff72b85c31a97724b95f62c2bdfca2d04ec6c10d75e5f494e2",
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab49/2/hr.csv",
+          "sha256": "75b1100fdf39568c250f1660ead6127e3d55eebbffae706af0b37afb1003178f",
+          "bytes": 256808,
+          "observed_bytes": 256808,
+          "observed_sha256": "75b1100fdf39568c250f1660ead6127e3d55eebbffae706af0b37afb1003178f",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab49/2/motion.csv",
+          "sha256": "77a4e0606f8a512a2625262c71828a1d05e8f8494ad9097bbe41ae0c67789901",
+          "bytes": 195310979,
+          "observed_bytes": 195310979,
+          "observed_sha256": "77a4e0606f8a512a2625262c71828a1d05e8f8494ad9097bbe41ae0c67789901",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab49/2/labels.mat",
+          "sha256": "7c8734978e7fe41aa67886bc8b97726a67ae0c810fd25aa95883a85f3d9b70e4",
+          "bytes": 519,
+          "observed_bytes": 519,
+          "observed_sha256": "7c8734978e7fe41aa67886bc8b97726a67ae0c810fd25aa95883a85f3d9b70e4",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab49/2/hr.csv",
+          "rows": 10693,
+          "errors": [],
+          "outside_label_interval_rows": 6141,
+          "reduced_stream_rows": 4552,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [
+            {
+              "kind": "reversal",
+              "rows": [
+                2466112,
+                2466113
+              ],
+              "timestamps": [
+                "1661771727.5820498",
+                "1661771727.3267531"
+              ],
+              "delta_seconds": -0.2552967,
+              "cross_chunk": false,
+              "relation": "after",
+              "intersected_epochs": null,
+              "action": "outside_interval",
+              "registered": true
+            }
+          ],
+          "file": "Bidslab49/2/motion.csv",
+          "rows": 2631000,
+          "errors": [],
+          "outside_label_interval_rows": 1489000,
+          "reduced_stream_rows": 1142000,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab32",
+      "night": "1",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "6d6379fda8d12e91027822ebf293b9e180ba3f4cfae4d0f74658d88153ede566",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 993,
+        "origins": 94,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "6d6379fda8d12e91027822ebf293b9e180ba3f4cfae4d0f74658d88153ede566"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab32/1/hr.csv",
+          "sha256": "9e5483ae8acb3f4f860453e4f18aecb28a20d3f629179e5aa62944b7ea3b08b4",
+          "bytes": 145334,
+          "observed_bytes": 145334,
+          "observed_sha256": "9e5483ae8acb3f4f860453e4f18aecb28a20d3f629179e5aa62944b7ea3b08b4",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab32/1/motion.csv",
+          "sha256": "1076d46edd48b34e7a7fc3436e85536f12881207d58fcf08a39b050556803843",
+          "bytes": 109925750,
+          "observed_bytes": 109925750,
+          "observed_sha256": "1076d46edd48b34e7a7fc3436e85536f12881207d58fcf08a39b050556803843",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab32/1/labels.mat",
+          "sha256": "4fe61477c6c6490b8ba3e622c2461ea2f912b9b51fedcad2e252bbe9f93d335f",
+          "bytes": 513,
+          "observed_bytes": 513,
+          "observed_sha256": "4fe61477c6c6490b8ba3e622c2461ea2f912b9b51fedcad2e252bbe9f93d335f",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab32/1/hr.csv",
+          "rows": 6077,
+          "errors": [],
+          "outside_label_interval_rows": 122,
+          "reduced_stream_rows": 5955,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab32/1/motion.csv",
+          "rows": 1483000,
+          "errors": [],
+          "outside_label_interval_rows": 3000,
+          "reduced_stream_rows": 1480000,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    },
+    {
+      "participant": "Bidslab32",
+      "night": "2",
+      "partition": "validation",
+      "status": "complete",
+      "cache_sha256": "206f7c236bd47eb4af381719a7df2238f8a549f437b519e21556c63fa7701a04",
+      "strict_reference": {
+        "status": "identical",
+        "epochs": 1093,
+        "origins": 104,
+        "full_epoch_reference": "strict G3 reaggregation",
+        "prior_cache": "identical",
+        "prior_cache_sha256": "206f7c236bd47eb4af381719a7df2238f8a549f437b519e21556c63fa7701a04"
+      },
+      "verified_sources": {
+        "hr.csv": {
+          "path": "Bidslab32/2/hr.csv",
+          "sha256": "69e303e6658baf1b4ba0578fb0c9a4e4fb616d543431bf9f1301c97f3dc201f0",
+          "bytes": 159935,
+          "observed_bytes": 159935,
+          "observed_sha256": "69e303e6658baf1b4ba0578fb0c9a4e4fb616d543431bf9f1301c97f3dc201f0",
+          "status": "verified"
+        },
+        "motion.csv": {
+          "path": "Bidslab32/2/motion.csv",
+          "sha256": "ab76d6c3585c844f99ec3b6787b34e269568fbca54ca7f0842bc351ebe93ccd7",
+          "bytes": 120858277,
+          "observed_bytes": 120858277,
+          "observed_sha256": "ab76d6c3585c844f99ec3b6787b34e269568fbca54ca7f0842bc351ebe93ccd7",
+          "status": "verified"
+        },
+        "labels.mat": {
+          "path": "Bidslab32/2/labels.mat",
+          "sha256": "3c3563c60e56e99e85eb294f17a6d1537d73472778bbc1b7672e9adb21dce1c6",
+          "bytes": 509,
+          "observed_bytes": 509,
+          "observed_sha256": "3c3563c60e56e99e85eb294f17a6d1537d73472778bbc1b7672e9adb21dce1c6",
+          "status": "verified"
+        }
+      },
+      "sensors": {
+        "hr": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab32/2/hr.csv",
+          "rows": 6724,
+          "errors": [],
+          "outside_label_interval_rows": 173,
+          "reduced_stream_rows": 6551,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        },
+        "acc": {
+          "status": "complete",
+          "events": [],
+          "file": "Bidslab32/2/motion.csv",
+          "rows": 1632000,
+          "errors": [],
+          "outside_label_interval_rows": 1000,
+          "reduced_stream_rows": 1631000,
+          "masked_epochs": [],
+          "masked_valid_sample_counts": {}
+        }
+      }
+    }
+  ],
+  "origin_counts": {
+    "train": {
+      "candidate_origins": 2042,
+      "history_coverage_rejected": 106,
+      "retained_origins": 1936,
+      "full_future_span_origins": 1821,
+      "complete_target_origins": 1792,
+      "target_epochs_valid": 111786,
+      "target_epochs_unknown_inside_recording": 831,
+      "target_epochs_beyond_recording": 3543
+    },
+    "validation": {
+      "candidate_origins": 1119,
+      "history_coverage_rejected": 150,
+      "retained_origins": 969,
+      "full_future_span_origins": 903,
+      "complete_target_origins": 856,
+      "target_epochs_valid": 55176,
+      "target_epochs_unknown_inside_recording": 978,
+      "target_epochs_beyond_recording": 1986
+    }
+  }
+}

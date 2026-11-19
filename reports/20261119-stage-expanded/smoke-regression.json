@@ -1,0 +1,143 @@
+{
+  "reference_seed_sha256": "98d0cec20b6167212954cf9094707ba1f6b8b5be3cf1e1a989af1c19e4f86ed7",
+  "actual_seed_sha256": "08f8eb69f9c81923877297de4f4eda0f521f2fc6339da9d564c0dc079729c1cb",
+  "coverage": {
+    "participants": 2,
+    "nights": 2,
+    "origins": 161,
+    "complete_horizons": 121,
+    "complete_horizons_zero_wake": 96,
+    "valid_stage_targets": 8610,
+    "unknown_stage_targets": 1050,
+    "stage_support": {
+      "Wake": 426,
+      "Light": 4788,
+      "Deep": 1236,
+      "REM": 2160
+    }
+  },
+  "endpoint_differences": {
+    "stage_prior": {
+      "5": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "15": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "30": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      }
+    },
+    "persistence": {
+      "5": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "15": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "30": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      }
+    },
+    "direct": {
+      "5": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "15": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "30": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      }
+    },
+    "hr_only": {
+      "5": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "15": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "30": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      }
+    },
+    "fusion": {
+      "5": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "15": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "30": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      }
+    },
+    "explicit": {
+      "5": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "15": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      },
+      "30": {
+        "macro_f1": 0.0,
+        "wake_recall": 0.0,
+        "nll": 0.0,
+        "brier": 0.0
+      }
+    }
+  },
+  "largest_absolute_difference": 0.0,
+  "all_endpoint_confusion_matrices_equal": true
+}

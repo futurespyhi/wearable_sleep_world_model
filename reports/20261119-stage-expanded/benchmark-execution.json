@@ -1,0 +1,70 @@
+{
+  "spec_commit": "a5499473ca01e5980e96ca68e5bfc21f1ffdae06",
+  "code_commit": "43107763185e044dbc1ee570fef2ddd5fbb44306",
+  "run_id": "20261119-stage-expanded",
+  "phase": "benchmark-cpu",
+  "created_utc": "2026-11-19T09:50:11.542361+00:00",
+  "environment": {
+    "python": "3.10.8 | packaged by conda-forge | (main, Nov 22 2022, 08:26:04) [GCC 10.4.0]",
+    "python_path": "/apps/pytorch/1.13.0/bin/python",
+    "packages": {
+      "numpy": {
+        "version": "1.26.0",
+        "path": "/apps/pytorch/1.13.0/lib/python3.10/site-packages/numpy/__init__.py"
+      },
+      "scipy": {
+        "version": "1.11.3",
+        "path": "/apps/pytorch/1.13.0/lib/python3.10/site-packages/scipy/__init__.py"
+      },
+      "pandas": {
+        "version": "1.4.3",
+        "path": "/apps/pytorch/1.13.0/lib/python3.10/site-packages/pandas/__init__.py"
+      },
+      "torch": {
+        "version": "1.13.0+cu117",
+        "path": "/apps/pytorch/1.13.0/lib/python3.10/site-packages/torch/__init__.py"
+      }
+    },
+    "platform": "Linux-5.14.0-687.39.1.el9_8.x86_64-x86_64-with-glibc2.34",
+    "host": "c0709a-s30.ufhpc",
+    "slurm_job_id": "51964901",
+    "cpus_per_task": "2"
+  },
+  "mode": "benchmark",
+  "device": "cpu",
+  "seeds": [
+    0
+  ],
+  "epochs": 15,
+  "cache": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-stage-expanded/expanded-cache",
+  "audit_sha256": "99ab09c041feb8c0ca2edb58317324e367cc7786ebfb720c5373cd384c304a3c",
+  "status": "completed",
+  "timestamp_policy_sha256": "e8174563798d2d43df1cd314daae64311bd15b0da272134c5e2338c515d4cac3",
+  "cache_identity_sha256": "769709116695441b2bf65146058aa4c33b6908c02918c6b75ad5e02b2c1d8dd9",
+  "origins": {
+    "train": 1936,
+    "validation": 969
+  },
+  "standardization": {
+    "channels": [
+      "hr_mean",
+      "hr_std",
+      "acc_norm_std",
+      "acc_diff_rms"
+    ],
+    "center": [
+      67.77828241062177,
+      1.3665339342610456,
+      0.008730055877121593,
+      0.01172586520001035
+    ],
+    "scale": [
+      8.639688477224228,
+      1.660345656035592,
+      0.029213388876443362,
+      0.033326091407628634
+    ]
+  },
+  "elapsed_seconds": 2.40943886898458,
+  "peak_rss_mib": 452.21875
+}
