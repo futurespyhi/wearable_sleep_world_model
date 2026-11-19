@@ -102,6 +102,8 @@ def _aggregate_sensor(
     start: float,
     n_epochs: int,
     kind: str,
+    *,
+    collect_intervals: bool = False,
 ) -> tuple[dict[str, np.ndarray], dict[str, Any]]:
     sums = np.zeros(n_epochs, dtype=np.float64)
     squares = np.zeros(n_epochs, dtype=np.float64)
@@ -121,6 +123,8 @@ def _aggregate_sensor(
     previous_raw: np.ndarray | None = None
     previous_acc: np.ndarray | None = None
     previous_epoch: int | None = None
+    interval_count, interval_sum = 0, 0.0
+    interval_minimum, interval_maximum = np.inf, -np.inf
     options = {"header": None} if kind == "hr" else {"header": 0}
     try:
         chunks = pd.read_csv(path, chunksize=CSV_CHUNK_ROWS, dtype=np.float64, **options)
@@ -143,11 +147,23 @@ def _aggregate_sensor(
             if report["first_timestamp"] is None:
                 report["first_timestamp"] = float(timestamps[0])
             report["last_timestamp"] = float(timestamps[-1])
-            if np.any(np.diff(timestamps) < 0) or (
+            deltas = np.diff(timestamps)
+            if np.any(deltas < 0) or (
                 previous_raw is not None and timestamps[0] < previous_raw[0]
             ):
                 raise ValueError(f"{path.name}: timestamps must be nondecreasing; no automatic sorting")
-            duplicate = np.r_[False, np.diff(timestamps) == 0]
+            if collect_intervals:
+                if previous_raw is not None:
+                    deltas = np.r_[timestamps[0] - previous_raw[0], deltas]
+                positive = deltas[deltas > 0]
+                if positive.size:
+                    interval_count += len(positive)
+                    interval_sum += float(positive.sum())
+                    interval_minimum = min(interval_minimum, float(positive.min()))
+                    interval_maximum = max(interval_maximum, float(positive.max()))
+                if previous_raw is not None:
+                    deltas = deltas[1:]
+            duplicate = np.r_[False, deltas == 0]
             if previous_raw is not None and timestamps[0] == previous_raw[0]:
                 duplicate[0] = True
                 if not np.array_equal(raw[0], previous_raw, equal_nan=True):
@@ -203,6 +219,13 @@ def _aggregate_sensor(
     differences = np.full(n_epochs, np.nan)
     pairs = diff_counts > 0
     differences[pairs] = np.sqrt(diff_squares[pairs] / diff_counts[pairs])
+    if collect_intervals:
+        report["positive_raw_sample_intervals_seconds"] = {
+            "count": interval_count,
+            "min": interval_minimum if interval_count else None,
+            "max": interval_maximum if interval_count else None,
+            "mean": interval_sum / interval_count if interval_count else None,
+        }
     return {"mean": means, "std": std, "count": counts, "diff_rms": differences}, report
 
 
