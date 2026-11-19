@@ -1,5 +1,7 @@
 # Current status
 
+In the binary endpoint-change diagnostic, recent HR and wrist RMS levels and changes did not improve the forecast over recording time and the current-stage probabilities at +5, +15 or +30 minutes. At +30 minutes, adding those summaries raised NLL by 0.00363 and Brier by 0.00147, with both differences above zero after each validation-participant omission. The proposed four-stage integration criterion was not met. [Endpoint-change scores and participant sensitivity](reports/20261119-endpoint-change/report.md)
+
 On the 535 validation origins with different stages at cutoff and +30 min, the recording-time prior scored 1.1445 NLL, the time-specific transition using the wearable estimate scored 1.1504, and the same matrix using the expert cutoff stage scored 1.1549. The oracle did improve overall NLL (1.0837 vs 1.1082), with the benefit concentrated on matching endpoints. The +30 min change comparison did not pass. [Recording-time report and paired differences](reports/20261119-recording-time/report.md)
 
 The current-stage oracle diagnostic is complete. With the same trained transition matrices and both endpoint labels known at +30 min, using the expert cutoff stage reduced NLL by 0.0507 on average across seven validation participants. The mean difference (oracle minus wearable transition) was −0.1309 on 341 same-stage origins and +0.0122 on 535 changed-stage origins. [Oracle report and participant-paired results](reports/20261119-stage-oracle/report.md)
