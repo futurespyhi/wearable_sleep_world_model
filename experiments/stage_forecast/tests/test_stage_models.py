@@ -144,10 +144,16 @@ class ForecastTests(unittest.TestCase):
         self.assertEqual(parameters["fusion"], parameters["explicit"])
 
     def test_mutating_raw_data_at_and_after_cutoff_preserves_every_forecast(self):
+        self._check_all_cutoff_forecasts(masked=False)
+
+    def test_policy_masked_history_is_invariant_to_future_sensor_and_label_changes(self):
+        self._check_all_cutoff_forecasts(masked=True)
+
+    def _check_all_cutoff_forecasts(self, *, masked):
         from test_stage_data import cutoff_mutation_histories
 
         with TemporaryDirectory() as temporary:
-            before, after = cutoff_mutation_histories(Path(temporary))
+            before, after = cutoff_mutation_histories(Path(temporary) / "Bidslab00" / "1", masked=masked)
         np.testing.assert_array_equal(before.origin, after.origin)
         np.testing.assert_array_equal(before.origin_time, after.origin_time)
         np.testing.assert_array_equal(before.history, after.history)

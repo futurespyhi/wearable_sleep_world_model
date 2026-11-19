@@ -35,12 +35,30 @@ def _write_night(path: Path, mutate_future: bool = False):
     (path / "motion.csv").write_text("".join(acc_rows))
 
 
-def cutoff_mutation_histories(path: Path) -> tuple[StageWindows, StageWindows]:
+def cutoff_mutation_histories(path: Path, *, masked=False) -> tuple[StageWindows, StageWindows]:
     """Reparse raw future mutations, keeping the shared 30-minute history."""
     first_origin = []
     for mutate in (False, True):
         _write_night(path, mutate)
-        episode, labels = load_stage_night(path)
+        args = {}
+        if masked:
+            from sleep_g3.protocol import sha256_file
+            motion_file = path / "motion.csv"
+            rows = motion_file.read_text().splitlines()
+            ts = START + 30 * 32
+            rows[65] = f"{ts + 3},0,0,1"
+            motion_file.write_text("\n".join(rows) + "\n")
+            sources = {name: {"status": "verified", "sha256": sha256_file(path / name)}
+                       for name in ("motion.csv", "hr.csv")}
+            event = {"path": f"{path.parent.name}/{path.name}/motion.csv",
+                     "sha256": sources["motion.csv"]["sha256"], "kind": "reversal",
+                     "rows": [66, 67], "timestamps": [str(ts + 3), str(ts + 2)],
+                     "relation": "inside", "epoch": 32, "action": "mask_acc_epoch"}
+            args = {"policy": {"schema": "stage_event_time_v1", "events": [event]}, "verified_sources": sources}
+        episode, labels = load_stage_night(path, **args)
+        if masked:
+            np.testing.assert_array_equal(episode.features[32, 2:5], [np.nan] * 3)
+            assert episode.features[32, 6] == 0
         windows, _ = build_stage_windows(episode, labels)
         first = windows.origin == 60
         first_origin.append(StageWindows(**{

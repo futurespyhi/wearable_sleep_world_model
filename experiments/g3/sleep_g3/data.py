@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any, Callable, Iterable
 
 import numpy as np
 import pandas as pd
@@ -104,6 +104,7 @@ def _aggregate_sensor(
     kind: str,
     *,
     collect_intervals: bool = False,
+    select_raw: Callable[[np.ndarray], np.ndarray] | None = None,
 ) -> tuple[dict[str, np.ndarray], dict[str, Any]]:
     sums = np.zeros(n_epochs, dtype=np.float64)
     squares = np.zeros(n_epochs, dtype=np.float64)
@@ -138,6 +139,8 @@ def _aggregate_sensor(
             if kind == "acc" and list(chunk.columns) != ["Timestamp", "x", "y", "z"]:
                 raise ValueError("motion.csv must have Timestamp,x,y,z headers")
             raw = chunk.to_numpy(dtype=np.float64)
+            if select_raw is not None:
+                raw = select_raw(raw)
             if not len(raw):
                 continue
             timestamps = raw[:, 0]

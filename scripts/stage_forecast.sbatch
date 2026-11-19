@@ -24,40 +24,47 @@ g3() {
 }
 
 audit() {
+    local cohort=$1 protocol=$2 output=$3
+    shift 3
     g3 -m stage_forecast audit --spec-commit "$spec_commit" --code-commit "$code_commit" \
-        --source-root "$historical/work/$1" --protocol "$checkout/experiments/g3/$2" --output "$3"
+        --source-root "$historical/work/$cohort" --protocol "$checkout/experiments/g3/$protocol" --output "$output" "$@"
 }
 
 case "$mode" in
     smoke)
         g3 -m unittest discover -v -s "$checkout/experiments/g3/tests"
         stage_tests="$checkout/experiments/stage_forecast/tests"
-        g3 -m unittest discover -v -s "$stage_tests" -p test_stage_data.py
-        g3 -m unittest discover -v -s "$stage_tests" -p test_stage_metrics.py
-        if stage -c 'import numpy, scipy, pandas, torch; print(numpy.__version__, scipy.__version__, pandas.__version__, torch.__version__, torch.ones(1))'; then
-            stage -m unittest discover -v -s "$stage_tests" -p test_stage_models.py
-            audit pilot_seed40 protocol.json "$artifacts/smoke-cache"
-            stage -m stage_forecast run --spec-commit "$spec_commit" --code-commit "$code_commit" \
-                --cache "$artifacts/smoke-cache" --output "$artifacts/smoke" --seeds 0
-        else
-            printf 'PyTorch runtime unavailable. Run the stage-prior and persistence fallback.\n' >&2
-            audit pilot_seed40 protocol.json "$artifacts/smoke-cache"
-            g3 -m stage_forecast run --spec-commit "$spec_commit" --code-commit "$code_commit" \
-                --cache "$artifacts/smoke-cache" --output "$artifacts/smoke-baselines" --seeds 0 --baselines-only
-        fi
+        for suite in "$stage_tests"/test_*.py; do
+            [[ ${suite##*/} == test_stage_models.py ]] && continue
+            g3 -m unittest discover -v -s "$stage_tests" -p "${suite##*/}"
+        done
+        stage -c 'import torch; print(torch.__version__)'
+        stage -m unittest discover -v -s "$stage_tests" -p test_stage_models.py
+        audit pilot_seed40 protocol.json "$artifacts/smoke-cache"
+        stage -m stage_forecast run --spec-commit "$spec_commit" --code-commit "$code_commit" \
+            --cache "$artifacts/smoke-cache" --output "$artifacts/smoke" --seeds 0
+        stage -m stage_forecast.regression "$checkout/reports/20261119-first-round/seed-0.json" "$artifacts/smoke"
         ;;
     audit)
-        audit expanded_seed40_12t7v2n expanded_protocol.json "$artifacts/expanded-cache"
+        audit_args=(--timestamp-policy "${STAGE_TIMESTAMP_POLICY:?expanded audit requires the fixed policy}")
+        if [[ -n ${STAGE_REFERENCE_CACHE:-} ]]; then
+            audit_args+=(--reference-cache "$STAGE_REFERENCE_CACHE")
+        fi
+        audit expanded_seed40_12t7v2n expanded_protocol.json "$artifacts/expanded-cache" "${audit_args[@]}"
         ;;
-    benchmark)
-        stage -m stage_forecast benchmark --spec-commit "$spec_commit" --code-commit "$code_commit" \
-            --cache "$artifacts/expanded-cache" --output "$artifacts/benchmark-${STAGE_DEVICE:-cpu}" \
-            --device "${STAGE_DEVICE:-cpu}" --seeds 0
-        ;;
-    expanded)
-        stage -m stage_forecast run --spec-commit "$spec_commit" --code-commit "$code_commit" \
-            --cache "$artifacts/expanded-cache" --output "$artifacts/expanded" \
-            --device "${STAGE_DEVICE:-cpu}" --seeds 0 1 2
+    benchmark|expanded)
+        command=benchmark
+        output="benchmark-${STAGE_DEVICE:-cpu}"
+        seeds=(0)
+        if [[ $mode == expanded ]]; then
+            command=run
+            output=expanded
+            seeds=(0 1 2)
+        fi
+        stage -m stage_forecast "$command" --spec-commit "$spec_commit" --code-commit "$code_commit" \
+            --cache "$artifacts/expanded-cache" --output "$artifacts/$output" \
+            --timestamp-policy "${STAGE_TIMESTAMP_POLICY:?expanded comparison requires the fixed policy}" \
+            --device "${STAGE_DEVICE:-cpu}" --seeds "${seeds[@]}"
         ;;
     *)
         printf 'Unknown mode: %s\n' "$mode" >&2

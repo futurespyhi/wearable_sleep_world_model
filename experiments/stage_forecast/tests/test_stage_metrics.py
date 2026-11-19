@@ -1,11 +1,71 @@
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from types import SimpleNamespace
+import json
 
 import numpy as np
 
 from stage_forecast.metrics import score_seed, summarize_seeds
+from stage_forecast.reporting import (
+    METHODS, EXPANDED_CONTRASTS, score_expanded_seed, write_expanded_summary,
+)
 
 
 class StageMetricsTest(unittest.TestCase):
+    def test_expanded_scores_use_same_predictions_and_gate_on_all_three_seeds(self):
+        # Only the low-coverage history of the first person differs between
+        # arms. The same cutoff epoch for the second person must stay included.
+        people = np.array(["A", "A", "A", "B", "B"])
+        cutoff = np.array([60, 70, 80, 60, 70])
+        stage = np.full((5, 60), -1, dtype=int)
+        stage[:, 59] = [3, 0, 1, 2, 3]
+        val = SimpleNamespace(participant=people, night=np.repeat("1", 5), origin=cutoff, stage=stage)
+        good = np.tile(np.array([0., 1., 0., 0.]), (5, 60, 1))
+        good[:, 59] = np.eye(4)[stage[:, 59]]
+        other = good.copy()
+        other[0, 59] = np.eye(4)[0]
+        probs = {arm: good if arm == "explicit" else other for arm in METHODS}
+        audit = {"cache_identity_sha256": "example", "nights": [
+            {"partition": "validation", "participant": "A", "night": "1",
+             "mask_coverage": {"epochs": [0], "retained_origins": [60]}}
+        ]}
+        scored = score_seed(stage, people, val.night, cutoff * 30, probs, training_target=stage,
+                            contrasts=EXPANDED_CONTRASTS)
+        scored["fit"] = {}
+        with TemporaryDirectory() as tmp:
+            out = Path(tmp)
+            scored["expanded"] = score_expanded_seed(val, probs, audit=audit, participant_output=out/"per_person.json")
+            self.assertEqual(scored["expanded"]["restricted_primary_delta"], 0)
+            self.assertEqual(scored["expanded"]["restricted_at_30"]["fusion"]["origins"], 4)
+            self.assertEqual(set(json.loads((out/"per_person.json").read_text())), {"A", "B"})
+            scores = {s: scored for s in (0, 1, 2)}
+            aggregate = summarize_seeds(scores)
+            write_expanded_summary(out, scores, aggregate)
+            main = aggregate["expanded"]
+            self.assertIs(main["advance_explicit"], True)
+            self.assertGreater(main["primary"]["min_delta"], 0)
+            self.assertEqual(main["restricted_primary"]["mean_delta"], 0)
+            self.assertEqual(main["restricted_30_min_support"], dict.fromkeys(("Wake", "Light", "Deep", "REM"), 1))
+            self.assertIn("Advance the explicit", (out/"results.md").read_text())
+            # Missing seed evidence, a tied F1 seed, or worse calibration must
+            # never independently satisfy all three progression criteria.
+            partial = {0: scored}
+            partial_aggregate = summarize_seeds(partial)
+            write_expanded_summary(out, partial, partial_aggregate)
+            self.assertIsNone(partial_aggregate["expanded"]["advance_explicit"])
+            pair = aggregate["paired_differences"]["explicit_minus_fusion"]
+            pair["leads"]["30"]["macro_f1"]["positive_seeds"] = 2
+            write_expanded_summary(out, scores, aggregate)
+            self.assertIs(aggregate["expanded"]["advance_explicit"], False)
+            pair["leads"]["30"]["macro_f1"]["positive_seeds"] = 3
+            pair["nll"]["mean_delta"] = 0.001
+            write_expanded_summary(out, scores, aggregate)
+            self.assertIs(aggregate["expanded"]["advance_explicit"], False)
+            audit["nights"][0]["mask_coverage"]["retained_origins"] = [90]
+            with self.assertRaisesRegex(ValueError, "missing from predictions"):
+                score_expanded_seed(val, probs, audit=audit, participant_output=out/"per_person.json")
+
     def test_equal_participants_endpoint_missing_and_pairing(self):
         target = np.full((5, 60), -1, dtype=int)
         target[:, 9] = (0, 1, 2, 3, 0)

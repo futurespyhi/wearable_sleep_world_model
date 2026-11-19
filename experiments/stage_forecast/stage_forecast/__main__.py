@@ -2,6 +2,7 @@
 
 import argparse
 import importlib
+import json
 import os
 import platform
 import resource
@@ -63,8 +64,13 @@ def audit(args):
         raise FileExistsError(f"Use a distinct output directory: {args.output}")
     write_json(metadata, provenance)
     try:
-        result = build_cache(args.source_root, args.protocol, args.output)
+        result = build_cache(args.source_root, args.protocol, args.output,
+                             timestamp_policy=args.timestamp_policy, reference_cache=args.reference_cache)
         provenance["audit_status"] = result["status"]
+        provenance["audit_sha256"] = sha256_file(args.output / "audit.json")
+        if args.timestamp_policy is not None:
+            from .audit_summary import audit_summary
+            write_json(args.output / "audit_summary.json", audit_summary(result))
     except Exception as exc:
         provenance["audit_status"] = "error"
         provenance["error"] = str(exc)
@@ -102,7 +108,26 @@ def run(args):
         raise FileExistsError(f"Use a distinct output directory: {args.output}")
     write_json(execution_path, provenance)
     try:
-        windows = load_cache(args.cache)
+        audit_record = json.loads(audit_path.read_text())
+        formal = args.timestamp_policy is not None
+        if formal:
+            audit_execution = json.loads((args.cache / "audit_execution.json").read_text())
+            if any(audit_execution[k] != provenance[k] for k in ("code_commit", "spec_commit")):
+                raise ValueError("expanded run and cache must use the same spec and executed code")
+            provenance["timestamp_policy_sha256"] = sha256_file(args.timestamp_policy)
+            provenance["cache_identity_sha256"] = audit_record["cache_identity_sha256"]
+            if args.command == "run":
+                timing_dir = args.output.parent / f"benchmark-{args.device}"
+                timing_execution = json.loads((timing_dir / "execution.json").read_text())
+                timing = json.loads((timing_dir / "timing.json").read_text())
+                checks = ("code_commit", "spec_commit", "audit_sha256", "cache_identity_sha256",
+                          "timestamp_policy_sha256", "device")
+                if (timing_execution["mode"] != "benchmark" or timing_execution["status"] != "completed"
+                        or any(timing_execution[key] != provenance[key] for key in checks)
+                        or timing["arm"] != "explicit" or timing["epochs"] != 1):
+                    raise ValueError("expanded training requires completed one-epoch timing on this cache")
+                provenance["benchmark_execution_sha256"] = sha256_file(timing_dir / "execution.json")
+        windows = load_cache(args.cache, timestamp_policy=args.timestamp_policy)
         train, val = windows["train"], windows["val"]
         scaler = fit_standardizer(train)
         train_hr, train_acc = scaler.transform(train.history)
@@ -171,6 +196,9 @@ def run(args):
                     )
                     print(f"Finished {arm} seed={seed} in {timing[arm]['fit_seconds']:.2f}s", flush=True)
                 contrasts = [] if args.baselines_only else [("explicit", "fusion"), ("explicit", "direct")]
+                if formal:
+                    from .reporting import EXPANDED_CONTRASTS, score_expanded_seed
+                    contrasts = list(EXPANDED_CONTRASTS)
                 scoring_started = time.monotonic()
                 scores[seed] = score_seed(
                     val.stage, val.participant, val.night, val.origin_time, probabilities,
@@ -178,6 +206,11 @@ def run(args):
                     future_hr=val.future_hr, future_hr_mask=val.future_hr_mask,
                     hr_predictions=hr_predictions, last_hr=last_hr, contrasts=contrasts,
                 )
+                if formal:
+                    scores[seed]["expanded"] = score_expanded_seed(
+                        val, probabilities, audit=audit_record,
+                        participant_output=args.output / f"seed-{seed}-participants.json",
+                    )
                 np.savez_compressed(
                     args.output / f"seed-{seed}-predictions.npz",
                     participant=val.participant, night=val.night, origin_time=val.origin_time,
@@ -187,7 +220,11 @@ def run(args):
                 scores[seed]["fit"] = timing
                 scores[seed]["scoring_seconds"] = time.monotonic() - scoring_started
                 write_json(args.output / f"seed-{seed}.json", scores[seed])
-            write_json(args.output / "aggregate.json", summarize_seeds(scores))
+            aggregate = summarize_seeds(scores)
+            if formal:
+                from .reporting import write_expanded_summary
+                write_expanded_summary(args.output, scores, aggregate)
+            write_json(args.output / "aggregate.json", aggregate)
         provenance["status"] = "completed"
     except Exception as exc:
         provenance["status"] = "failed"
@@ -208,7 +245,9 @@ def main(argv=None):
         command.add_argument("--output", required=True, type=Path)
         command.add_argument("--spec-commit", required=True)
         command.add_argument("--code-commit", required=True)
+        command.add_argument("--timestamp-policy", type=Path)
         if name == "audit":
+            command.add_argument("--reference-cache", type=Path)
             command.add_argument("--source-root", required=True, type=Path)
             command.add_argument("--protocol", required=True, type=Path)
         else:

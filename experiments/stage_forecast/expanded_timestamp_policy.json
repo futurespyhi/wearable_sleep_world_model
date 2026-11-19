@@ -1,0 +1,34 @@
+{
+  "schema": "stage_event_time_v1",
+  "protocol_sha256": "a9810ed6f6272bf775b2a81e0afc97bdd24ce0ed559f510c73502d2aa9fe3032",
+  "acquisition_sha256": "0eee6117f4f51aab91b46bba98341e8ae975218cfec01d638378a98c7a47c343",
+  "interval": "[recStart, recStart + 30 * len(expert_label))",
+  "outside_same_side": "audit_and_filter_by_timestamp",
+  "events": [
+    {
+      "path": "Bidslab36/1/motion.csv", "sha256": "b8ac748f78a46e22aa210013966a145aef016526ae33a88368eadfeb2da924f0",
+      "kind": "reversal", "rows": [54622, 54623], "timestamps": ["1639025868.327419", "1639025868.144105"],
+      "relation": "inside", "epoch": 32, "action": "mask_acc_epoch"
+    },
+    {
+      "path": "Bidslab35/1/motion.csv", "sha256": "1f22b749b2d822a9a5e1b82076713f0ad845e97902740886e502e55a6c6f457d",
+      "kind": "reversal", "rows": [36713, 36714], "timestamps": ["1635483855.863539", "1635483855.700921"],
+      "relation": "inside", "epoch": 25, "action": "mask_acc_epoch"
+    },
+    {
+      "path": "Bidslab44/1/hr.csv", "sha256": "7680fd7457bce3bd93de9de8799a50127217778a377bc9aa92b0081b3a7593e5",
+      "kind": "conflicting_duplicate", "rows": [6681, 6682], "timestamps": ["1630351469.2980924", "1630351469.2980924"],
+      "relation": "after", "action": "outside_interval"
+    },
+    {
+      "path": "Bidslab68/1/hr.csv", "sha256": "c3ec0c5fe9f2e427a94c7e124ff0b933e2bdcc054974af47c4d3176967f53c0f",
+      "kind": "conflicting_duplicate", "rows": [5047, 5048], "timestamps": ["1661870776.0015454", "1661870776.0015454"],
+      "relation": "after", "action": "outside_interval"
+    },
+    {
+      "path": "Bidslab49/2/motion.csv", "sha256": "77a4e0606f8a512a2625262c71828a1d05e8f8494ad9097bbe41ae0c67789901",
+      "kind": "reversal", "rows": [2466112, 2466113], "timestamps": ["1661771727.5820498", "1661771727.3267531"],
+      "relation": "after", "action": "outside_interval"
+    }
+  ]
+}

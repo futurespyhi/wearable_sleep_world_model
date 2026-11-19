@@ -18,6 +18,7 @@ from sleep_g3 import data as g3
 from sleep_g3.protocol import participant_split, read_catalog, select_records, sha256_file, write_json
 from sleep_g3.runner import _acquisition, _window_kwargs
 
+from . import cache_gate
 from .timestamps import inspect_timestamps
 
 
@@ -66,7 +67,16 @@ def _counts_summary(count: np.ndarray) -> dict[str, int | float]:
     }
 
 
-def load_stage_night(path: Path, participant: str | None = None, night: str | None = None):
+class SensorAuditFailure(ValueError):
+    def __init__(self, reports):
+        self.reports = reports
+        reasons = {name: (report.get("error") or report.get("errors") or "see events") for name, report in reports.items()
+                   if report["status"] != "complete"}
+        super().__init__(f"sensor audit failed: {reasons}")
+
+
+def load_stage_night(path: Path, participant: str | None = None, night: str | None = None,
+                     *, policy=None, verified_sources=None):
     """Read and align G3 wrist features with the uncollapsed expert labels."""
     path = Path(path)
     mat = loadmat(path / "labels.mat", squeeze_me=True)
@@ -77,13 +87,35 @@ def load_stage_night(path: Path, participant: str | None = None, night: str | No
 
     sensor, reports = {}, {}
     for kind, name in (("hr", "hr.csv"), ("acc", "motion.csv")):
-        try:
-            sensor[kind], reports[kind] = g3._aggregate_sensor(
-                path / name, start, len(stage), kind, collect_intervals=True
-            )
-        except ValueError as reason:
-            raise SensorFailure(path / name, reason, start, stage) from reason
+        if policy is None:
+            try:
+                sensor[kind], reports[kind] = g3._aggregate_sensor(
+                    path / name, start, len(stage), kind, collect_intervals=True
+                )
+            except ValueError as reason:
+                raise SensorFailure(path / name, reason, start, stage) from reason
+        else:
+            from .timestamp_policy import aggregate_with_policy
+
+            relative = f"{participant or path.parent.name}/{night or path.name}/{name}"
+            source = verified_sources[name]
+            if source["status"] != "verified":
+                reports[kind] = {"status": "failed", "file": relative, "error": source["error"]}
+                continue
+            try:
+                sensor[kind], reports[kind] = aggregate_with_policy(
+                    path / name, start, len(stage), kind, relative=relative,
+                    receipt_sha256=source["sha256"], policy=policy,
+                )
+            except Exception as error:
+                reports[kind] = {"status": "failed", "file": relative,
+                                 "error": f"{type(error).__name__}: {error}"}
+            if reports[kind]["status"] != "complete":
+                continue
         reports[kind]["samples_per_epoch"] = _counts_summary(sensor[kind]["count"])
+
+    if policy is not None and any(report["status"] != "complete" for report in reports.values()):
+        raise SensorAuditFailure(reports)
 
     hr, acc = sensor["hr"], sensor["acc"]
     features = np.column_stack([
@@ -252,7 +284,27 @@ def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def build_cache(source_root: Path, protocol_path: Path, cache_root: Path) -> dict:
+def _verify_sources(relative, raw_root, receipts):
+    verified = {}
+    for name in SENSORS_AND_LABEL:
+        raw_relative = str(relative / name)
+        receipt = receipts[raw_relative]
+        source = {"path": raw_relative, "sha256": receipt["sha256"], "bytes": receipt["bytes"]}
+        try:
+            raw = raw_root / raw_relative
+            source["observed_bytes"] = raw.stat().st_size
+            source["observed_sha256"] = sha256_file(raw)
+            if source["observed_bytes"] != source["bytes"] or source["observed_sha256"] != source["sha256"]:
+                raise ValueError(f"raw file changed after acquisition: {raw_relative}")
+            source["status"] = "verified"
+        except (OSError, ValueError) as error:
+            source.update(status="failed", error=str(error))
+        verified[name] = source
+    return verified
+
+
+def build_cache(source_root: Path, protocol_path: Path, cache_root: Path,
+                timestamp_policy=None, reference_cache=None) -> dict:
     """Verify the frozen cohort and record every night; expose only a complete cache."""
     source_root, protocol_path, cache_root = map(Path, (source_root, protocol_path, cache_root))
     source_root, cache_root = source_root.resolve(), cache_root.resolve()
@@ -293,30 +345,51 @@ def build_cache(source_root: Path, protocol_path: Path, cache_root: Path) -> dic
             selected_records=manifest["selected_records"],
             expected_nights=len(manifest["selected_records"]),
         )
+        policy = None
+        references = {}
+        window_args = _window_kwargs(config)
+        if timestamp_policy is not None:
+            policy_path = Path(timestamp_policy).resolve()
+            policy = json.loads(policy_path.read_text())
+            audit.update(timestamp_policy=str(policy_path), timestamp_policy_sha256=sha256_file(policy_path))
+            cache_gate.verify_policy_manifest(audit, policy, manifest)
+            references = cache_gate.reference_index(reference_cache, policy, manifest["selected_records"], audit)
         for record in manifest["selected_records"]:
             begin_night = perf_counter()
             relative = Path(record["participant"], record["night"])
             night = dict(record)
             try:
-                for name in SENSORS_AND_LABEL:
-                    raw_relative = str(relative / name)
-                    raw_file = raw_root / raw_relative
-                    receipt = receipts[raw_relative]
-                    if raw_file.stat().st_size != receipt["bytes"] or sha256_file(raw_file) != receipt["sha256"]:
-                        raise ValueError(f"raw file changed after acquisition: {raw_relative}")
-                episode, stage = load_stage_night(raw_root / relative, **{
-                    key: record[key] for key in ("participant", "night")
-                })
-                windows, coverage = build_stage_windows(episode, stage, **_window_kwargs(config))
+                verified = _verify_sources(relative, raw_root, receipts)
+                night["verified_sources"] = verified
+                for name in (SENSORS_AND_LABEL if policy is None else ("labels.mat",)):
+                    if verified[name]["status"] != "verified":
+                        raise ValueError(verified[name]["error"])
+                episode, stage = load_stage_night(
+                    raw_root / relative, record["participant"], record["night"],
+                    policy=policy, verified_sources=verified,
+                )
+                night["metadata"] = episode.metadata
+                windows, coverage = build_stage_windows(episode, stage, **window_args)
+                if policy is not None:
+                    night["mask_coverage"] = cache_gate.mask_coverage(episode, windows, window_args)
+                    if str(relative) in references:
+                        strict_episode, strict_stage = load_stage_night(raw_root / relative)
+                        strict_windows, _ = build_stage_windows(strict_episode, strict_stage, **window_args)
+                        night["strict_reference"] = cache_gate.compare_strict(
+                            episode, stage, windows, strict_episode, strict_stage, strict_windows,
+                            references[str(relative)],
+                        )
                 cache_name = f"{record['participant']}_{record['night']}.npz"
                 cache_path = cache_root / cache_name
                 _write_windows(cache_path, windows)
                 night.update(
                     status="complete", cache=cache_name, cache_sha256=sha256_file(cache_path),
-                    metadata=episode.metadata, windows=coverage,
+                    windows=coverage,
                 )
             except Exception as error:
                 night.update(status="failed", error=f"{type(error).__name__}: {error}")
+                if isinstance(error, SensorAuditFailure):
+                    night["sensor_reports"] = error.reports
                 if isinstance(error, SensorFailure):
                     night["file"] = str(error.path.relative_to(raw_root))
                     if "timestamp" in str(error):
@@ -342,6 +415,10 @@ def build_cache(source_root: Path, protocol_path: Path, cache_root: Path) -> dic
             }
             for key in ("train", "validation")
         }
+        if not audit["failures"]:
+            if policy is not None:
+                cache_gate.verify_complete_evidence(audit, policy, manifest)
+            audit["cache_identity_sha256"] = cache_gate.identity(audit)
         audit["status"] = "failed" if audit["failures"] else "complete"
     except Exception as error:
         audit.update(status="failed", error=f"{type(error).__name__}: {error}")
@@ -350,11 +427,24 @@ def build_cache(source_root: Path, protocol_path: Path, cache_root: Path) -> dic
     return audit
 
 
-def load_cache(cache_root: Path) -> dict[str, StageWindows]:
+def load_cache(cache_root: Path, timestamp_policy=None) -> dict[str, StageWindows]:
     cache_root = Path(cache_root)
     audit = json.loads((cache_root / "audit.json").read_text())
     if audit["status"] != "complete" or audit["schema"] != CACHE_SCHEMA or audit["test_accessed"] is not False:
         raise ValueError("a complete train/validation-only stage audit is required")
+    if timestamp_policy is not None or audit.get("timestamp_policy_sha256"):
+        policy_path = Path(timestamp_policy) if timestamp_policy is not None else (
+            Path(__file__).resolve().parents[1] / "expanded_timestamp_policy.json"
+        )
+        if sha256_file(policy_path) != audit.get("timestamp_policy_sha256"):
+            raise ValueError("expanded cache has a different timestamp policy or no applied policy")
+        manifest_path = Path(audit["source_root"]) / "manifests" / "acquisition.json"
+        if sha256_file(manifest_path) != audit["acquisition_sha256"]:
+            raise ValueError("acquisition manifest changed since audit")
+        cache_gate.verify_complete_evidence(audit, json.loads(policy_path.read_text()),
+                                            json.loads(manifest_path.read_text()))
+        if cache_gate.identity(audit) != audit.get("cache_identity_sha256"):
+            raise ValueError("expanded cache identity differs from its recorded inputs")
     expected = audit["selected_records"]
     actual = [
         {key: rec[key] for key in ("participant", "night", "partition")}
@@ -386,8 +476,10 @@ def main() -> int:
     parser.add_argument("--source-root", required=True, type=Path)
     parser.add_argument("--protocol", required=True, type=Path)
     parser.add_argument("--cache-root", required=True, type=Path)
+    parser.add_argument("--timestamp-policy", type=Path)
+    parser.add_argument("--reference-cache", type=Path)
     args = parser.parse_args()
-    audit = build_cache(args.source_root, args.protocol, args.cache_root)
+    audit = build_cache(args.source_root, args.protocol, args.cache_root, args.timestamp_policy, args.reference_cache)
     print(json.dumps({key: audit[key] for key in ("status", "cache_root", "elapsed_seconds")}, indent=2))
     return 0 if audit["status"] == "complete" else 1
 
