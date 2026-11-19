@@ -1,6 +1,8 @@
 # Current status
 
-The latest CPU comparison reused the 969 fixed validation origins and saved current-stage probabilities. At +30 min, transition NLL was 1.1989, prior mixture 1.1955 and stage prior 1.1963. Among 535 changed-stage origins, transition scored 1.2149 versus 1.2072 for the mixture. The transition control did not meet the primary criterion. [Transition control report](reports/20261119-stage-transition/report.md)
+The current-stage oracle diagnostic is complete. With the same trained transition matrices and both endpoint labels known at +30 min, using the expert cutoff stage reduced NLL by 0.0507 on average across seven validation participants. The mean difference (oracle minus wearable transition) was −0.1309 on 341 same-stage origins and +0.0122 on 535 changed-stage origins. [Oracle report and participant-paired results](reports/20261119-stage-oracle/report.md)
+
+The preceding CPU comparison reused the 969 fixed validation origins and saved current-stage probabilities. At +30 min, transition NLL was 1.1989, prior mixture 1.1955 and stage prior 1.1963. Among 535 changed-stage origins, transition scored 1.2149 versus 1.2072 for the mixture. The transition control did not meet the primary criterion. [Transition control report](reports/20261119-stage-transition/report.md)
 
 The [fixed 38-night four-stage comparison](reports/20261119-stage-expanded/report.md) is complete. The primary comparison does not support moving the latest observed wrist motion to the first rollout transition. At +30 min, explicit minus fusion macro-F1 was −0.0034, −0.0454 and 0.0000 for seeds 0, 1 and 2 (mean −0.0163). Explicit also had higher mean full-horizon NLL and lower mean +30 min Wake recall. Removing the three validation histories touched by the ACC mask left the conclusion unchanged.
 

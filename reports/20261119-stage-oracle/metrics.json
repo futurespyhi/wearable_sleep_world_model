@@ -1,0 +1,773 @@
+{
+  "total_origins": 969,
+  "stage_order": [
+    "Wake",
+    "Light",
+    "Deep",
+    "REM"
+  ],
+  "nll_probability_floor": 1e-12,
+  "current_stage": {
+    "macro_f1": 0.4105748319015733,
+    "f1": {
+      "Wake": 0.3099235071268517,
+      "Light": 0.589221717674942,
+      "Deep": 0.44180197226948464,
+      "REM": 0.301352130535015
+    },
+    "wake_recall": 0.21721431045022516,
+    "support": {
+      "Wake": 57,
+      "Light": 433,
+      "Deep": 193,
+      "REM": 270
+    },
+    "participants": 7,
+    "origins": 953,
+    "unknown": 16,
+    "normalized_confusion_matrix": [
+      [
+        0.012652876392443613,
+        0.04149019065835801,
+        0.0009398496240601503,
+        0.0031677407805227355
+      ],
+      [
+        0.004911234657427551,
+        0.33198403394571535,
+        0.04837774466532153,
+        0.05385748926895454
+      ],
+      [
+        0.002962962962962963,
+        0.1153033886411582,
+        0.0811495542344024,
+        0.014108738312520668
+      ],
+      [
+        0.002873876760806664,
+        0.1989479521020098,
+        0.02336534616973916,
+        0.0639070208235966
+      ]
+    ],
+    "pooled_confusion_matrix": [
+      [
+        12,
+        41,
+        1,
+        3
+      ],
+      [
+        6,
+        329,
+        51,
+        47
+      ],
+      [
+        3,
+        98,
+        81,
+        11
+      ],
+      [
+        3,
+        194,
+        21,
+        52
+      ]
+    ],
+    "nll": 1.117730224098288
+  },
+  "leads": {
+    "5": {
+      "overall": {
+        "origins": 936,
+        "participants": 7,
+        "support": {
+          "Wake": 53,
+          "Light": 430,
+          "Deep": 184,
+          "REM": 269
+        },
+        "nll": {
+          "oracle": 0.8660992117283006,
+          "transition": 1.134798850289883,
+          "prior_mix": 1.141298007289979,
+          "stage_prior": 1.2213661394162971
+        },
+        "oracle_minus": {
+          "transition": -0.2686996385615823,
+          "prior_mix": -0.27519879556167837,
+          "stage_prior": -0.3552669276879965
+        }
+      },
+      "same": {
+        "origins": 697,
+        "participants": 7,
+        "support": {
+          "Wake": 32,
+          "Light": 325,
+          "Deep": 145,
+          "REM": 195
+        },
+        "nll": {
+          "oracle": 0.28149571659204253,
+          "transition": 1.0583872795845513,
+          "prior_mix": 1.0636975755984104,
+          "stage_prior": 1.209302967365392
+        },
+        "oracle_minus": {
+          "transition": -0.7768915629925087,
+          "prior_mix": -0.7822018590063679,
+          "stage_prior": -0.9278072507733494
+        }
+      },
+      "changed": {
+        "origins": 239,
+        "participants": 7,
+        "support": {
+          "Wake": 21,
+          "Light": 105,
+          "Deep": 39,
+          "REM": 74
+        },
+        "nll": {
+          "oracle": 2.4326535845562907,
+          "transition": 1.3308989660132826,
+          "prior_mix": 1.3416997999392615,
+          "stage_prior": 1.248021691637753
+        },
+        "oracle_minus": {
+          "transition": 1.101754618543008,
+          "prior_mix": 1.0909537846170292,
+          "stage_prior": 1.1846318929185378
+        }
+      }
+    },
+    "15": {
+      "overall": {
+        "origins": 909,
+        "participants": 7,
+        "support": {
+          "Wake": 48,
+          "Light": 422,
+          "Deep": 170,
+          "REM": 269
+        },
+        "nll": {
+          "oracle": 1.0413265382245662,
+          "transition": 1.1914363330164053,
+          "prior_mix": 1.189850547484377,
+          "stage_prior": 1.2107429718246923
+        },
+        "oracle_minus": {
+          "transition": -0.15010979479183906,
+          "prior_mix": -0.1485240092598108,
+          "stage_prior": -0.16941643360012604
+        }
+      },
+      "same": {
+        "origins": 510,
+        "participants": 7,
+        "support": {
+          "Wake": 27,
+          "Light": 247,
+          "Deep": 94,
+          "REM": 142
+        },
+        "nll": {
+          "oracle": 0.6351508330624266,
+          "transition": 1.1059581917967114,
+          "prior_mix": 1.100222155248534,
+          "stage_prior": 1.1959135331131043
+        },
+        "oracle_minus": {
+          "transition": -0.4708073587342848,
+          "prior_mix": -0.46507132218610747,
+          "stage_prior": -0.5607627000506777
+        }
+      },
+      "changed": {
+        "origins": 399,
+        "participants": 7,
+        "support": {
+          "Wake": 21,
+          "Light": 175,
+          "Deep": 76,
+          "REM": 127
+        },
+        "nll": {
+          "oracle": 1.544399546699395,
+          "transition": 1.2887760747116015,
+          "prior_mix": 1.292441981442585,
+          "stage_prior": 1.2217982731995403
+        },
+        "oracle_minus": {
+          "transition": 0.25562347198779345,
+          "prior_mix": 0.25195756525681,
+          "stage_prior": 0.3226012734998547
+        }
+      }
+    },
+    "30": {
+      "overall": {
+        "origins": 876,
+        "participants": 7,
+        "support": {
+          "Wake": 45,
+          "Light": 419,
+          "Deep": 145,
+          "REM": 267
+        },
+        "nll": {
+          "oracle": 1.143460377168213,
+          "transition": 1.1941436642586787,
+          "prior_mix": 1.1910959252739393,
+          "stage_prior": 1.1919151966171566
+        },
+        "oracle_minus": {
+          "transition": -0.050683287090465656,
+          "prior_mix": -0.04763554810572623,
+          "stage_prior": -0.04845481944894359
+        }
+      },
+      "same": {
+        "origins": 341,
+        "participants": 7,
+        "support": {
+          "Wake": 25,
+          "Light": 192,
+          "Deep": 54,
+          "REM": 70
+        },
+        "nll": {
+          "oracle": 1.0134766051016677,
+          "transition": 1.1444079215694802,
+          "prior_mix": 1.142579519068555,
+          "stage_prior": 1.1633814891781828
+        },
+        "oracle_minus": {
+          "transition": -0.13093131646781253,
+          "prior_mix": -0.12910291396688733,
+          "stage_prior": -0.14990488407651514
+        }
+      },
+      "changed": {
+        "origins": 535,
+        "participants": 7,
+        "support": {
+          "Wake": 20,
+          "Light": 227,
+          "Deep": 91,
+          "REM": 197
+        },
+        "nll": {
+          "oracle": 1.2270327671019083,
+          "transition": 1.2148560157958976,
+          "prior_mix": 1.2071798409810597,
+          "stage_prior": 1.19584700066823
+        },
+        "oracle_minus": {
+          "transition": 0.012176751306010702,
+          "prior_mix": 0.019852926120848657,
+          "stage_prior": 0.03118576643367832
+        }
+      }
+    }
+  },
+  "common_masks": {
+    "5": {
+      "both_known": 936,
+      "current_unknown_target_known": 6,
+      "current_known_target_unknown": 17,
+      "both_unknown": 10
+    },
+    "15": {
+      "both_known": 909,
+      "current_unknown_target_known": 11,
+      "current_known_target_unknown": 44,
+      "both_unknown": 5
+    },
+    "30": {
+      "both_known": 876,
+      "current_unknown_target_known": 11,
+      "current_known_target_unknown": 77,
+      "both_unknown": 5
+    }
+  },
+  "participants_30": {
+    "Bidslab32": {
+      "overall": {
+        "origins": 184,
+        "participants": 1,
+        "support": {
+          "Wake": 2,
+          "Light": 113,
+          "Deep": 23,
+          "REM": 46
+        },
+        "nll": {
+          "oracle": 1.0117544864054486,
+          "transition": 1.0143415438517664,
+          "prior_mix": 1.0040665721301871,
+          "stage_prior": 1.0061797160703205
+        },
+        "oracle_minus": {
+          "transition": -0.0025870574463178198,
+          "prior_mix": 0.007687914275261498,
+          "stage_prior": 0.005574770335128099
+        }
+      },
+      "same": {
+        "origins": 86,
+        "participants": 1,
+        "support": {
+          "Wake": 0,
+          "Light": 62,
+          "Deep": 11,
+          "REM": 13
+        },
+        "nll": {
+          "oracle": 0.8528594904461073,
+          "transition": 0.9223683136337837,
+          "prior_mix": 0.9103079690451964,
+          "stage_prior": 0.9282996956352277
+        },
+        "oracle_minus": {
+          "transition": -0.06950882318767637,
+          "prior_mix": -0.05744847859908908,
+          "stage_prior": -0.07544020518912042
+        }
+      },
+      "changed": {
+        "origins": 98,
+        "participants": 1,
+        "support": {
+          "Wake": 2,
+          "Light": 51,
+          "Deep": 12,
+          "REM": 33
+        },
+        "nll": {
+          "oracle": 1.1511929522473199,
+          "transition": 1.0950527458797923,
+          "prior_mix": 1.0863445299394652,
+          "stage_prior": 1.074523407472545
+        },
+        "oracle_minus": {
+          "transition": 0.05614020636752759,
+          "prior_mix": 0.0648484223078547,
+          "stage_prior": 0.07666954477477494
+        }
+      }
+    },
+    "Bidslab35": {
+      "overall": {
+        "origins": 118,
+        "participants": 1,
+        "support": {
+          "Wake": 9,
+          "Light": 47,
+          "Deep": 13,
+          "REM": 49
+        },
+        "nll": {
+          "oracle": 1.2282146935274123,
+          "transition": 1.2271489890073581,
+          "prior_mix": 1.2220407613592765,
+          "stage_prior": 1.21892871558886
+        },
+        "oracle_minus": {
+          "transition": 0.001065704520054167,
+          "prior_mix": 0.006173932168135776,
+          "stage_prior": 0.009285977938552348
+        }
+      },
+      "same": {
+        "origins": 36,
+        "participants": 1,
+        "support": {
+          "Wake": 1,
+          "Light": 15,
+          "Deep": 4,
+          "REM": 16
+        },
+        "nll": {
+          "oracle": 1.0837491325845596,
+          "transition": 1.1223762288933505,
+          "prior_mix": 1.11469001222404,
+          "stage_prior": 1.140336566246584
+        },
+        "oracle_minus": {
+          "transition": -0.03862709630879091,
+          "prior_mix": -0.030940879639480334,
+          "stage_prior": -0.056587433662024456
+        }
+      },
+      "changed": {
+        "origins": 82,
+        "participants": 1,
+        "support": {
+          "Wake": 8,
+          "Light": 32,
+          "Deep": 9,
+          "REM": 33
+        },
+        "nll": {
+          "oracle": 1.2916385983315912,
+          "transition": 1.273146786130581,
+          "prior_mix": 1.2691703585405996,
+          "stage_prior": 1.2534325860318105
+        },
+        "oracle_minus": {
+          "transition": 0.01849181220101026,
+          "prior_mix": 0.022468239790991662,
+          "stage_prior": 0.03820601229978071
+        }
+      }
+    },
+    "Bidslab42": {
+      "overall": {
+        "origins": 106,
+        "participants": 1,
+        "support": {
+          "Wake": 2,
+          "Light": 37,
+          "Deep": 26,
+          "REM": 41
+        },
+        "nll": {
+          "oracle": 1.1623237648551774,
+          "transition": 1.2765871514208242,
+          "prior_mix": 1.2566703578199454,
+          "stage_prior": 1.2530620692094587
+        },
+        "oracle_minus": {
+          "transition": -0.11426338656564683,
+          "prior_mix": -0.094346592964768,
+          "stage_prior": -0.09073830435428132
+        }
+      },
+      "same": {
+        "origins": 24,
+        "participants": 1,
+        "support": {
+          "Wake": 0,
+          "Light": 10,
+          "Deep": 6,
+          "REM": 8
+        },
+        "nll": {
+          "oracle": 1.0832798923298714,
+          "transition": 1.2209127171736065,
+          "prior_mix": 1.156131225186402,
+          "stage_prior": 1.1887356070163237
+        },
+        "oracle_minus": {
+          "transition": -0.13763282484373507,
+          "prior_mix": -0.07285133285653056,
+          "stage_prior": -0.10545571468645232
+        }
+      },
+      "changed": {
+        "origins": 82,
+        "participants": 1,
+        "support": {
+          "Wake": 2,
+          "Light": 27,
+          "Deep": 20,
+          "REM": 33
+        },
+        "nll": {
+          "oracle": 1.1854585568138034,
+          "transition": 1.2928821077858634,
+          "prior_mix": 1.2860964454200072,
+          "stage_prior": 1.271889326436718
+        },
+        "oracle_minus": {
+          "transition": -0.10742355097206002,
+          "prior_mix": -0.10063788860620382,
+          "stage_prior": -0.08643076962291452
+        }
+      }
+    },
+    "Bidslab45": {
+      "overall": {
+        "origins": 144,
+        "participants": 1,
+        "support": {
+          "Wake": 2,
+          "Light": 87,
+          "Deep": 19,
+          "REM": 36
+        },
+        "nll": {
+          "oracle": 0.9993335770593494,
+          "transition": 1.0027232715012895,
+          "prior_mix": 1.0195188916297013,
+          "stage_prior": 1.0208028976335197
+        },
+        "oracle_minus": {
+          "transition": -0.0033896944419400388,
+          "prior_mix": -0.020185314570351887,
+          "stage_prior": -0.02146932057417028
+        }
+      },
+      "same": {
+        "origins": 64,
+        "participants": 1,
+        "support": {
+          "Wake": 0,
+          "Light": 48,
+          "Deep": 8,
+          "REM": 8
+        },
+        "nll": {
+          "oracle": 0.8311078239907217,
+          "transition": 0.8572171820159254,
+          "prior_mix": 0.8937709819048396,
+          "stage_prior": 0.9089291721509913
+        },
+        "oracle_minus": {
+          "transition": -0.026109358025203755,
+          "prior_mix": -0.06266315791411792,
+          "stage_prior": -0.07782134816026964
+        }
+      },
+      "changed": {
+        "origins": 80,
+        "participants": 1,
+        "support": {
+          "Wake": 2,
+          "Light": 39,
+          "Deep": 11,
+          "REM": 28
+        },
+        "nll": {
+          "oracle": 1.1339141795142518,
+          "transition": 1.1191281430895805,
+          "prior_mix": 1.1201172194095907,
+          "stage_prior": 1.1103018780195426
+        },
+        "oracle_minus": {
+          "transition": 0.014786036424671245,
+          "prior_mix": 0.013796960104661027,
+          "stage_prior": 0.023612301494709165
+        }
+      }
+    },
+    "Bidslab49": {
+      "overall": {
+        "origins": 70,
+        "participants": 1,
+        "support": {
+          "Wake": 2,
+          "Light": 27,
+          "Deep": 21,
+          "REM": 20
+        },
+        "nll": {
+          "oracle": 1.2396196105873887,
+          "transition": 1.2917877449823052,
+          "prior_mix": 1.2824950794504617,
+          "stage_prior": 1.2790067990915304
+        },
+        "oracle_minus": {
+          "transition": -0.05216813439491652,
+          "prior_mix": -0.04287546886307303,
+          "stage_prior": -0.03938718850414169
+        }
+      },
+      "same": {
+        "origins": 28,
+        "participants": 1,
+        "support": {
+          "Wake": 0,
+          "Light": 11,
+          "Deep": 12,
+          "REM": 5
+        },
+        "nll": {
+          "oracle": 1.106386945915513,
+          "transition": 1.300323420623149,
+          "prior_mix": 1.304624346933867,
+          "stage_prior": 1.315487775676416
+        },
+        "oracle_minus": {
+          "transition": -0.1939364747076362,
+          "prior_mix": -0.19823740101835408,
+          "stage_prior": -0.20910082976090316
+        }
+      },
+      "changed": {
+        "origins": 42,
+        "participants": 1,
+        "support": {
+          "Wake": 2,
+          "Light": 16,
+          "Deep": 9,
+          "REM": 15
+        },
+        "nll": {
+          "oracle": 1.3284413870353053,
+          "transition": 1.2860972945550766,
+          "prior_mix": 1.2677422344615248,
+          "stage_prior": 1.2546861480349396
+        },
+        "oracle_minus": {
+          "transition": 0.042344092480228746,
+          "prior_mix": 0.06069915257378056,
+          "stage_prior": 0.07375523900036574
+        }
+      }
+    },
+    "Bidslab50": {
+      "overall": {
+        "origins": 131,
+        "participants": 1,
+        "support": {
+          "Wake": 27,
+          "Light": 51,
+          "Deep": 21,
+          "REM": 32
+        },
+        "nll": {
+          "oracle": 1.2269863000644683,
+          "transition": 1.402870889067402,
+          "prior_mix": 1.4112727029360093,
+          "stage_prior": 1.4382520749085888
+        },
+        "oracle_minus": {
+          "transition": -0.1758845890029337,
+          "prior_mix": -0.18428640287154097,
+          "stage_prior": -0.21126577484412046
+        }
+      },
+      "same": {
+        "origins": 67,
+        "participants": 1,
+        "support": {
+          "Wake": 24,
+          "Light": 26,
+          "Deep": 8,
+          "REM": 9
+        },
+        "nll": {
+          "oracle": 1.1605174924253734,
+          "transition": 1.5476654633051206,
+          "prior_mix": 1.5770099539933586,
+          "stage_prior": 1.6268815863022108
+        },
+        "oracle_minus": {
+          "transition": -0.38714797087974717,
+          "prior_mix": -0.41649246156798525,
+          "stage_prior": -0.4663640938768374
+        }
+      },
+      "changed": {
+        "origins": 64,
+        "participants": 1,
+        "support": {
+          "Wake": 3,
+          "Light": 25,
+          "Deep": 13,
+          "REM": 23
+        },
+        "nll": {
+          "oracle": 1.296570833061646,
+          "transition": 1.2512890691622904,
+          "prior_mix": 1.2377665182353466,
+          "stage_prior": 1.2407805551683904
+        },
+        "oracle_minus": {
+          "transition": 0.045281763899355676,
+          "prior_mix": 0.05880431482629955,
+          "stage_prior": 0.055790277893255746
+        }
+      }
+    },
+    "Bidslab68": {
+      "overall": {
+        "origins": 123,
+        "participants": 1,
+        "support": {
+          "Wake": 1,
+          "Light": 57,
+          "Deep": 22,
+          "REM": 43
+        },
+        "nll": {
+          "oracle": 1.1359902076782469,
+          "transition": 1.1435460599798044,
+          "prior_mix": 1.1416071115919946,
+          "stage_prior": 1.1271741038178178
+        },
+        "oracle_minus": {
+          "transition": -0.007555852301557531,
+          "prior_mix": -0.005616903913747695,
+          "stage_prior": 0.008816103860429081
+        }
+      },
+      "same": {
+        "origins": 36,
+        "participants": 1,
+        "support": {
+          "Wake": 0,
+          "Light": 20,
+          "Deep": 5,
+          "REM": 11
+        },
+        "nll": {
+          "oracle": 0.9764354580195279,
+          "transition": 1.0399921253414268,
+          "prior_mix": 1.0415221441921807,
+          "stage_prior": 1.0350000212195243
+        },
+        "oracle_minus": {
+          "transition": -0.06355666732189891,
+          "prior_mix": -0.06508668617265279,
+          "stage_prior": -0.05856456319999637
+        }
+      },
+      "changed": {
+        "origins": 87,
+        "participants": 1,
+        "support": {
+          "Wake": 1,
+          "Light": 37,
+          "Deep": 17,
+          "REM": 32
+        },
+        "nll": {
+          "oracle": 1.2020128627094409,
+          "transition": 1.1863959639680988,
+          "prior_mix": 1.1830215808608837,
+          "stage_prior": 1.165315103513664
+        },
+        "oracle_minus": {
+          "transition": 0.015616898741342089,
+          "prior_mix": 0.01899128184855714,
+          "stage_prior": 0.03669775919577689
+        }
+      }
+    }
+  },
+  "paired_mean_check_30": {
+    "overall": {
+      "transition": -0.05068328709046547,
+      "prior_mix": -0.04763554810572633,
+      "stage_prior": -0.04845481944894346
+    },
+    "same": {
+      "transition": -0.13093131646781261,
+      "prior_mix": -0.12910291396688714,
+      "stage_prior": -0.14990488407651484
+    },
+    "changed": {
+      "transition": 0.012176751306010798,
+      "prior_mix": 0.01985292612084869,
+      "stage_prior": 0.03118576643367838
+    }
+  }
+}
