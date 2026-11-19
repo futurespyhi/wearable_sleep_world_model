@@ -1,0 +1,9 @@
+# Recording time and the forecast of stage changes
+
+Selected for CPU execution on the fixed 38 nights in the user's request. The reference is the oracle report at `2a5cf60`. Use its expanded cache, the 1,936 training origins, the 969 original validation origins and saved wearable probabilities over the current stage. Keep the seven test participants sealed.
+
+For each cutoff use elapsed hours since the audited recStart of that night. The groups are [0,2), [2,4), [4,6) and [6,∞). For each of the 60 leads, estimate the future-stage prior from known training targets in that group. Estimate each transition row from known training pairs with the relevant current stage. Give each distribution 20 pseudo-observations in total, distributed according to the corresponding frozen global prior or the corresponding global transition row at that lead. This weight is fixed before validation scoring. For a row with no support, use its global counterpart.
+
+Use the same time-specific transition matrices for the saved wearable distribution and the expert-current-stage oracle. The time-only forecast uses the time-specific prior. Retain the four parent methods as frozen controls. At each lead score all seven methods on the same origins with both endpoint stages known. Only the offline oracle uses the expert cutoff stage as a predictor. Report participant-balanced NLL, paired differences, counts and same/changed endpoint strata at +5, +15 and +30 minutes.
+
+Compare each new transition against time-only, and each time-specific method against its corresponding global model. At +30 minutes inspect both overall and changed NLL. Lower NLL wins, with the sign judged before rounding. If only the oracle improves on time-only on changed endpoints, prioritize the wearable current-stage estimate. If the oracle fails to improve, record that the long-horizon change forecast has not passed this comparison and assess the +5 and +15 minute results separately.

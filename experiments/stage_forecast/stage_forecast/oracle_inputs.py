@@ -8,7 +8,7 @@ from sleep_g3.protocol import sha256_file
 from .transition_inputs import _receipt, _require, load_inputs, make_predictions
 
 
-def load_oracle_inputs(expanded_root, transition_root, reports_root):
+def load_oracle_inputs(expanded_root, transition_root, reports_root, *, include_train=False):
     """Return cached validation data, beliefs, matrices and matched saved controls."""
     reports = Path(reports_root)
     results = Path(transition_root) / "results"
@@ -17,7 +17,7 @@ def load_oracle_inputs(expanded_root, transition_root, reports_root):
     fit, fit_hash = _receipt(results / "fit.json", published / "fit.json")
     _require(execution["run_id"] == "20261119-stage-transition" and execution["status"] == "completed"
              and execution["test_accessed"] is False, "expected completed transition controls with sealed test")
-    _, val, p_t, prior, directs, expanded = load_inputs(expanded_root, reports / "20261119-stage-expanded")
+    train, val, p_t, prior, directs, expanded = load_inputs(expanded_root, reports / "20261119-stage-expanded")
     _require(expanded == execution["inputs"], "expanded inputs differ from the published transition receipt")
     matrices = np.asarray(fit["transition_matrices"], dtype=float)
     reference = make_predictions(p_t, prior, directs, fit["prior_weights"], matrices)
@@ -44,4 +44,5 @@ def load_oracle_inputs(expanded_root, transition_root, reports_root):
         "transition_predictions_sha256": sha256_file(prediction_file),
         "control_reconstruction": "exact across 969 origins, 60 leads and four stages",
     }
-    return val, p_t, matrices, controls, metadata
+    result = (val, p_t, matrices, controls, metadata)
+    return (train, *result) if include_train else result
