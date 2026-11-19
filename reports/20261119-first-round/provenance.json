@@ -1,0 +1,442 @@
+{
+  "run_id": "20261119-first-round",
+  "spec": "specs/2026-11-18_wearable_sleep_world_model.md",
+  "artifact_root": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-first-round",
+  "smoke_execution": {
+    "spec_commit": "ce949469eb2e5531e1d539fb69645f6ca0a6bbaa",
+    "code_commit": "182c89e56451fdc0f8dff39f36b0d41fbe6dc7a3",
+    "run_id": "20261119-first-round",
+    "phase": "smoke",
+    "created_utc": "2026-11-19T08:46:05.344703+00:00",
+    "environment": {
+      "python": "3.10.8 | packaged by conda-forge | (main, Nov 22 2022, 08:26:04) [GCC 10.4.0]",
+      "python_path": "/apps/pytorch/1.13.0/bin/python",
+      "packages": {
+        "numpy": {
+          "version": "1.26.0",
+          "path": "/apps/pytorch/1.13.0/lib/python3.10/site-packages/numpy/__init__.py"
+        },
+        "scipy": {
+          "version": "1.11.3",
+          "path": "/apps/pytorch/1.13.0/lib/python3.10/site-packages/scipy/__init__.py"
+        },
+        "pandas": {
+          "version": "1.4.3",
+          "path": "/apps/pytorch/1.13.0/lib/python3.10/site-packages/pandas/__init__.py"
+        },
+        "torch": {
+          "version": "1.13.0+cu117",
+          "path": "/apps/pytorch/1.13.0/lib/python3.10/site-packages/torch/__init__.py"
+        }
+      },
+      "platform": "Linux-5.14.0-687.39.1.el9_8.x86_64-x86_64-with-glibc2.34",
+      "host": "c0709a-s30.ufhpc",
+      "slurm_job_id": "51961125",
+      "cpus_per_task": "2"
+    },
+    "mode": "run",
+    "device": "cpu",
+    "seeds": [
+      0
+    ],
+    "epochs": 15,
+    "cache": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-first-round/smoke-cache",
+    "audit_sha256": "6154719c57b39ecfaa075728f64e998051f33253381c7c79bb55487d5af2e64b",
+    "status": "completed",
+    "origins": {
+      "train": 312,
+      "validation": 161
+    },
+    "standardization": {
+      "channels": [
+        "hr_mean",
+        "hr_std",
+        "acc_norm_std",
+        "acc_diff_rms"
+      ],
+      "center": [
+        66.43175084029372,
+        1.1334057023618305,
+        0.004993805187923652,
+        0.00787961777908452
+      ],
+      "scale": [
+        7.217144603991825,
+        1.341245410066256,
+        0.01834862553117443,
+        0.022872869836251374
+      ]
+    },
+    "baseline_seconds": 0.01816888339817524,
+    "persistence": {
+      "method": "L2-regularized multinomial logistic regression",
+      "l2": 0.01,
+      "parameters": 256,
+      "optimizer_iterations": 62,
+      "known_current_stages": 310,
+      "current_stage_support": [
+        27,
+        128,
+        75,
+        80
+      ],
+      "history_summary_epochs": [
+        1,
+        10,
+        30,
+        60
+      ]
+    },
+    "elapsed_seconds": 8.989935670979321,
+    "peak_rss_mib": 439.9609375
+  },
+  "audits": {
+    "smoke-cache": {
+      "schema": "stage_forecast_raw_windows_v1",
+      "status": "complete",
+      "expected_nights": 6,
+      "partitions": {
+        "train": {
+          "complete_nights": 4,
+          "expected_nights": 4,
+          "retained_origins_in_completed_nights": 312
+        },
+        "validation": {
+          "complete_nights": 2,
+          "expected_nights": 2,
+          "retained_origins_in_completed_nights": 161
+        }
+      },
+      "test_accessed": false,
+      "acquisition_sha256": "9da239dbe54bc8e198816907a9f0e98584a951f03b3deb8c41c5216a88f81cb5",
+      "catalog_sha256": "13333dff4d4640167435188bc6019c1782684b96d09838cb7e7b3ad005a51460",
+      "protocol_sha256": "2b0906aeaf83b6ed44e7d0d41d30ad4ebcbd817beaede58bb84a8f3dd5f61336",
+      "split_sizes": {
+        "train": 33,
+        "validation": 7,
+        "test_sealed": 7
+      },
+      "split_seed": 40,
+      "features": [
+        "hr_mean",
+        "hr_std",
+        "hr_count",
+        "acc_norm_std",
+        "acc_diff_rms",
+        "acc_count"
+      ],
+      "stages": [
+        "Wake",
+        "Light",
+        "Deep",
+        "REM"
+      ],
+      "g3_data_sha256": "8a2f4456e06375d47bb14321d06e8ae88d1fa3bf2a97737dbaac2a9fb7e4d357",
+      "stage_data_sha256": "c03c0113fc796ac65325c164d70547af29dabc9d7f72fb3b7b4376b67e3f532a",
+      "started_utc": "2026-11-19T08:45:56.207442+00:00",
+      "finished_utc": "2026-11-19T08:46:04.651441+00:00",
+      "audit_sha256": "6154719c57b39ecfaa075728f64e998051f33253381c7c79bb55487d5af2e64b",
+      "execution": {
+        "spec_commit": "ce949469eb2e5531e1d539fb69645f6ca0a6bbaa",
+        "code_commit": "182c89e56451fdc0f8dff39f36b0d41fbe6dc7a3",
+        "run_id": "20261119-first-round",
+        "phase": "smoke-cache",
+        "created_utc": "2026-11-19T08:45:56.197590+00:00",
+        "environment": {
+          "python": "3.11.4 | packaged by conda-forge | (main, Jun 10 2023, 18:08:17) [GCC 12.2.0]",
+          "python_path": "/apps/python/3.11/bin/python",
+          "packages": {
+            "numpy": {
+              "version": "1.25.2",
+              "path": "/apps/python/3.11/lib/python3.11/site-packages/numpy/__init__.py"
+            },
+            "scipy": {
+              "version": "1.11.3",
+              "path": "/apps/python/3.11/lib/python3.11/site-packages/scipy/__init__.py"
+            },
+            "pandas": {
+              "version": "2.1.4",
+              "path": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/deps/pandas/__init__.py"
+            }
+          },
+          "platform": "Linux-5.14.0-687.39.1.el9_8.x86_64-x86_64-with-glibc2.34",
+          "host": "c0709a-s30.ufhpc",
+          "slurm_job_id": "51961125",
+          "cpus_per_task": "2"
+        },
+        "source_root": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/work/pilot_seed40",
+        "protocol": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-first-round/code/experiments/g3/protocol.json",
+        "protocol_sha256": "2b0906aeaf83b6ed44e7d0d41d30ad4ebcbd817beaede58bb84a8f3dd5f61336",
+        "audit_status": "complete",
+        "elapsed_seconds": 8.458015834912658,
+        "peak_rss_mib": 177.19921875
+      },
+      "canonical_split_sha256": "9b141273e9953a241021214aa050cdae5f35ca72607b74c7a88eb1d7cce4a1f8",
+      "forensics": []
+    },
+    "expanded-cache": {
+      "schema": "stage_forecast_raw_windows_v1",
+      "status": "failed",
+      "expected_nights": 38,
+      "partitions": {
+        "train": {
+          "complete_nights": 22,
+          "expected_nights": 24,
+          "retained_origins_in_completed_nights": 1761
+        },
+        "validation": {
+          "complete_nights": 11,
+          "expected_nights": 14,
+          "retained_origins_in_completed_nights": 748
+        }
+      },
+      "test_accessed": false,
+      "acquisition_sha256": "0eee6117f4f51aab91b46bba98341e8ae975218cfec01d638378a98c7a47c343",
+      "catalog_sha256": "13333dff4d4640167435188bc6019c1782684b96d09838cb7e7b3ad005a51460",
+      "protocol_sha256": "a9810ed6f6272bf775b2a81e0afc97bdd24ce0ed559f510c73502d2aa9fe3032",
+      "split_sizes": {
+        "train": 33,
+        "validation": 7,
+        "test_sealed": 7
+      },
+      "split_seed": 40,
+      "features": [
+        "hr_mean",
+        "hr_std",
+        "hr_count",
+        "acc_norm_std",
+        "acc_diff_rms",
+        "acc_count"
+      ],
+      "stages": [
+        "Wake",
+        "Light",
+        "Deep",
+        "REM"
+      ],
+      "g3_data_sha256": "8a2f4456e06375d47bb14321d06e8ae88d1fa3bf2a97737dbaac2a9fb7e4d357",
+      "stage_data_sha256": "c03c0113fc796ac65325c164d70547af29dabc9d7f72fb3b7b4376b67e3f532a",
+      "started_utc": "2026-11-19T08:47:02.359218+00:00",
+      "finished_utc": "2026-11-19T08:47:54.537080+00:00",
+      "audit_sha256": "eb0256279c0e1762764c9a5922e3c369ae01ad86c9714931a441ef793d929e8f",
+      "execution": {
+        "spec_commit": "ce949469eb2e5531e1d539fb69645f6ca0a6bbaa",
+        "code_commit": "182c89e56451fdc0f8dff39f36b0d41fbe6dc7a3",
+        "run_id": "20261119-first-round",
+        "phase": "expanded-cache",
+        "created_utc": "2026-11-19T08:47:02.348208+00:00",
+        "environment": {
+          "python": "3.11.4 | packaged by conda-forge | (main, Jun 10 2023, 18:08:17) [GCC 12.2.0]",
+          "python_path": "/apps/python/3.11/bin/python",
+          "packages": {
+            "numpy": {
+              "version": "1.25.2",
+              "path": "/apps/python/3.11/lib/python3.11/site-packages/numpy/__init__.py"
+            },
+            "scipy": {
+              "version": "1.11.3",
+              "path": "/apps/python/3.11/lib/python3.11/site-packages/scipy/__init__.py"
+            },
+            "pandas": {
+              "version": "2.1.4",
+              "path": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/deps/pandas/__init__.py"
+            }
+          },
+          "platform": "Linux-5.14.0-687.39.1.el9_8.x86_64-x86_64-with-glibc2.34",
+          "host": "c0709a-s30.ufhpc",
+          "slurm_job_id": "51961273",
+          "cpus_per_task": "2"
+        },
+        "source_root": "/orange/so589980.ucf/zi700688.ucf/IoT_medical/g3_sleep_forecasting_20261029/work/expanded_seed40_12t7v2n",
+        "protocol": "/home/zi700688.ucf/wearable-sleep-artifacts/20261119-first-round/code/experiments/g3/expanded_protocol.json",
+        "protocol_sha256": "a9810ed6f6272bf775b2a81e0afc97bdd24ce0ed559f510c73502d2aa9fe3032",
+        "audit_status": "failed",
+        "elapsed_seconds": 52.195752133615315,
+        "peak_rss_mib": 177.8515625
+      },
+      "canonical_split_sha256": "9b141273e9953a241021214aa050cdae5f35ca72607b74c7a88eb1d7cce4a1f8",
+      "forensics": [
+        {
+          "partition": "train",
+          "file": "Bidslab36/1/motion.csv",
+          "error": "SensorFailure: motion.csv: timestamps must be nondecreasing; no automatic sorting",
+          "raw_anomaly_confirmed": true,
+          "raw_rows": 1167000,
+          "reversal_count": 1,
+          "adjacent_conflicting_timestamp_duplicates": 0,
+          "affected_known_stage_epochs": 1,
+          "examples": [
+            {
+              "kind": "reversals",
+              "physical_csv_lines_1_based": [
+                54622,
+                54623
+              ],
+              "sample_rows_1_based": [
+                54621,
+                54622
+              ],
+              "cross_chunk": false,
+              "delta_seconds": -0.183314,
+              "seconds_after_label_end": null,
+              "in_label_interval": true,
+              "label_epochs_overlapped": [
+                32,
+                32
+              ]
+            }
+          ]
+        },
+        {
+          "partition": "train",
+          "file": "Bidslab44/1/hr.csv",
+          "error": "SensorFailure: hr.csv: conflicting duplicate timestamp",
+          "raw_anomaly_confirmed": true,
+          "raw_rows": 12609,
+          "reversal_count": 0,
+          "adjacent_conflicting_timestamp_duplicates": 1,
+          "affected_known_stage_epochs": 0,
+          "examples": [
+            {
+              "kind": "adjacent_duplicates",
+              "physical_csv_lines_1_based": [
+                6681,
+                6682
+              ],
+              "sample_rows_1_based": [
+                6681,
+                6682
+              ],
+              "cross_chunk": false,
+              "delta_seconds": null,
+              "seconds_after_label_end": 35021.2980924,
+              "in_label_interval": false,
+              "label_epochs_overlapped": null
+            }
+          ]
+        },
+        {
+          "partition": "validation",
+          "file": "Bidslab68/1/hr.csv",
+          "error": "SensorFailure: hr.csv: conflicting duplicate timestamp",
+          "raw_anomaly_confirmed": true,
+          "raw_rows": 11674,
+          "reversal_count": 0,
+          "adjacent_conflicting_timestamp_duplicates": 1,
+          "affected_known_stage_epochs": 0,
+          "examples": [
+            {
+              "kind": "adjacent_duplicates",
+              "physical_csv_lines_1_based": [
+                5047,
+                5048
+              ],
+              "sample_rows_1_based": [
+                5047,
+                5048
+              ],
+              "cross_chunk": false,
+              "delta_seconds": null,
+              "seconds_after_label_end": 14555.0015454,
+              "in_label_interval": false,
+              "label_epochs_overlapped": null
+            }
+          ]
+        },
+        {
+          "partition": "validation",
+          "file": "Bidslab35/1/motion.csv",
+          "error": "SensorFailure: motion.csv: timestamps must be nondecreasing; no automatic sorting",
+          "raw_anomaly_confirmed": true,
+          "raw_rows": 1268000,
+          "reversal_count": 1,
+          "adjacent_conflicting_timestamp_duplicates": 0,
+          "affected_known_stage_epochs": 1,
+          "examples": [
+            {
+              "kind": "reversals",
+              "physical_csv_lines_1_based": [
+                36713,
+                36714
+              ],
+              "sample_rows_1_based": [
+                36712,
+                36713
+              ],
+              "cross_chunk": false,
+              "delta_seconds": -0.162618,
+              "seconds_after_label_end": null,
+              "in_label_interval": true,
+              "label_epochs_overlapped": [
+                25,
+                25
+              ]
+            }
+          ]
+        },
+        {
+          "partition": "validation",
+          "file": "Bidslab49/2/motion.csv",
+          "error": "SensorFailure: motion.csv: timestamps must be nondecreasing; no automatic sorting",
+          "raw_anomaly_confirmed": true,
+          "raw_rows": 2631000,
+          "reversal_count": 1,
+          "adjacent_conflicting_timestamp_duplicates": 0,
+          "affected_known_stage_epochs": 0,
+          "examples": [
+            {
+              "kind": "reversals",
+              "physical_csv_lines_1_based": [
+                2466112,
+                2466113
+              ],
+              "sample_rows_1_based": [
+                2466111,
+                2466112
+              ],
+              "cross_chunk": false,
+              "delta_seconds": -0.2552967,
+              "seconds_after_label_end": 87808.3267531,
+              "in_label_interval": false,
+              "label_epochs_overlapped": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "slurm_jobs": [
+    {
+      "id": "51961125",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "wall_seconds": 58,
+      "batch_wrapper_max_rss_kib": 3352,
+      "time_limit_minutes": 30
+    },
+    {
+      "id": "51961273",
+      "state": "FAILED",
+      "exit_code": "3:0",
+      "wall_seconds": 53,
+      "batch_wrapper_max_rss_kib": 3268,
+      "time_limit_minutes": 120
+    }
+  ],
+  "slurm_common": {
+    "partition": "hpg-dev",
+    "account": "so589980.ucf",
+    "qos": "so589980.ucf",
+    "cpus": 2,
+    "requested_memory_gib": 8,
+    "gpus": 0
+  },
+  "tests_passed": {
+    "g3_regression": 95,
+    "stage_data": 5,
+    "stage_scoring": 2,
+    "stage_model": 8
+  },
+  "expanded_benchmark": "blocked_by_timestamp_audit",
+  "expanded_training": "blocked_by_timestamp_audit"
+}

@@ -1,0 +1,2473 @@
+{
+  "stage_order": [
+    "Wake",
+    "Light",
+    "Deep",
+    "REM"
+  ],
+  "lead_indices_zero_based": {
+    "5": 9,
+    "15": 29,
+    "30": 59
+  },
+  "aggregation": {
+    "confusion": "unit total mass per participant on valid origins, then equal participant mean",
+    "nll_and_brier": "mean known target scores within participant, then equal participant mean",
+    "nll_probability_floor": 1e-12,
+    "brier": "sum of squared probability errors over four classes",
+    "wake_minutes": "mean over complete horizons within participant, then equal participant mean",
+    "short_wake_threshold": 0.5,
+    "short_wake_deduplication": "participant, night, and absolute reference start and end times"
+  },
+  "coverage": {
+    "participants": 2,
+    "nights": 2,
+    "origins": 161,
+    "complete_horizons": 121,
+    "complete_horizons_zero_wake": 96,
+    "valid_stage_targets": 8610,
+    "unknown_stage_targets": 1050,
+    "stage_support": {
+      "Wake": 426,
+      "Light": 4788,
+      "Deep": 1236,
+      "REM": 2160
+    }
+  },
+  "methods": {
+    "stage_prior": {
+      "leads": {
+        "5": {
+          "macro_f1": 0.17484516436398287,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.6993806574559315,
+            "Deep": 0.0,
+            "REM": 0.0
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 80,
+            "Deep": 25,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 148,
+          "unknown": 13,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04139194139194139,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5377289377289377,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.17051282051282052,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.25036630036630036,
+              0.0,
+              0.0
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              80,
+              0,
+              0
+            ],
+            [
+              0,
+              25,
+              0,
+              0
+            ],
+            [
+              0,
+              37,
+              0,
+              0
+            ]
+          ],
+          "nll": 1.1535250731072546,
+          "brier": 0.6386489813030147
+        },
+        "15": {
+          "macro_f1": 0.17488676396577754,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.6995470558631102,
+            "Deep": 0.0,
+            "REM": 0.0
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 23,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 144,
+          "unknown": 17,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04256965944272446,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5379256965944272,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.1621517027863777,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.25735294117647056,
+              0.0,
+              0.0
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              78,
+              0,
+              0
+            ],
+            [
+              0,
+              23,
+              0,
+              0
+            ],
+            [
+              0,
+              37,
+              0,
+              0
+            ]
+          ],
+          "nll": 1.1461039429585602,
+          "brier": 0.6346052322673914
+        },
+        "30": {
+          "macro_f1": 0.17973812095032396,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.7189524838012958,
+            "Deep": 0.0,
+            "REM": 0.0
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 17,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 138,
+          "unknown": 23,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04446786090621707,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.561222339304531,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.12571127502634352,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.26859852476290835,
+              0.0,
+              0.0
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              78,
+              0,
+              0
+            ],
+            [
+              0,
+              17,
+              0,
+              0
+            ],
+            [
+              0,
+              37,
+              0,
+              0
+            ]
+          ],
+          "nll": 1.112832201126943,
+          "brier": 0.6147490617516597
+        }
+      },
+      "nll": 1.1336476147378995,
+      "brier": 0.6241118867726376,
+      "hr": null,
+      "wake_minutes": {
+        "mean_expected_minutes": 1.8443266967960223,
+        "mean_reference_minutes": 0.828267694063927,
+        "mae_minutes": 1.999098119252824,
+        "bias_minutes": 1.0160590027320953,
+        "complete_origins": 121,
+        "participants": 2
+      },
+      "short_wake_events": {
+        "all_short": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        },
+        "1_epoch": {
+          "unique_reference_events": 0,
+          "participants": 0,
+          "evaluable_event_origin_instances": 0,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": null,
+          "participant_macro_event_origin_hit_rate": null,
+          "events_with_multiple_evaluable_origins": 0,
+          "max_origins_per_event": 0,
+          "mean_origins_per_event": null
+        },
+        "2_epoch": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        }
+      }
+    },
+    "persistence": {
+      "leads": {
+        "5": {
+          "macro_f1": 0.39565963513041014,
+          "f1": {
+            "Wake": 0.2085561497326203,
+            "Light": 0.6317599249765553,
+            "Deep": 0.2678111587982832,
+            "REM": 0.47451130701418165
+          },
+          "wake_recall": 0.34513274336283184,
+          "support": {
+            "Wake": 6,
+            "Light": 80,
+            "Deep": 25,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 148,
+          "unknown": 13,
+          "normalized_confusion_matrix": [
+            [
+              0.014285714285714285,
+              0.013553113553113554,
+              0.0,
+              0.013553113553113554
+            ],
+            [
+              0.06703296703296703,
+              0.37014652014652016,
+              0.014285714285714285,
+              0.08626373626373626
+            ],
+            [
+              0.007142857142857143,
+              0.12051282051282051,
+              0.02857142857142857,
+              0.014285714285714285
+            ],
+            [
+              0.007142857142857143,
+              0.12985347985347984,
+              0.0,
+              0.11336996336996337
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              2,
+              2,
+              0,
+              2
+            ],
+            [
+              10,
+              55,
+              2,
+              13
+            ],
+            [
+              1,
+              18,
+              4,
+              2
+            ],
+            [
+              1,
+              19,
+              0,
+              17
+            ]
+          ],
+          "nll": 1.4848733093393678,
+          "brier": 0.6809003627406106
+        },
+        "15": {
+          "macro_f1": 0.28852779312790455,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.5905329361138696,
+            "Deep": 0.28517823639774853,
+            "REM": 0.27840000000000004
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 23,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 144,
+          "unknown": 17,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.035216718266253874,
+              0.0,
+              0.007352941176470588
+            ],
+            [
+              0.054953560371517024,
+              0.34520123839009287,
+              0.007352941176470588,
+              0.13041795665634676
+            ],
+            [
+              0.022058823529411766,
+              0.08939628482972137,
+              0.029411764705882353,
+              0.02128482972136223
+            ],
+            [
+              0.02128482972136223,
+              0.16137770897832815,
+              0.007352941176470588,
+              0.0673374613003096
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              5,
+              0,
+              1
+            ],
+            [
+              8,
+              50,
+              1,
+              19
+            ],
+            [
+              3,
+              13,
+              4,
+              3
+            ],
+            [
+              3,
+              23,
+              1,
+              10
+            ]
+          ],
+          "nll": 1.9123547817602553,
+          "brier": 0.7659143208376827
+        },
+        "30": {
+          "macro_f1": 0.26882883294055265,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.5781607174257077,
+            "Deep": 0.2067988668555241,
+            "REM": 0.2903557474809788
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 17,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 138,
+          "unknown": 23,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.03677555321390938,
+              0.0,
+              0.007692307692307693
+            ],
+            [
+              0.07270811380400422,
+              0.3464699683877766,
+              0.007692307692307693,
+              0.13435194942044257
+            ],
+            [
+              0.023076923076923078,
+              0.05985247629083246,
+              0.015384615384615385,
+              0.0273972602739726
+            ],
+            [
+              0.0,
+              0.19420442571127502,
+              0.0,
+              0.0743940990516333
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              5,
+              0,
+              1
+            ],
+            [
+              10,
+              48,
+              1,
+              19
+            ],
+            [
+              3,
+              8,
+              2,
+              4
+            ],
+            [
+              0,
+              27,
+              0,
+              10
+            ]
+          ],
+          "nll": 1.9045756411988413,
+          "brier": 0.7667579025249062
+        }
+      },
+      "nll": 1.7351973167720378,
+      "brier": 0.7238005610489913,
+      "hr": null,
+      "wake_minutes": {
+        "mean_expected_minutes": 3.2275829851776745,
+        "mean_reference_minutes": 0.828267694063927,
+        "mae_minutes": 3.2824353592503783,
+        "bias_minutes": 2.399315291113748,
+        "complete_origins": 121,
+        "participants": 2
+      },
+      "short_wake_events": {
+        "all_short": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        },
+        "1_epoch": {
+          "unique_reference_events": 0,
+          "participants": 0,
+          "evaluable_event_origin_instances": 0,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": null,
+          "participant_macro_event_origin_hit_rate": null,
+          "events_with_multiple_evaluable_origins": 0,
+          "max_origins_per_event": 0,
+          "mean_origins_per_event": null
+        },
+        "2_epoch": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        }
+      }
+    },
+    "direct": {
+      "leads": {
+        "5": {
+          "macro_f1": 0.2284125409688242,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.6973359644795264,
+            "Deep": 0.0,
+            "REM": 0.21631419939577043
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 80,
+            "Deep": 25,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 148,
+          "unknown": 13,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04139194139194139,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5177655677655677,
+              0.0,
+              0.019963369963369962
+            ],
+            [
+              0.0,
+              0.17051282051282052,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.2175824175824176,
+              0.0,
+              0.032783882783882785
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              77,
+              0,
+              3
+            ],
+            [
+              0,
+              25,
+              0,
+              0
+            ],
+            [
+              0,
+              32,
+              0,
+              5
+            ]
+          ],
+          "nll": 1.098145456691189,
+          "brier": 0.6190489431371236
+        },
+        "15": {
+          "macro_f1": 0.17488676396577754,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.6995470558631102,
+            "Deep": 0.0,
+            "REM": 0.0
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 23,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 144,
+          "unknown": 17,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04256965944272446,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5379256965944272,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.1621517027863777,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.25735294117647056,
+              0.0,
+              0.0
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              78,
+              0,
+              0
+            ],
+            [
+              0,
+              23,
+              0,
+              0
+            ],
+            [
+              0,
+              37,
+              0,
+              0
+            ]
+          ],
+          "nll": 1.1479780969896067,
+          "brier": 0.6412773707692221
+        },
+        "30": {
+          "macro_f1": 0.17832689309199376,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.713307572367975,
+            "Deep": 0.0,
+            "REM": 0.0
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 17,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 138,
+          "unknown": 23,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04446786090621707,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.554373024236038,
+              0.0,
+              0.00684931506849315
+            ],
+            [
+              0.0,
+              0.12571127502634352,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.26859852476290835,
+              0.0,
+              0.0
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              77,
+              0,
+              1
+            ],
+            [
+              0,
+              17,
+              0,
+              0
+            ],
+            [
+              0,
+              37,
+              0,
+              0
+            ]
+          ],
+          "nll": 1.1301463677397179,
+          "brier": 0.6310259193880057
+        }
+      },
+      "nll": 1.1283483354782735,
+      "brier": 0.628656381967428,
+      "hr": {
+        "mae_bpm": 4.501926499706592,
+        "pooled_mae_bpm": 4.513809298365307,
+        "target_epochs": 9258,
+        "origins": 160,
+        "participants": 2
+      },
+      "wake_minutes": {
+        "mean_expected_minutes": 1.4798878776080977,
+        "mean_reference_minutes": 0.828267694063927,
+        "mae_minutes": 1.6230407417078077,
+        "bias_minutes": 0.6516201835441707,
+        "complete_origins": 121,
+        "participants": 2
+      },
+      "short_wake_events": {
+        "all_short": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        },
+        "1_epoch": {
+          "unique_reference_events": 0,
+          "participants": 0,
+          "evaluable_event_origin_instances": 0,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": null,
+          "participant_macro_event_origin_hit_rate": null,
+          "events_with_multiple_evaluable_origins": 0,
+          "max_origins_per_event": 0,
+          "mean_origins_per_event": null
+        },
+        "2_epoch": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        }
+      }
+    },
+    "hr_only": {
+      "leads": {
+        "5": {
+          "macro_f1": 0.17484516436398287,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.6993806574559315,
+            "Deep": 0.0,
+            "REM": 0.0
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 80,
+            "Deep": 25,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 148,
+          "unknown": 13,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04139194139194139,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5377289377289377,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.17051282051282052,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.25036630036630036,
+              0.0,
+              0.0
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              80,
+              0,
+              0
+            ],
+            [
+              0,
+              25,
+              0,
+              0
+            ],
+            [
+              0,
+              37,
+              0,
+              0
+            ]
+          ],
+          "nll": 1.2344359808509222,
+          "brier": 0.6550720622454222
+        },
+        "15": {
+          "macro_f1": 0.17349001769016933,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.6939600707606773,
+            "Deep": 0.0,
+            "REM": 0.0
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 23,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 144,
+          "unknown": 17,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04256965944272446,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5313467492260062,
+              0.006578947368421052,
+              0.0
+            ],
+            [
+              0.0,
+              0.1621517027863777,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.25735294117647056,
+              0.0,
+              0.0
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              77,
+              1,
+              0
+            ],
+            [
+              0,
+              23,
+              0,
+              0
+            ],
+            [
+              0,
+              37,
+              0,
+              0
+            ]
+          ],
+          "nll": 1.126165304938476,
+          "brier": 0.6216708748835325
+        },
+        "30": {
+          "macro_f1": 0.17973812095032396,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.7189524838012958,
+            "Deep": 0.0,
+            "REM": 0.0
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 17,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 138,
+          "unknown": 23,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04446786090621707,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.561222339304531,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.12571127502634352,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.26859852476290835,
+              0.0,
+              0.0
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              78,
+              0,
+              0
+            ],
+            [
+              0,
+              17,
+              0,
+              0
+            ],
+            [
+              0,
+              37,
+              0,
+              0
+            ]
+          ],
+          "nll": 1.1342848620878605,
+          "brier": 0.6125618435855946
+        }
+      },
+      "nll": 1.1550711708391805,
+      "brier": 0.6267647461344104,
+      "hr": {
+        "mae_bpm": 5.7628308464892,
+        "pooled_mae_bpm": 5.7636299101907005,
+        "target_epochs": 9258,
+        "origins": 160,
+        "participants": 2
+      },
+      "wake_minutes": {
+        "mean_expected_minutes": 2.1026785596478232,
+        "mean_reference_minutes": 0.828267694063927,
+        "mae_minutes": 2.1071221675107425,
+        "bias_minutes": 1.2744108655838962,
+        "complete_origins": 121,
+        "participants": 2
+      },
+      "short_wake_events": {
+        "all_short": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        },
+        "1_epoch": {
+          "unique_reference_events": 0,
+          "participants": 0,
+          "evaluable_event_origin_instances": 0,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": null,
+          "participant_macro_event_origin_hit_rate": null,
+          "events_with_multiple_evaluable_origins": 0,
+          "max_origins_per_event": 0,
+          "mean_origins_per_event": null
+        },
+        "2_epoch": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        }
+      }
+    },
+    "fusion": {
+      "leads": {
+        "5": {
+          "macro_f1": 0.17429704397981255,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.6971881759192502,
+            "Deep": 0.0,
+            "REM": 0.0
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 80,
+            "Deep": 25,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 148,
+          "unknown": 13,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.03424908424908425,
+              0.007142857142857143,
+              0.0
+            ],
+            [
+              0.0,
+              0.5313186813186813,
+              0.00641025641025641,
+              0.0
+            ],
+            [
+              0.0,
+              0.17051282051282052,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.25036630036630036,
+              0.0,
+              0.0
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              5,
+              1,
+              0
+            ],
+            [
+              0,
+              79,
+              1,
+              0
+            ],
+            [
+              0,
+              25,
+              0,
+              0
+            ],
+            [
+              0,
+              37,
+              0,
+              0
+            ]
+          ],
+          "nll": 1.1744183538999913,
+          "brier": 0.640603241007483
+        },
+        "15": {
+          "macro_f1": 0.18279925699788108,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.6849385245901638,
+            "Deep": 0.0,
+            "REM": 0.04625850340136054
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 23,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 144,
+          "unknown": 17,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04256965944272446,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5174148606811145,
+              0.0,
+              0.020510835913312694
+            ],
+            [
+              0.0,
+              0.1621517027863777,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.25077399380804954,
+              0.0,
+              0.006578947368421052
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              75,
+              0,
+              3
+            ],
+            [
+              0,
+              23,
+              0,
+              0
+            ],
+            [
+              0,
+              36,
+              0,
+              1
+            ]
+          ],
+          "nll": 1.117396117167213,
+          "brier": 0.6245738912609585
+        },
+        "30": {
+          "macro_f1": 0.20508362357346674,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.7200437966194484,
+            "Deep": 0.0,
+            "REM": 0.10029069767441859
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 17,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 138,
+          "unknown": 23,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04446786090621707,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.554373024236038,
+              0.0,
+              0.00684931506849315
+            ],
+            [
+              0.0,
+              0.12571127502634352,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.2540569020021075,
+              0.0,
+              0.014541622760800843
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              77,
+              0,
+              1
+            ],
+            [
+              0,
+              17,
+              0,
+              0
+            ],
+            [
+              0,
+              35,
+              0,
+              2
+            ]
+          ],
+          "nll": 1.0921485289864257,
+          "brier": 0.6031048467899152
+        }
+      },
+      "nll": 1.1416909223640654,
+      "brier": 0.6302581496858187,
+      "hr": {
+        "mae_bpm": 5.590024798298355,
+        "pooled_mae_bpm": 5.591634538532766,
+        "target_epochs": 9258,
+        "origins": 160,
+        "participants": 2
+      },
+      "wake_minutes": {
+        "mean_expected_minutes": 2.3785075458281217,
+        "mean_reference_minutes": 0.828267694063927,
+        "mae_minutes": 2.356076337996717,
+        "bias_minutes": 1.5502398517641949,
+        "complete_origins": 121,
+        "participants": 2
+      },
+      "short_wake_events": {
+        "all_short": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        },
+        "1_epoch": {
+          "unique_reference_events": 0,
+          "participants": 0,
+          "evaluable_event_origin_instances": 0,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": null,
+          "participant_macro_event_origin_hit_rate": null,
+          "events_with_multiple_evaluable_origins": 0,
+          "max_origins_per_event": 0,
+          "mean_origins_per_event": null
+        },
+        "2_epoch": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        }
+      }
+    },
+    "explicit": {
+      "leads": {
+        "5": {
+          "macro_f1": 0.17348403301040546,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.6939361320416219,
+            "Deep": 0.0,
+            "REM": 0.0
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 80,
+            "Deep": 25,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 148,
+          "unknown": 13,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04139194139194139,
+              0.0,
+              0.0
+            ],
+            [
+              0.00641025641025641,
+              0.5313186813186813,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.17051282051282052,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.25036630036630036,
+              0.0,
+              0.0
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              1,
+              79,
+              0,
+              0
+            ],
+            [
+              0,
+              25,
+              0,
+              0
+            ],
+            [
+              0,
+              37,
+              0,
+              0
+            ]
+          ],
+          "nll": 1.196887110162659,
+          "brier": 0.6461353828009064
+        },
+        "15": {
+          "macro_f1": 0.17208121827411166,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.6883248730964466,
+            "Deep": 0.0,
+            "REM": 0.0
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 23,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 144,
+          "unknown": 17,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04256965944272446,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5247678018575852,
+              0.0,
+              0.013157894736842105
+            ],
+            [
+              0.0,
+              0.1621517027863777,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.25735294117647056,
+              0.0,
+              0.0
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              76,
+              0,
+              2
+            ],
+            [
+              0,
+              23,
+              0,
+              0
+            ],
+            [
+              0,
+              37,
+              0,
+              0
+            ]
+          ],
+          "nll": 1.1480962728358843,
+          "brier": 0.6407790711812125
+        },
+        "30": {
+          "macro_f1": 0.19296318634292273,
+          "f1": {
+            "Wake": 0.0,
+            "Light": 0.7221205342010711,
+            "Deep": 0.0,
+            "REM": 0.049732211170619725
+          },
+          "wake_recall": 0.0,
+          "support": {
+            "Wake": 6,
+            "Light": 78,
+            "Deep": 17,
+            "REM": 37
+          },
+          "participants": 2,
+          "origins": 138,
+          "unknown": 23,
+          "normalized_confusion_matrix": [
+            [
+              0.0,
+              0.04446786090621707,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.561222339304531,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.12571127502634352,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.2617492096944152,
+              0.0,
+              0.00684931506849315
+            ]
+          ],
+          "pooled_confusion_matrix": [
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              78,
+              0,
+              0
+            ],
+            [
+              0,
+              17,
+              0,
+              0
+            ],
+            [
+              0,
+              36,
+              0,
+              1
+            ]
+          ],
+          "nll": 1.1414306059286439,
+          "brier": 0.6260516775214291
+        }
+      },
+      "nll": 1.1716699084140143,
+      "brier": 0.6449932537612799,
+      "hr": {
+        "mae_bpm": 5.186841201351504,
+        "pooled_mae_bpm": 5.191743442906749,
+        "target_epochs": 9258,
+        "origins": 160,
+        "participants": 2
+      },
+      "wake_minutes": {
+        "mean_expected_minutes": 2.7283408936146607,
+        "mean_reference_minutes": 0.828267694063927,
+        "mae_minutes": 2.586195189942506,
+        "bias_minutes": 1.9000731995507338,
+        "complete_origins": 121,
+        "participants": 2
+      },
+      "short_wake_events": {
+        "all_short": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        },
+        "1_epoch": {
+          "unique_reference_events": 0,
+          "participants": 0,
+          "evaluable_event_origin_instances": 0,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": null,
+          "participant_macro_event_origin_hit_rate": null,
+          "events_with_multiple_evaluable_origins": 0,
+          "max_origins_per_event": 0,
+          "mean_origins_per_event": null
+        },
+        "2_epoch": {
+          "unique_reference_events": 1,
+          "participants": 1,
+          "evaluable_event_origin_instances": 5,
+          "hit_event_origin_instances": 0,
+          "unique_events_with_a_hit": 0,
+          "unique_event_recall_any_origin": 0.0,
+          "participant_macro_event_origin_hit_rate": 0.0,
+          "events_with_multiple_evaluable_origins": 1,
+          "max_origins_per_event": 5,
+          "mean_origins_per_event": 5.0
+        }
+      }
+    }
+  },
+  "wake_minute_controls": {
+    "training_median": {
+      "constant_minutes": 0.0,
+      "fit": "participant_balanced_lower_weighted_median",
+      "score": {
+        "mean_expected_minutes": 0.0,
+        "mean_reference_minutes": 0.828267694063927,
+        "mae_minutes": 0.828267694063927,
+        "bias_minutes": -0.828267694063927,
+        "complete_origins": 121,
+        "participants": 2
+      }
+    },
+    "zero_wake": {
+      "constant_minutes": 0.0,
+      "fit": "fixed_zero",
+      "score": {
+        "mean_expected_minutes": 0.0,
+        "mean_reference_minutes": 0.828267694063927,
+        "mae_minutes": 0.828267694063927,
+        "bias_minutes": -0.828267694063927,
+        "complete_origins": 121,
+        "participants": 2
+      }
+    }
+  },
+  "hr_last_observation": {
+    "mae_bpm": 5.008718019776216,
+    "pooled_mae_bpm": 5.022054542274892,
+    "target_epochs": 9258,
+    "origins": 160,
+    "participants": 2
+  },
+  "paired_differences": {
+    "explicit_minus_fusion": {
+      "arm": "explicit",
+      "reference": "fusion",
+      "nll": 0.029978986049948864,
+      "brier": 0.014735104075461192,
+      "leads": {
+        "5": {
+          "macro_f1": -0.0008130109694070853,
+          "wake_recall": 0.0,
+          "nll": 0.022468756262667755,
+          "brier": 0.0055321417934234285
+        },
+        "15": {
+          "macro_f1": -0.010718038723769419,
+          "wake_recall": 0.0,
+          "nll": 0.030700155668671236,
+          "brier": 0.016205179920253943
+        },
+        "30": {
+          "macro_f1": -0.012120437230544012,
+          "wake_recall": 0.0,
+          "nll": 0.0492820769422182,
+          "brier": 0.022946830731513934
+        }
+      }
+    },
+    "explicit_minus_direct": {
+      "arm": "explicit",
+      "reference": "direct",
+      "nll": 0.04332157293574079,
+      "brier": 0.016336871793851904,
+      "leads": {
+        "5": {
+          "macro_f1": -0.05492850795841875,
+          "wake_recall": 0.0,
+          "nll": 0.09874165347147001,
+          "brier": 0.02708643966378288
+        },
+        "15": {
+          "macro_f1": -0.002805545691665884,
+          "wake_recall": 0.0,
+          "nll": 0.00011817584627760169,
+          "brier": -0.0004982995880096208
+        },
+        "30": {
+          "macro_f1": 0.014636293250928967,
+          "wake_recall": 0.0,
+          "nll": 0.011284238188925988,
+          "brier": -0.004974241866576579
+        }
+      }
+    }
+  },
+  "fit": {
+    "direct": {
+      "arm": "direct",
+      "seed": 0,
+      "device": "cpu",
+      "device_name": "CPU",
+      "epochs": 15,
+      "parameters": 32780,
+      "state_size": 32,
+      "action_size": 16,
+      "batch_size": 64,
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "hr_loss_weight": 0.1,
+      "epoch_seconds": [
+        0.09750313591212034,
+        0.09393486380577087,
+        0.0943468352779746,
+        0.09331852942705154,
+        0.09299388248473406,
+        0.09351386595517397,
+        0.0942236864939332,
+        0.09392930381000042,
+        0.09383888356387615,
+        0.09455846156924963,
+        0.09335389640182257,
+        0.0939921410754323,
+        0.09347901120781898,
+        0.09429521020501852,
+        0.09378576464951038
+      ],
+      "fit_seconds": 1.4128815177828074,
+      "peak_rss_mib": 431.04296875,
+      "device_peak_allocated_mib": null,
+      "training_history": [
+        {
+          "epoch": 1,
+          "seconds": 0.09750313591212034,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.3849013461059678,
+          "hr_huber": 0.4057431867527772
+        },
+        {
+          "epoch": 2,
+          "seconds": 0.09393486380577087,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.3373429717042205,
+          "hr_huber": 0.3954062875919065
+        },
+        {
+          "epoch": 3,
+          "seconds": 0.0943468352779746,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2937546084660263,
+          "hr_huber": 0.3866798805592639
+        },
+        {
+          "epoch": 4,
+          "seconds": 0.09331852942705154,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.257123776861498,
+          "hr_huber": 0.3799455593487744
+        },
+        {
+          "epoch": 5,
+          "seconds": 0.09299388248473406,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2331169042493535,
+          "hr_huber": 0.3724752441491661
+        },
+        {
+          "epoch": 6,
+          "seconds": 0.09351386595517397,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.222168050823239,
+          "hr_huber": 0.3645598581897735
+        },
+        {
+          "epoch": 7,
+          "seconds": 0.0942236864939332,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2168935991713403,
+          "hr_huber": 0.35371871717239917
+        },
+        {
+          "epoch": 8,
+          "seconds": 0.09392930381000042,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2118656654704978,
+          "hr_huber": 0.33818837522985584
+        },
+        {
+          "epoch": 9,
+          "seconds": 0.09383888356387615,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2094426703539962,
+          "hr_huber": 0.31430152768634273
+        },
+        {
+          "epoch": 10,
+          "seconds": 0.09455846156924963,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.205435550519639,
+          "hr_huber": 0.282394126065984
+        },
+        {
+          "epoch": 11,
+          "seconds": 0.09335389640182257,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.200712990321043,
+          "hr_huber": 0.2438447209283865
+        },
+        {
+          "epoch": 12,
+          "seconds": 0.0939921410754323,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.1972676299517324,
+          "hr_huber": 0.19922158625706216
+        },
+        {
+          "epoch": 13,
+          "seconds": 0.09347901120781898,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.1922199964154654,
+          "hr_huber": 0.16134744644178414
+        },
+        {
+          "epoch": 14,
+          "seconds": 0.09429521020501852,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.1880742067436996,
+          "hr_huber": 0.13987892890627185
+        },
+        {
+          "epoch": 15,
+          "seconds": 0.09378576464951038,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.1833281420650192,
+          "hr_huber": 0.13659083495905247
+        }
+      ],
+      "prediction_seconds": 0.012038754299283028
+    },
+    "hr_only": {
+      "arm": "hr_only",
+      "seed": 0,
+      "device": "cpu",
+      "device_name": "CPU",
+      "epochs": 15,
+      "parameters": 18709,
+      "state_size": 32,
+      "action_size": 16,
+      "batch_size": 64,
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "hr_loss_weight": 0.1,
+      "epoch_seconds": [
+        0.14803187735378742,
+        0.13917536288499832,
+        0.1385721517726779,
+        0.13690857775509357,
+        0.14108490757644176,
+        0.13872710335999727,
+        0.1385979512706399,
+        0.13831218611449003,
+        0.1378523651510477,
+        0.1382377576082945,
+        0.13833246380090714,
+        0.13819377403706312,
+        0.13833154365420341,
+        0.13811239134520292,
+        0.13907640613615513
+      ],
+      "fit_seconds": 2.0884539876133204,
+      "peak_rss_mib": 439.01171875,
+      "device_peak_allocated_mib": null,
+      "training_history": [
+        {
+          "epoch": 1,
+          "seconds": 0.14803187735378742,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 4.5710079994901065,
+          "hr_huber": 1.1030511223051427
+        },
+        {
+          "epoch": 2,
+          "seconds": 0.13917536288499832,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 2.142349070426458,
+          "hr_huber": 0.9448508375336743
+        },
+        {
+          "epoch": 3,
+          "seconds": 0.1385721517726779,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.667940038579543,
+          "hr_huber": 0.8053717663843705
+        },
+        {
+          "epoch": 4,
+          "seconds": 0.13690857775509357,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.4727386450343556,
+          "hr_huber": 0.7095229022901199
+        },
+        {
+          "epoch": 5,
+          "seconds": 0.14108490757644176,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.3917421118126079,
+          "hr_huber": 0.5806368556365573
+        },
+        {
+          "epoch": 6,
+          "seconds": 0.13872710335999727,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.3321895528266254,
+          "hr_huber": 0.5574090392865356
+        },
+        {
+          "epoch": 7,
+          "seconds": 0.1385979512706399,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2993597943497883,
+          "hr_huber": 0.5743329517069348
+        },
+        {
+          "epoch": 8,
+          "seconds": 0.13831218611449003,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2886404987397455,
+          "hr_huber": 0.5915590255171926
+        },
+        {
+          "epoch": 9,
+          "seconds": 0.1378523651510477,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.276004601274075,
+          "hr_huber": 0.510141450568614
+        },
+        {
+          "epoch": 10,
+          "seconds": 0.1382377576082945,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2786175151297343,
+          "hr_huber": 0.482268348886257
+        },
+        {
+          "epoch": 11,
+          "seconds": 0.13833246380090714,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.264695874495777,
+          "hr_huber": 0.4759717318451419
+        },
+        {
+          "epoch": 12,
+          "seconds": 0.13819377403706312,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2649011582577232,
+          "hr_huber": 0.4498696024739139
+        },
+        {
+          "epoch": 13,
+          "seconds": 0.13833154365420341,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2739035154194764,
+          "hr_huber": 0.42619331713699404
+        },
+        {
+          "epoch": 14,
+          "seconds": 0.13811239134520292,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2638870959832806,
+          "hr_huber": 0.40656791549164695
+        },
+        {
+          "epoch": 15,
+          "seconds": 0.13907640613615513,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.249745284007405,
+          "hr_huber": 0.38981469492144316
+        }
+      ],
+      "prediction_seconds": 0.01983713824301958
+    },
+    "fusion": {
+      "arm": "fusion",
+      "seed": 0,
+      "device": "cpu",
+      "device_name": "CPU",
+      "epochs": 15,
+      "parameters": 18709,
+      "state_size": 32,
+      "action_size": 16,
+      "batch_size": 64,
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "hr_loss_weight": 0.1,
+      "epoch_seconds": [
+        0.13740371447056532,
+        0.13944734167307615,
+        0.1414965195581317,
+        0.14024544600397348,
+        0.14127394184470177,
+        0.14118539728224277,
+        0.14068911783397198,
+        0.14025403186678886,
+        0.14048415329307318,
+        0.14050028286874294,
+        0.1398419914767146,
+        0.13934547174721956,
+        0.14019633457064629,
+        0.14112431183457375,
+        0.13999640010297298
+      ],
+      "fit_seconds": 2.104400899261236,
+      "peak_rss_mib": 439.01171875,
+      "device_peak_allocated_mib": null,
+      "training_history": [
+        {
+          "epoch": 1,
+          "seconds": 0.13740371447056532,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 4.596348060106952,
+          "hr_huber": 3.134580771048088
+        },
+        {
+          "epoch": 2,
+          "seconds": 0.13944734167307615,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 2.9670965274964995,
+          "hr_huber": 1.936945037382775
+        },
+        {
+          "epoch": 3,
+          "seconds": 0.1414965195581317,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 2.0951958332521015,
+          "hr_huber": 1.0610686916334253
+        },
+        {
+          "epoch": 4,
+          "seconds": 0.14024544600397348,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.5645087442836252,
+          "hr_huber": 1.1684715345921532
+        },
+        {
+          "epoch": 5,
+          "seconds": 0.14127394184470177,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.5297480191461872,
+          "hr_huber": 1.130098809393972
+        },
+        {
+          "epoch": 6,
+          "seconds": 0.14118539728224277,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.3814616681712075,
+          "hr_huber": 0.9664795085809507
+        },
+        {
+          "epoch": 7,
+          "seconds": 0.14068911783397198,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.321923072978785,
+          "hr_huber": 0.8985334270619442
+        },
+        {
+          "epoch": 8,
+          "seconds": 0.14025403186678886,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2989325632855728,
+          "hr_huber": 0.7938114380503455
+        },
+        {
+          "epoch": 9,
+          "seconds": 0.14048415329307318,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2733889748409197,
+          "hr_huber": 0.6857801613704158
+        },
+        {
+          "epoch": 10,
+          "seconds": 0.14050028286874294,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2679302092548603,
+          "hr_huber": 0.6155389013828606
+        },
+        {
+          "epoch": 11,
+          "seconds": 0.1398419914767146,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2495528623998258,
+          "hr_huber": 0.5375620071352711
+        },
+        {
+          "epoch": 12,
+          "seconds": 0.13934547174721956,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2401695093862104,
+          "hr_huber": 0.4658925916548598
+        },
+        {
+          "epoch": 13,
+          "seconds": 0.14019633457064629,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2236495586928875,
+          "hr_huber": 0.40761102588372267
+        },
+        {
+          "epoch": 14,
+          "seconds": 0.14112431183457375,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2306502517983433,
+          "hr_huber": 0.37098880647161814
+        },
+        {
+          "epoch": 15,
+          "seconds": 0.13999640010297298,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2179099475083983,
+          "hr_huber": 0.33886490828773197
+        }
+      ],
+      "prediction_seconds": 0.020446487702429295
+    },
+    "explicit": {
+      "arm": "explicit",
+      "seed": 0,
+      "device": "cpu",
+      "device_name": "CPU",
+      "epochs": 15,
+      "parameters": 18709,
+      "state_size": 32,
+      "action_size": 16,
+      "batch_size": 64,
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "hr_loss_weight": 0.1,
+      "epoch_seconds": [
+        0.1370245348662138,
+        0.14126327261328697,
+        0.1402130052447319,
+        0.1412961147725582,
+        0.14181470405310392,
+        0.14375991746783257,
+        0.14239314757287502,
+        0.14226352516561747,
+        0.14123986847698689,
+        0.14296139124780893,
+        0.14110343344509602,
+        0.13990881573408842,
+        0.14129928965121508,
+        0.14278205577284098,
+        0.14139446802437305
+      ],
+      "fit_seconds": 2.1216268576681614,
+      "peak_rss_mib": 439.9609375,
+      "device_peak_allocated_mib": null,
+      "training_history": [
+        {
+          "epoch": 1,
+          "seconds": 0.1370245348662138,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 5.88208030390376,
+          "hr_huber": 1.1130554651713833
+        },
+        {
+          "epoch": 2,
+          "seconds": 0.14126327261328697,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 2.406404013306673,
+          "hr_huber": 0.5821399245848763
+        },
+        {
+          "epoch": 3,
+          "seconds": 0.1402130052447319,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.7063655534708555,
+          "hr_huber": 0.5736429304583338
+        },
+        {
+          "epoch": 4,
+          "seconds": 0.1412961147725582,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.543583900605392,
+          "hr_huber": 0.5570197256743192
+        },
+        {
+          "epoch": 5,
+          "seconds": 0.14181470405310392,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.4497764178965038,
+          "hr_huber": 0.5845036638193656
+        },
+        {
+          "epoch": 6,
+          "seconds": 0.14375991746783257,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.338661721079508,
+          "hr_huber": 0.4517323263035497
+        },
+        {
+          "epoch": 7,
+          "seconds": 0.14239314757287502,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2990393684891008,
+          "hr_huber": 0.41020963781278275
+        },
+        {
+          "epoch": 8,
+          "seconds": 0.14226352516561747,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2821500382927413,
+          "hr_huber": 0.36594054845698715
+        },
+        {
+          "epoch": 9,
+          "seconds": 0.14123986847698689,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2699762259015244,
+          "hr_huber": 0.34250606474257955
+        },
+        {
+          "epoch": 10,
+          "seconds": 0.14296139124780893,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2463960857588328,
+          "hr_huber": 0.38171813134712146
+        },
+        {
+          "epoch": 11,
+          "seconds": 0.14110343344509602,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2507885987062919,
+          "hr_huber": 0.33467146752258614
+        },
+        {
+          "epoch": 12,
+          "seconds": 0.13990881573408842,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2404742630041012,
+          "hr_huber": 0.29812100247797524
+        },
+        {
+          "epoch": 13,
+          "seconds": 0.14129928965121508,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2371881020524682,
+          "hr_huber": 0.27534453396469233
+        },
+        {
+          "epoch": 14,
+          "seconds": 0.14278205577284098,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.230116531183737,
+          "hr_huber": 0.2644759809497389
+        },
+        {
+          "epoch": 15,
+          "seconds": 0.14139446802437305,
+          "optimizer_steps": 5,
+          "stage_targets": 18108,
+          "hr_targets": 17826,
+          "stage_cross_entropy": 1.2321005257347284,
+          "hr_huber": 0.2585119695502888
+        }
+      ],
+      "prediction_seconds": 0.020386986434459686
+    }
+  },
+  "scoring_seconds": 0.07919888012111187
+}
